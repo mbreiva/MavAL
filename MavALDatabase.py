@@ -3,7 +3,7 @@ import MavALCreds as creds
 from psycopg2 import extensions
 
 # Connect to PostgreSQL DBMS
-conn = psycopg2.connect("user = " + creds.user + " password = " + creds.password)
+conn = psycopg2.connect("dbname = " + creds.database + " user = " + creds.user + " password = " + creds.password)
 
 # get the isolation leve for autocommit
 autocommit = extensions.ISOLATION_LEVEL_AUTOCOMMIT
@@ -15,13 +15,6 @@ conn.set_isolation_level(autocommit)
 
 # Obtain DB cursor
 cur = conn.cursor()
-databaseName = creds.database
-
-# Create table statement
-sqlCreateDatabase = "CREATE DATABASE " + databaseName + ";"
-
-# Create a table in PostgreSQL database
-cur.execute(sqlCreateDatabase)
 
 fd = open("scripts/init.sql", "r")
 sqlFile = fd.read()

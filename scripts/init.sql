@@ -28,45 +28,53 @@ CREATE TABLE mavALUser (
 );
 
 CREATE TABLE watchRecord (
-     username            varchar(20) FOREIGN KEY REFERENCES user(username),
-     title               varchar(100) FOREIGN KEY REFERENCES anime(title),
+     username            varchar(20),
+     title               varchar(100),
      epWatched           int,
      watchStatus         varchar(20),
      userRating          decimal,
      startDate           date,
      completionDate      date,
      comments            varchar,
-     favourite           BOOLEAN NOT NULL
+     favourite           BOOLEAN NOT NULL,
+     FOREIGN KEY (username) REFERENCES mavALUser(username),
+     FOREIGN KEY (title) REFERENCES manga(title)
 );
 
 CREATE TABLE readRecord (
-     username            varchar(20) FOREIGN KEY REFERENCES user(username),
-     title               varchar(100) FOREIGN KEY REFERENCES manga(title),
+     username            varchar(20),
+     title               varchar(100),
      chaptersRead        int,
      readStatus          varchar(20),
      userRating          decimal,
      startDate           date,
      completionDate      date,
      comments            varchar,
-     favourite           BOOLEAN NOT NULL
+     favourite           BOOLEAN NOT NULL,
+     FOREIGN KEY (username) REFERENCES mavALUser(username),
+     FOREIGN KEY (title) REFERENCES manga(title)
 );
 
 CREATE TABLE animeReview (
-      username            varchar(20) FOREIGN KEY REFERENCES user(username),
-      title               varchar(100) FOREIGN KEY REFERENCES anime(title),
+      username            varchar(20),
+      title               varchar(100),
       userRating          decimal,
       watchStatus         varchar(20),
       epWatched           int,
       dateWritten         date,
-      review              varchar
-)
+      review              varchar,
+      FOREIGN KEY (username) REFERENCES mavALUser(username),
+      FOREIGN KEY (title) REFERENCES manga(title)
+);
 
 CREATE TABLE mangaReview (
-       username            varchar(20) FOREIGN KEY REFERENCES user(username),
-       title               varchar(100) FOREIGN KEY REFERENCES manga(title),
+       username            varchar(20),
+       title               varchar(100),
        userRating          decimal,
        watchStatus         varchar(20),
        chaptersRead        int,
        dateWritten         date,
-       review              varchar
+       review              varchar,
+       FOREIGN KEY (username) REFERENCES mavALUser(username),
+       FOREIGN KEY (title) REFERENCES manga(title)
 );
