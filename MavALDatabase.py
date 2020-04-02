@@ -5,9 +5,8 @@ from psycopg2 import extensions
 # Connect to PostgreSQL DBMS
 conn = psycopg2.connect("dbname = " + creds.database + " user = " + creds.user + " password = " + creds.password)
 
-# get the isolation leve for autocommit
+# get the isolation level for autocommit
 autocommit = extensions.ISOLATION_LEVEL_AUTOCOMMIT
-print("ISOLATION_LEVEL_AUTOCOMMIT:", extensions.ISOLATION_LEVEL_AUTOCOMMIT)
 
 # set the isolation level for the connection's cursors
 # will raise ActiveSqlTransaction exception otherwise
@@ -27,3 +26,6 @@ for command in sqlCommands:
         cur.execute(command)
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
+
+cur.close()
+conn.close()

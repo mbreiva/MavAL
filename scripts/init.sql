@@ -1,80 +1,80 @@
 CREATE TABLE anime (
    title               varchar(100) NOT NULL PRIMARY KEY,
-   episodes            integer NOT NULL,
+   episodes            integer,
    description         varchar,
    rating              decimal,
-   releaseDate         date,
+   release_date        date,
    status              varchar(40)
 );
 
 CREATE TABLE manga (
     title               varchar(100) NOT NULL PRIMARY KEY,
-    chapters            integer NOT NULL,
+    chapters            integer,
     description         varchar,
     author              varchar(50),
     artist              varchar(50),
     rating              decimal,
-    releaseDate         date,
+    release_date        date,
     status              varchar(40)
 );
 
-CREATE TABLE mavALUser (
+CREATE TABLE maval_user (
      username            varchar(20) NOT NULL PRIMARY KEY,
-     firstName           varchar(40) NOT NULL,
-     lastName            varchar(40),
+     first_name          varchar(40) NOT NULL,
+     last_name           varchar(40),
      password            varchar NOT NULL,
      email               varchar,
-     creationDate        date NOT NULL
+     creation_date       date NOT NULL
 );
 
 CREATE TABLE watchRecord (
      username            varchar(20),
      title               varchar(100),
-     epWatched           int,
-     watchStatus         varchar(20),
-     userRating          decimal,
-     startDate           date,
-     completionDate      date,
+     ep_watched          int,
+     watch_status        varchar(20),
+     user_rating         decimal,
+     start_date          date,
+     completion_date     date,
      comments            varchar,
      favourite           BOOLEAN NOT NULL,
-     FOREIGN KEY (username) REFERENCES mavALUser(username),
+     FOREIGN KEY (username) REFERENCES maval_user(username),
      FOREIGN KEY (title) REFERENCES manga(title)
 );
 
-CREATE TABLE readRecord (
+CREATE TABLE read_record (
      username            varchar(20),
      title               varchar(100),
-     chaptersRead        int,
-     readStatus          varchar(20),
-     userRating          decimal,
-     startDate           date,
-     completionDate      date,
+     chapters_read       int,
+     read_status         varchar(20),
+     user_rating         decimal,
+     start_date          date,
+     completion_date     date,
      comments            varchar,
      favourite           BOOLEAN NOT NULL,
-     FOREIGN KEY (username) REFERENCES mavALUser(username),
+     FOREIGN KEY (username) REFERENCES maval_user(username),
      FOREIGN KEY (title) REFERENCES manga(title)
 );
 
-CREATE TABLE animeReview (
+CREATE TABLE anime_review (
       username            varchar(20),
       title               varchar(100),
-      userRating          decimal,
-      watchStatus         varchar(20),
-      epWatched           int,
-      dateWritten         date,
+      user_rating         decimal,
+      watch_status        varchar(20),
+      ep_watched          int,
+      date_written        date,
       review              varchar,
-      FOREIGN KEY (username) REFERENCES mavALUser(username),
+      FOREIGN KEY (username) REFERENCES maval_user(username),
       FOREIGN KEY (title) REFERENCES manga(title)
 );
 
-CREATE TABLE mangaReview (
+CREATE TABLE manga_review (
        username            varchar(20),
        title               varchar(100),
-       userRating          decimal,
-       watchStatus         varchar(20),
-       chaptersRead        int,
-       dateWritten         date,
+       user_rating         decimal,
+       watch_status        varchar(20),
+       chapters_read       int,
+       date_written        date,
        review              varchar,
-       FOREIGN KEY (username) REFERENCES mavALUser(username),
+       FOREIGN KEY (username) REFERENCES maval_user(username),
        FOREIGN KEY (title) REFERENCES manga(title)
 );

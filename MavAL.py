@@ -1,14 +1,23 @@
 import psycopg2
 import MavALCreds as creds
 from psycopg2 import extensions
+from datetime import date
 
-# Connect to PostgreSQL DBMS
-conn = psycopg2.connect("user = " + creds.user + " password = " + creds.password)
+# Connect to PostgreSQL
+conn = psycopg2.connect("dbname = " + creds.database + " user = " + creds.user + " password = " + creds.password)
 
+# get the isolation level for autocommit
+autocommit = extensions.ISOLATION_LEVEL_AUTOCOMMIT
+
+# set the isolation level for the connection's cursors
+# will raise ActiveSqlTransaction exception otherwise
+conn.set_isolation_level(autocommit)
 cur = conn.cursor()
+
 
 class MavAL:
     test = 1
+
 
 class Anime:
     def __init__(self, name):
@@ -17,26 +26,19 @@ class Anime:
     def __str__(self):
         return self.name
 
-    genreList = []
-    episodeTotal = 0
-    status = ""
-    userRatings = []
-    rating = 0.0
-    relatedSeries = []
-    tagList = []
+    def addTitle(self, title):
+        query = "INSERT INTO anime(title) VALUES(%s);"
+        cur.execute(query, (title,))
 
-    def updateGenreList(self, newGenre):
-        self.genreList.append(newGenre)
+   # def updateGenreList(self, newGenre):
 
-    def updateRating(self, newRating):
-        self.userRatings.append(newRating)
-        ratingSum = 0
-        for rating in self.userRatings:
-            ratingSum += rating
-        rating = ratingSum / len(self.userRatings)
 
-    def updateStatus(self, newStatus):
-        self.status = newStatus
+   # def updateRating(self, newRating):
+
+
+   # def updateStatus(self, newStatus):
+
+
 
 class Manga:
     def __init__(self, name):
@@ -45,33 +47,29 @@ class Manga:
     def __str__(self):
         return self.name
 
-    genreList = []
-    chapterTotal = 0
-    status = ""
-    userRatings = []
-    rating = 0.0
-    relatedSeries = []
-    tagList = []
+   # def updateGenreList(self, newGenre):
 
-    def updateGenreList(self, newGenre):
-        self.genreList.append(newGenre)
 
-    def updateRating(self, newRating):
-        self.userRatings.append(newRating)
-        ratingSum = 0
-        for rating in self.userRatings:
-            ratingSum += rating
-        rating = ratingSum / len(self.userRatings)
+   # def updateRating(self, newRating):
 
-    def updateStatus(self, newStatus):
-        self.status = newStatus
+
+   # def updateStatus(self, newStatus):
+
+
 
 class User:
     def __init__(self, name):
         self.name = name
 
-    animeList = []
-    mangaList = []
+    def createUser(self, username, firstName, lastName, password, email):
+        query = ("""INSERT INTO maval_user
+                    VALUES ( %s, %s, %s, %s, %s, %s)""")
+        today = date.today()
+        creationDate = today.strftime("%Y/%m/%d")
+        cur.execute(query, (username, firstName, lastName, password, email, creationDate))
+
+    def createWatchRecord(self, username, title, epWatched, watchStatus, userRating, startDate, completionDate, comments, favourite):
+        query = ("""INSERT INTO watch_record VALUES( %s, %s, %s, %s, %s, %s, %s, %s, %s""")
 
     def addAnime(self, anime):
         self.animeList.append(anime)
@@ -98,15 +96,10 @@ class User:
         return self.name + ": " + animeListStr + "\n" + mangaListStr
 
 
-
 if (__name__ == "__main__"):
-    mab = User("maB")
-    anime1 = Anime("One Piece")
-    anime2 = Anime("Hunter x Hunter")
-    manga1 = Manga("One Piece")
-    manga2 = Manga("One Punch Man")
-    mab.addAnime(anime1)
-    mab.addAnime(anime2)
-    mab.addManga(manga1)
-    mab.addManga(manga2)
-    print(mab)
+    User1 = User("mab")
+    User1.createUser("test3", "Testing", "Testing", "password","test@gmail.com")
+
+
+cur.close()
+conn.close()
