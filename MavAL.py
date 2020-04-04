@@ -40,6 +40,7 @@ def selectUser(username, password):
                 AND password = """ + password)
     cur.execute(query)
 
+    # Create user?
     User()
 
 def insertAnimeRecord(animeRecord):
