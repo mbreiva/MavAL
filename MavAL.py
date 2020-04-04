@@ -19,87 +19,63 @@ class MavAL:
     test = 1
 
 
-class Anime:
-    def __init__(self, name):
-        self.name = name
+def insertUser(user):
+    query = ("""INSERT INTO maval_user
+                VALUES ( %s, %s, %s, %s, %s, %s)""")
+    today = date.today()
+    creationDate = today.strftime("%Y/%m/%d")
+    cur.execute(query,
+                (user.username,
+                 user.firstName,
+                 user.lastName,
+                 user.password,
+                 user.email,
+                 user.creationDate)
+                )
 
-    def __str__(self):
-        return self.name
+def selectUser(username, password):
+    query = ("""SELECT * 
+                FROM maval_user
+                WHERE username = """ + username + """
+                AND password = """ + password)
+    cur.execute(query)
 
-    def addTitle(self, title):
-        query = "INSERT INTO anime(title) VALUES(%s);"
-        cur.execute(query, (title,))
+    User()
 
-   # def updateGenreList(self, newGenre):
+def insertAnimeRecord(animeRecord):
+    query = ("""INSERT INTO anime_record 
+                VALUES( %s, %s, %s, %s, %s, %s, %s, %s, %s)""")
+    cur.execute(query,
+                (animeRecord.username,
+                 animeRecord.title,
+                 animeRecord.epWatched,
+                 animeRecord.watchStatus,
+                 animeRecord.userRating,
+                 animeRecord.startDate,
+                 animeRecord.completionDate,
+                 animeRecord.comments,
+                 animeRecord.favourite)
+                )
 
-
-   # def updateRating(self, newRating):
-
-
-   # def updateStatus(self, newStatus):
-
-
-
-class Manga:
-    def __init__(self, name):
-        self.name = name
-
-    def __str__(self):
-        return self.name
-
-   # def updateGenreList(self, newGenre):
-
-
-   # def updateRating(self, newRating):
-
-
-   # def updateStatus(self, newStatus):
-
-
-
-class User:
-    def __init__(self, name):
-        self.name = name
-
-    def createUser(self, username, firstName, lastName, password, email):
-        query = ("""INSERT INTO maval_user
-                    VALUES ( %s, %s, %s, %s, %s, %s)""")
-        today = date.today()
-        creationDate = today.strftime("%Y/%m/%d")
-        cur.execute(query, (username, firstName, lastName, password, email, creationDate))
-
-    def createWatchRecord(self, username, title, epWatched, watchStatus, userRating, startDate, completionDate, comments, favourite):
-        query = ("""INSERT INTO watch_record VALUES( %s, %s, %s, %s, %s, %s, %s, %s, %s""")
-
-    def addAnime(self, anime):
-        self.animeList.append(anime)
-
-    def removeAnime(self, anime):
-        self.animeList.remove(anime)
-
-    def addManga(self, manga):
-        self.mangaList.append(manga)
-
-    def removeManga(self, manga):
-        self.mangaList.remove(manga)
-
-    def __str__(self):
-        animeListStr = ""
-        for anime in self.animeList:
-            animeListStr += anime.__str__() + ", "
-
-        mangaListStr = ""
-
-        for manga in self.mangaList:
-            mangaListStr += manga.__str__() + ", "
-
-        return self.name + ": " + animeListStr + "\n" + mangaListStr
-
+def insertMangaRecord(mangaRecord):
+    query = ("""INSERT INTO manga_record 
+                VALUES( %s, %s, %s, %s, %s, %s, %s, %s, %s)""")
+    cur.execute(query,
+                (mangaRecord.username,
+                 mangaRecord.title,
+                 mangaRecord.chaptersRead,
+                 mangaRecord.readStatus,
+                 mangaRecord.userRating,
+                 mangaRecord.startDate,
+                 mangaRecord.completionDate,
+                 mangaRecord.comments,
+                 mangaRecord.favourite)
+                )
 
 if (__name__ == "__main__"):
     User1 = User("mab")
-    User1.createUser("test3", "Testing", "Testing", "password","test@gmail.com")
-
+    User1.createUser("test4", "Testing", "Testing", "password","test@gmail.com")
+    User1.createWatchRecord("test3", "Gintama", 2, "Watching", 10, NULL, NULL, NULL, false)
 
 cur.close()
 conn.close()
