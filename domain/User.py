@@ -1,16 +1,26 @@
 class User:
     # Constructor - initializes new user object
-    def __init__(self, username, firstName, lastName, password, email):
+    def __init__(self, userID, username, firstName, lastName, password, email):
+        self.userID = userID
         self.username = username
         self.firstName = firstName
         self.lastName = lastName
         self.password = password
         self.email = email
 
-    userID = #SELECT user_id from maval_user WHERE username = username
-
     animeList = []  # fill this with AnimeRecords
     mangaList = []  # fill this with MangaRecords
+
+    favAnime = []
+    currentlyWatching = []
+    droppedAnime = []
+    onHoldAnime = []
+    planToWatch = []
+    favManga = []
+    currentlyReading = []
+    droppedManga = []
+    onHoldAnime = []
+    planToRead = []
 
     def changeUsername(self, oldUsername):
         newUsername = input("Please enter new username: \n")
@@ -31,7 +41,10 @@ class User:
     # Check to see if anime exists in database
     # If not in database, call insertAnime()
 
-    def editAnimeRecord(self):
+    def editAnimeRecord(self, title):
+    # Check to see if animeRecord exists
+    # SELECT * from anime_record WHERE user_id = userID AND title = title
+    # If not -> error -> addAnimeRecord()
 
     def addMangaRecord(self, title):
 
@@ -63,4 +76,6 @@ class User:
 
     def viewPlanToWatchManga(self):
 
+    def listTotal(self, list):
+        return len(list)
   #  def __str__(self):
