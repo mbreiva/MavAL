@@ -8,32 +8,42 @@ class User:
         self.password = password
         self.email = email
 
-    animeList = []  # fill this with AnimeRecords
-    mangaList = []  # fill this with MangaRecords
-
-    favAnime = []
-    currentlyWatching = []
-    droppedAnime = []
-    onHoldAnime = []
-    planToWatch = []
     favManga = []
     currentlyReading = []
     droppedManga = []
     onHoldAnime = []
     planToRead = []
 
-    def changeUsername(self, oldUsername):
+    # EDIT USER PROPERTIES
+
+    def changeUsername(self, cur):
         newUsername = input("Please enter new username: \n")
         # Check to see if username already exists in the database
 
-    def changePassword(self, oldPassword):
+        query = ("""UPDATE maval_user
+                    SET username = %s
+                    WHERE user_id = %s""")
+        cur.execute(query, (newUsername, self.userID))
+
+    def changePassword(self, cur):
         # Password requirements?
         newPassword = input("Please enter new password: \n")
         # Check that new password is not the same as old password
         # while loop vs recursion?
 
-    def changeEmail(self, oldEmail):
+        query = ("""UPDATE maval_user
+                    SET password = %s
+                    WHERE user_id = %s""")
+        cur.execute(query, (newPassword, self.userID))
+
+    def changeEmail(self, cur):
         newEmail = input("Please enter new email address: \n")
+        # Check to see if email is valid
+
+        query = ("""UPDATE maval_user
+                    SET email = %s
+                    WHERE user_id = %s""")
+        cur.execute(query,(newEmail,self.userID))
 
     def writeReview(self):
 
@@ -50,31 +60,132 @@ class User:
 
     def editAnimeRecord(self):
 
-    def viewAnimeList(self):
-    # SELECT * from anime_record WHERE user_id = userID
 
-    def viewFavourtiteAnime(self):
-    # SELECT * from anime_record WHERE user_id = userID AND favourite = true
+    # VIEW LISTS
 
-    def viewCurrentlyWatchingAnime(self):
+    def viewAnimeList(self, cur):
+        query = ("""SELECT * FROM anime_record 
+                    WHERE user_id = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,))
 
-    def viewDroppedAnime(self):
+        animeList = cur.fetchall()
 
-    def viewOnHoldAnime(self):
+    def viewFavourtiteAnime(self, cur):
+        query = ("""SELECT * FROM anime_record 
+                    WHERE user_id = %s 
+                    AND favourite = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,"true"))
+
+        favAnime = cur.fetchall()
+
+    def viewCurrentlyWatchingAnime(self, cur):
+        query = ("""SELECT * FROM anime_record 
+                    WHERE user_id = %s 
+                    AND watch_status = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,"Currently watching"))
+
+        curWatchingAnime = cur.fetchall()
+
+    def viewCompletedAnime(self, cur):
+        query = ("""SELECT * FROM anime_record 
+                    WHERE user_id = %s 
+                    AND watch_status = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,"Completed"))
+
+        completedAnime = cur.fetchall()
+
+    def viewDroppedAnime(self, cur):
+        query = ("""SELECT * FROM anime_record 
+                    WHERE user_id = %s 
+                    AND watch_status = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,"Dropped"))
+
+        droppedAnime = cur.fetchall()
+
+    def viewOnHoldAnime(self, cur):
+        query = ("""SELECT * FROM anime_record 
+                    WHERE user_id = %s 
+                    AND watch_status = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,"On hold"))
+
+        onHoldAnime = cur.fetchall()
 
     def viewPlanToWatchAnime(self):
+        query = ("""SELECT * FROM anime_record 
+                    WHERE user_id = %s 
+                    AND watch_status = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,"Plan to watch"))
+
+        planToWatchAnime = cur.fetchall()
 
     def viewMangaList(self):
+        query = ("""SELECT * FROM manga_record 
+                    WHERE user_id = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query, (self.userID,))
 
-    def viewFavourtiteManga(self):
+        mangaList = cur.fetchall()
 
-    def viewCurrentlyWatchingManga(self):
+    def viewFavourtiteManga(self, cur):
+        query = ("""SELECT * FROM manga_record 
+                    WHERE user_id = %s 
+                    AND favourite = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query, (self.userID, "true"))
 
-    def viewDroppedManga(self):
+        favManga = cur.fetchall()
 
-    def viewOnHoldManga(self):
+    def viewCurrentlyReadingManga(self, cur):
+        query = ("""SELECT * FROM manga_record 
+                    WHERE user_id = %s 
+                    AND read_status = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,"Currently reading"))
 
-    def viewPlanToWatchManga(self):
+        curReadingManga = cur.fetchall()
+
+    def viewCompletedManga(self, cur):
+        query = ("""SELECT * FROM manga_record 
+                    WHERE user_id = %s 
+                    AND read_status = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query, (self.userID, "Completed"))
+
+        completedManga = cur.fetchall()
+
+    def viewDroppedManga(self, cur):
+        query = ("""SELECT * FROM manga_record 
+                    WHERE user_id = %s 
+                    AND read_status = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,"Dropped"))
+
+        droppedManga = cur.fetchall()
+
+    def viewOnHoldManga(self, cur):
+        query = ("""SELECT * FROM manga_record 
+                    WHERE user_id = %s 
+                    AND read_status = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,"On hold"))
+
+        onHoldManga = cur.fetchall()
+
+    def viewPlanToReadManga(self, cur):
+        query = ("""SELECT * FROM manga_record 
+                    WHERE user_id = %s 
+                    AND read_status = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,"Plan to read"))
+
+        planToReadManga = cur.fetchall()
 
     def listTotal(self, list):
         return len(list)

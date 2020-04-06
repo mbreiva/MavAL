@@ -1,13 +1,22 @@
 class Anime:
-    def __init__(self, title, episodeCount, description, status, releaseDate):
+    def __init__(self, animeID, title, episodeCount, description, rating, status, releaseDate):
+        self.animeID = animeID
         self.title = title
         self.episodeCount = episodeCount
+        self.rating = rating
         self.description = description
         self.status = status
         self.releaseDate = releaseDate
 
-  #  def calculateRating(self):
+    # Is there an AVG() ?
+    def calculateRating(self, cur):
+        query = ("""SELECT AVG(rating) FROM anime_record
+                    WHERE anime_id = %s""")
+        cur.execute(query, (self.animeID,))
 
+        # Does this return an array if there is only one value?
+        avgRating = cur.fetchone()
+        return avgRating
   # Can't change title because primary key and foreign key referenced by other tables?
 
     def updateEpisodeCount(self, cur):
@@ -40,7 +49,8 @@ class Anime:
 
     def viewReviews(self, cur):
         query = ("""SELECT * FROM anime_review
-                    WHERE title = %s""")
+                    WHERE title = %s
+                    ORDER BY date_written DESC;""")
         cur.execute(query, self.title)
 
         rows = cur.fetchall()
