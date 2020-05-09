@@ -1,7 +1,11 @@
 import psycopg2
 import MavALCreds as creds
+from domain import Anime, Manga, User
+from domain import AnimeRecord, MangaRecord
+from domain import AnimeReview, MangaReview
 from psycopg2 import extensions
 from datetime import date
+from os import name, system
 
 # Connect to PostgreSQL
 conn = psycopg2.connect("dbname = " + creds.database + " user = " + creds.user + " password = " + creds.password)
@@ -14,9 +18,9 @@ autocommit = extensions.ISOLATION_LEVEL_AUTOCOMMIT
 conn.set_isolation_level(autocommit)
 cur = conn.cursor()
 
+#class MavAL:
+ #   test = 1
 
-class MavAL:
-    test = 1
 
 # Returns all anime in the database
 def viewAllAnime():
@@ -32,7 +36,7 @@ def viewAllManga():
 # DATABASE INSERTION
 # Insert user data to mav_al user table in Postgres
 def insertUser(username, firstName, lastName, password, email):
-    query1 = ("""INSERT INTO maval_user
+    query1 = ("""INSERT INTO maval_user (username, first_name, last_name, user_password, email, creation_date)
                 VALUES ( %s, %s, %s, %s, %s, %s)""")
     today = date.today()
     creationDate = today.strftime("%Y/%m/%d")  # date format for Postgres
@@ -123,28 +127,110 @@ def insertMangaReview(mangaReview):
     cur.execute(query,(mangaReview.userID, mangaReview.mangaID, dateWritten, mangaReview.review))
 
 
-def login(username, password):
+def login():
+    print("Login")
+    print()
+
+    # Prompt user's to input their login info
+    username = input("Username: ")
+    password = input("Password: ")
+
+    # Obtaining user info from the database
     query = ("""SELECT * FROM maval_user
                 WHERE username = %s
-                AND password = %s """)
+                AND user_password = %s """)
     cur.execute(query, (username, password))
 
-    User = cur.fetchone()
+    # Store user info in userInfo
+    userInfo = cur.fetchone()
+    clear()
+    return userInfo
 
 
 def registerNewUser():
-    firstName = input("First name: \n")
-    lastName = input("Last name: \n")
-    username = input("Username: \n")
-    password = input("Password: \n")
-    email = input("Email: \n")
+    print("Registration \n")
+    print()
+
+    # Prompt users to input their information
+    firstName = input("First name: ")
+    lastName = input("Last name: ")
+    username = input("Username: ")
+    password = input("Password: ")
+    email = input("Email: ")
 
     insertUser(username, firstName, lastName, password, email)
+    clear()
 
-if (__name__ == "__main__"):
-    User1 = User("mab")
-    User1.createUser("test4", "Testing", "Testing", "password","test@gmail.com")
-    User1.createWatchRecord("test3", "Gintama", 2, "Watching", 10, NULL, NULL, NULL, false)
+
+# Clears terminal screen
+def clear():
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+
+        # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
+
+# Main program
+if __name__ == "__main__":
+    # Clear screen
+    clear()
+    print("Welcome to MavAL!")
+    print()
+
+    # List start options for user
+    print("1. Login \n"
+          "2. Register \n")
+
+    # Initialize variables
+    validOption = False
+    userInput = 0
+
+    # Prompt user to choose a valid option from list
+    while not validOption:
+        userInput = int(input("Select option number: "))
+
+        if 1 <= userInput <= 2:
+            validOption = True
+        else:
+            print("Invalid option. Please try again.")
+    clear()
+
+    # Login
+    if userInput == 1:
+        login()
+
+    # Register then login
+    elif userInput == 2:
+        registerNewUser()
+        login()
+
+    # List user options
+    print("5. Create a New List"
+          "6. My Anime \n"
+          "7. My Manga \n"
+          "8. All Anime \n"
+          "9. All Manga \n"
+          "10. Edit profile \n")
+
+    if(isAdmin == True):
+        print("1. Add Anime to Database \n"
+              "2. Add Manga to Database \n")
+
+    # Prompt user to choose a valid option from list
+    while not validOption:
+        userInput = int(input("Select option number: "))
+
+        if 1 <= userInput <= 7:
+            validOption = True
+        else:
+            print("Invalid option. Please try again.")
+    clear()
+
+    # Add anime
+    #if(userInput == 1):
+
 
 cur.close()
 conn.close()

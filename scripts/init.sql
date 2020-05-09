@@ -13,11 +13,10 @@ CREATE TABLE anime (
     studio              varchar
 );
 
+ -- Author and artist are in different table, accessed by manga_id
 CREATE TABLE manga (
     manga_id            int NOT NULL PRIMARY KEY REFERENCES media(media_id),
-    chapter_count       int,
-    author              varchar,
-    artist              varchar
+    chapter_count       int
 );
 
 CREATE TABLE maval_user (
@@ -25,9 +24,10 @@ CREATE TABLE maval_user (
     username            varchar(50) NOT NULL,
     first_name          varchar(50) NOT NULL,
     last_name           varchar(50),
-    user_password       varchar(30) NOT NULL, --do I have to change name?
+    user_password       varchar(30) NOT NULL,
     email               varchar(100),
-    creation_date       date NOT NULL
+    creation_date       date NOT NULL,
+    isAdmin             boolean NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE user_record (
@@ -88,6 +88,23 @@ CREATE TABLE artist (
 CREATE TABLE status (
     status_id           serial NOT NULL PRIMARY KEY,
     status              varchar NOT NULL UNIQUE
+);
+
+-- LINK TABLE BETWEEN manga AND author
+-- For cases, where same name or multiple authors
+CREATE TABLE manga_author (
+    manga_id            int NOT NULL,
+    author_id           int NOT NULL,
+    FOREIGN KEY(manga_id) REFERENCES manga(manga_id),
+    FOREIGN KEY(author_id) REFERENCES author(author_id)
+);
+
+-- LINK TABLE BETWEEN manga AND artist
+CREATE TABLE manga_artist (
+    manga_id            int NOT NULL,
+    artist_id           int NOT NULL,
+    FOREIGN KEY(manga_id) REFERENCES manga(manga_id),
+    FOREIGN KEY(artist_id) REFERENCES artist(artist_id)
 );
 
 -- LINK TABLE BETWEEN status AND record
