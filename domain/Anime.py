@@ -59,8 +59,7 @@ class Anime:
             # Print review
             print(f"{row[3]}")
 
-    def watchCount(self, cur):
-
+   # def watchCount(self, cur):
 
     def __str__(self):
         return self.title

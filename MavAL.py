@@ -127,6 +127,7 @@ def insertMangaReview(mangaReview):
     cur.execute(query,(mangaReview.userID, mangaReview.mangaID, dateWritten, mangaReview.review))
 
 
+# Creates and returns User object
 def login():
     print("Login")
     print()
@@ -143,8 +144,9 @@ def login():
 
     # Store user info in userInfo
     userInfo = cur.fetchone()
+    user = User.User(userInfo[0], userInfo[1], userInfo[2], userInfo[3], userInfo[4], userInfo[5])
     clear()
-    return userInfo
+    return user
 
 
 def registerNewUser():
@@ -199,37 +201,42 @@ if __name__ == "__main__":
 
     # Login
     if userInput == 1:
-        login()
+        user = login()
 
     # Register then login
     elif userInput == 2:
         registerNewUser()
-        login()
+        user = login()
 
     # List user options
-    print("5. Create a New List"
-          "6. My Anime \n"
-          "7. My Manga \n"
-          "8. All Anime \n"
-          "9. All Manga \n"
-          "10. Edit profile \n")
-
-    if(isAdmin == True):
-        print("1. Add Anime to Database \n"
-              "2. Add Manga to Database \n")
+    print(User Options:)
+    print()
+    print("1. My Anime \n"
+          "2. My Manga \n"
+          "3. Add anime \n"
+          "4. Add manga \n"
+          "5. All Anime \n"
+          "6. All Manga \n"
+          "7. Edit profile \n"
+          "8. Add anime to database \n"
+          "9. Add manga to database \n")
 
     # Prompt user to choose a valid option from list
     while not validOption:
         userInput = int(input("Select option number: "))
 
-        if 1 <= userInput <= 7:
+        if 1 <= userInput <= 9:
             validOption = True
         else:
             print("Invalid option. Please try again.")
     clear()
 
-    # Add anime
-    #if(userInput == 1):
+    # View user's anime
+    if(userInput == 1):
+        user.viewAnimeList(cur)
+
+    #if(userInput == 8):
+
 
 
 cur.close()

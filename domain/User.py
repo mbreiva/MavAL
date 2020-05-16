@@ -45,26 +45,39 @@ class User:
                     WHERE user_id = %s""")
         cur.execute(query,(newEmail,self.userID))
 
-    def writeReview(self):
+    #def writeReview(self):
 
-    def addAnimeRecord(self, title):
+    #def addAnimeRecord(self, title):
     # Check to see if anime exists in database
     # If not in database, call insertAnime()
 
-    def editAnimeRecord(self, title):
+   # def editAnimeRecord(self, title):
     # Check to see if animeRecord exists
     # SELECT * from anime_record WHERE user_id = userID AND title = title
     # If not -> error -> addAnimeRecord()
 
-    def addMangaRecord(self, title):
+   # def addMangaRecord(self, title):
 
-    def editAnimeRecord(self):
+    #def editAnimeRecord(self):
 
 
     # VIEW LISTS
+    def listAllUserMedia(self,cur):
+        query = ("""SELECT * FROM user_record 
+                    WHERE user_id = %s
+                    ORDER BY title ASC;""")
+        cur.execute(query,(self.userID,))
+
+        userMedia = cur.fetchall()
+
+        return userMedia
 
     def viewAnimeList(self, cur):
-        query = ("""SELECT * FROM anime_record 
+        userMedia = self.listAllUserMedia(cur)
+
+        for media in userMedia:
+
+        query = ("""SELECT * FROM user_record 
                     WHERE user_id = %s
                     ORDER BY title ASC;""")
         cur.execute(query,(self.userID,))
@@ -116,7 +129,7 @@ class User:
 
         onHoldAnime = cur.fetchall()
 
-    def viewPlanToWatchAnime(self):
+    def viewPlanToWatchAnime(self, cur):
         query = ("""SELECT * FROM anime_record 
                     WHERE user_id = %s 
                     AND watch_status = %s
@@ -125,7 +138,7 @@ class User:
 
         planToWatchAnime = cur.fetchall()
 
-    def viewMangaList(self):
+    def viewMangaList(self, cur):
         query = ("""SELECT * FROM manga_record 
                     WHERE user_id = %s
                     ORDER BY title ASC;""")

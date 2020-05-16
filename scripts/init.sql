@@ -1,22 +1,22 @@
-CREATE TABLE media (
-    media_id            serial NOT NULL PRIMARY KEY,
-    media_type          varchar NOT NULL,
-    title               varchar NOT NULL,
+CREATE TABLE anime (
+    anime_id            serial,
+    title               varchar NOT NULL PRIMARY KEY,
+    episode_count       integer,
     description         text,
     rating              decimal,
     status              varchar,
     release_date        date
 );
-CREATE TABLE anime (
-    anime_id            int NOT NULL PRIMARY KEY REFERENCES media(media_id),
-    episode_count       int,
-    studio              varchar
-);
 
  -- Author and artist are in different table, accessed by manga_id
 CREATE TABLE manga (
-    manga_id            int NOT NULL PRIMARY KEY REFERENCES media(media_id),
-    chapter_count       int
+    manga_id            serial,
+    title               varchar NOT NULL PRIMARY KEY,
+    chapter_count       integer,
+    description         text,
+    rating              decimal,
+    status              varchar,
+    release_date        date
 );
 
 CREATE TABLE maval_user (
@@ -30,10 +30,19 @@ CREATE TABLE maval_user (
     isAdmin             boolean NOT NULL DEFAULT FALSE
 );
 
+CREATE TABLE media (
+    media_id            serial NOT NULL PRIMARY KEY,
+    title_id            int,
+    media_type          varchar
+);
+
+-- Junction table for user and media
 CREATE TABLE user_record (
     record_id           serial NOT NULL PRIMARY KEY,
     user_id             int NOT NULL,
-    media_id            int NOT NULL,
+    media_id            int NOT NULL, -- anime_id and manga_id may clash
+    episodes_watched    int,    -- one of these will be null depending
+    chapters_read       int,    -- on if it is an anime or manga
     user_rating         decimal,
     start_date          date,
     completion_date     date,
@@ -60,12 +69,10 @@ CREATE TABLE manga_record (
 
 CREATE TABLE review (
     review_id           serial NOT NULL PRIMARY KEY,
-    record_id           int NOT NULL,
+    record_id           int NOT NULL, --this can be anime or manga, pass in their id
     date_written        date,
     review              text,
-    FOREIGN KEY(user_id) REFERENCES maval_user(user_id),
-    FOREIGN KEY(media_id) REFERENCES media(media_id),
-    FOREIGN KEY(record_id) REFERENCES user_record(record_id)
+    FOREIGN KEY(user_id) REFERENCES maval_user(user_id)
 );
 
 CREATE TABLE genre (
