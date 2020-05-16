@@ -1,22 +1,24 @@
-CREATE TABLE anime (
-    anime_id            serial,
-    title               varchar NOT NULL PRIMARY KEY,
-    episode_count       integer,
+CREATE TABLE media (
+    media_id            serial NOT NULL PRIMARY KEY,
+    media_type          varchar NOT NULL, --anime or manga
+    title               varchar NOT NULL,
     description         text,
     rating              decimal,
     status              varchar,
     release_date        date
 );
+CREATE TABLE anime (
+    anime_id            int NOT NULL PRIMARY KEY,
+    episode_count       int,
+    studio              varchar,
+    FOREIGN KEY(anime_id) REFERENCES media(media_id)
+);
 
  -- Author and artist are in different table, accessed by manga_id
 CREATE TABLE manga (
-    manga_id            serial,
-    title               varchar NOT NULL PRIMARY KEY,
-    chapter_count       integer,
-    description         text,
-    rating              decimal,
-    status              varchar,
-    release_date        date
+    manga_id            int NOT NULL PRIMARY KEY,
+    chapter_count       int,
+    FOREIGN KEY(manga_id) REFERENCES media(media_id)
 );
 
 CREATE TABLE maval_user (
@@ -30,13 +32,6 @@ CREATE TABLE maval_user (
     isAdmin             boolean NOT NULL DEFAULT FALSE
 );
 
-CREATE TABLE media (
-    media_id            serial NOT NULL PRIMARY KEY,
-    title_id            int,
-    media_type          varchar
-);
-
--- Junction table for user and media
 CREATE TABLE user_record (
     record_id           serial NOT NULL PRIMARY KEY,
     user_id             int NOT NULL,
@@ -46,7 +41,7 @@ CREATE TABLE user_record (
     user_rating         decimal,
     start_date          date,
     completion_date     date,
-    isFavourite         boolean NOT NULL DEFAULT FALSE,
+    isFavourite         boolean NOT NULL DEFAULT FALSE, -- Favourites table?
     isPublic            boolean NOT NULL DEFAULT TRUE,
     FOREIGN KEY(user_id) REFERENCES maval_user(user_id),
     FOREIGN KEY(media_id) REFERENCES media(media_id)
@@ -69,10 +64,10 @@ CREATE TABLE manga_record (
 
 CREATE TABLE review (
     review_id           serial NOT NULL PRIMARY KEY,
-    record_id           int NOT NULL, --this can be anime or manga, pass in their id
+    record_id           int NOT NULL,
     date_written        date,
     review              text,
-    FOREIGN KEY(user_id) REFERENCES maval_user(user_id)
+    FOREIGN KEY(record_id) REFERENCES user_record(record_id)
 );
 
 CREATE TABLE genre (
