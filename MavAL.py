@@ -1,11 +1,13 @@
 import psycopg2
 import MavALCreds as creds
+import sys
 from domain import Anime, Manga, User
 from domain import AnimeRecord, MangaRecord
 from domain import AnimeReview, MangaReview
 from psycopg2 import extensions
 from datetime import date
 from os import name, system
+from sys import exit
 
 # Connect to PostgreSQL
 conn = psycopg2.connect("dbname = " + creds.database + " user = " + creds.user + " password = " + creds.password)
@@ -129,24 +131,42 @@ def insertMangaReview(mangaReview):
 
 # Creates and returns User object
 def login():
-    print("Login")
-    print()
 
-    # Prompt user's to input their login info
-    username = input("Username: ")
-    password = input("Password: ")
+    loginAttempts = 0
+    userInfo = None
 
-    # Obtaining user info from the database
-    query = ("""SELECT * FROM maval_user
-                WHERE username = %s
-                AND user_password = %s """)
-    cur.execute(query, (username, password))
+    while userInfo is None:
+        print()
+        print("Login")
+        print()
+        # Prompt user's to input their login info
+        username = input("Username: ")
+        password = input("Password: ")
 
-    # Store user info in userInfo
-    userInfo = cur.fetchone()
-    user = User.User(userInfo[0], userInfo[1], userInfo[2], userInfo[3], userInfo[4], userInfo[5])
+        # Obtaining user info from the database
+        query = ("""SELECT * FROM maval_user
+                    WHERE username = %s
+                    AND user_password = %s """)
+        cur.execute(query, (username, password))
+
+        # Store user info in userInfo
+        userInfo = cur.fetchone()
+
+        # Max login attempts is 5
+        if loginAttempts == 5:
+            print()
+            print("Too many login attempts.")
+            exit(0)
+        # Case: User has not registered/ empty set
+        elif userInfo is None:
+            clear()
+            print("Username or password is incorrect. Please try again.")
+            loginAttempts += 1
+            continue
+
+    userLogin = User.User(userInfo[0], userInfo[1], userInfo[2], userInfo[3], userInfo[4], userInfo[5])
     clear()
-    return user
+    return userLogin
 
 
 def registerNewUser():
@@ -170,9 +190,10 @@ def clear():
     if name == 'nt':
         _ = system('cls')
 
-        # for mac and linux(here, os.name is 'posix')
+    # for mac and linux(here, os.name is 'posix')
     else:
         _ = system('clear')
+
 
 # Main program
 if __name__ == "__main__":
@@ -193,7 +214,7 @@ if __name__ == "__main__":
     while not validOption:
         userInput = int(input("Select option number: "))
 
-        if 1 <= userInput <= 2:
+        if userInput in (1,2):
             validOption = True
         else:
             print("Invalid option. Please try again.")
@@ -209,7 +230,7 @@ if __name__ == "__main__":
         user = login()
 
     # List user options
-    print(User Options:)
+    print("User Options:")
     print()
     print("1. My Anime \n"
           "2. My Manga \n"
@@ -222,6 +243,8 @@ if __name__ == "__main__":
           "9. Add manga to database \n")
 
     # Prompt user to choose a valid option from list
+    validOption = False
+
     while not validOption:
         userInput = int(input("Select option number: "))
 
@@ -229,14 +252,17 @@ if __name__ == "__main__":
             validOption = True
         else:
             print("Invalid option. Please try again.")
-    clear()
 
     # View user's anime
-    if(userInput == 1):
-        user.viewAnimeList(cur)
-
-    #if(userInput == 8):
-
+    # if(userInput == 1):
+     #   user.viewAnimeList(cur)
+    # elif(userInput == 2):
+    # elif(userInput == 3):
+    # elif(userInput == 4):
+    # elif(userInput == 5):
+    # elif(userInput == 6):
+    # elif(userInput == 7):
+    # elif(userInput == 8):
 
 
 cur.close()
