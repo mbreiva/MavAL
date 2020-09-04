@@ -2,7 +2,7 @@ class User:
     # Constructor - initializes new user object
     def __init__(self, userID, username, firstName, lastName, password, email):
         self.userID = userID
-        self.username = username
+        self.username = username    # Username should be unique
         self.firstName = firstName
         self.lastName = lastName
         self.password = password
@@ -75,12 +75,11 @@ class User:
     def viewAnimeList(self, cur):
         userMedia = self.listAllUserMedia(cur)
 
-        for media in userMedia:
-
+        # for media in userMedia:
         query = ("""SELECT * FROM user_record 
-                    WHERE user_id = %s
+                    WHERE media_type = anime
                     ORDER BY title ASC;""")
-        cur.execute(query,(self.userID,))
+        cur.execute(query)
 
         animeList = cur.fetchall()
 

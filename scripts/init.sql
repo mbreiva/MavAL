@@ -7,8 +7,10 @@ CREATE TABLE media (
     status              varchar,
     release_date        date
 );
+
 CREATE TABLE anime (
-    anime_id            int NOT NULL PRIMARY KEY,
+    anime_id            serial NOT NULL PRIMARY KEY,
+    media_id            int NOT NULL,
     episode_count       int,
     studio              varchar,
     FOREIGN KEY(anime_id) REFERENCES media(media_id)
@@ -16,14 +18,15 @@ CREATE TABLE anime (
 
  -- Author and artist are in different table, accessed by manga_id
 CREATE TABLE manga (
-    manga_id            int NOT NULL PRIMARY KEY,
+    manga_id            serial NOT NULL PRIMARY KEY,
+    media_id            int NOT NULL,
     chapter_count       int,
-    FOREIGN KEY(manga_id) REFERENCES media(media_id)
+    FOREIGN KEY(media_id) REFERENCES media(media_id)
 );
 
 CREATE TABLE maval_user (
     user_id             serial NOT NULL PRIMARY KEY,
-    username            varchar(50) NOT NULL,
+    username            varchar(50) NOT NULL UNIQUE,
     first_name          varchar(50) NOT NULL,
     last_name           varchar(50),
     user_password       varchar(30) NOT NULL,
