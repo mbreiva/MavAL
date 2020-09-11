@@ -11,7 +11,7 @@ public class Anime {
         return "Anime";
     }
 
-    @RequestMapping("")
+    @RequestMapping("test")
     public String test() {
         return "Testing, testing";
     }
