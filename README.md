@@ -1,11 +1,11 @@
 ## Run the app from a dev environment
 
-If haven't have
-Run app using the gradle wrapper
+1. Follow the instructions below to first set up the database
+2. Run the app using the gradle wrapper
 
-```
--- make sure you're in the root of the project folder
-./gradlew run
+```bash
+# make sure you're in the root of the project folder
+./gradlew bootRun
 ```
 
 Your app should be accessible on port 8080 of your localhost (http://localhost:8080/)
@@ -14,10 +14,10 @@ Your app should be accessible on port 8080 of your localhost (http://localhost:8
 
 We use docker for easier setup, so install it if you haven't already.
 
-```
--- install the docker image
+```bash
+# install the docker image
 docker pull postgres
 
--- create the image
+# create the image
 docker run --name maval -e POSTGRES_PASSWORD=test -e  POSTGRES_DB=maval -d postgres
 ```
