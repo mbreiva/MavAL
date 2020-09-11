@@ -6,8 +6,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/anime")
 public class Anime {
-    @RequestMapping("/")
+    @RequestMapping(value={"", "/"})
     public String index() {
         return "Anime";
+    }
+
+    @RequestMapping("")
+    public String test() {
+        return "Testing, testing";
     }
 }
