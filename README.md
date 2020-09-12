@@ -18,6 +18,9 @@ We use docker for easier setup, so install it if you haven't already.
 # install the docker image
 docker pull postgres
 
-# create the image
-docker run --name maval -e POSTGRES_PASSWORD=test -e  POSTGRES_DB=maval -d postgres
+# create the container
+docker run --name maval -e POSTGRES_PASSWORD=test -e  POSTGRES_DB=maval -d -p 5001:5432 postgres
+
+# start the container
+docker start maval
 ```
