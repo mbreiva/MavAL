@@ -1,0 +1,6 @@
+# dev config - keep this in version control for ease
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5001/maval
+    username: postgres
+    password: test
