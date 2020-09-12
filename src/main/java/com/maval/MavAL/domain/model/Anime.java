@@ -19,6 +19,10 @@ public class Anime extends Media{
         this.releaseDate = releaseDate;
     }
 
+    public Anime() {
+
+    }
+
     public String getStudio() {
         return studio;
     }

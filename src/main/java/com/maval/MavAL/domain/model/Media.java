@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name= "mediaType", discriminatorType = DiscriminatorType.INTEGER)
+@DiscriminatorColumn(name= "media_type", discriminatorType = DiscriminatorType.INTEGER)
 public class Media {
 
     @Id
@@ -40,7 +40,7 @@ public class Media {
         return status;
     }
 
-    public void setStatus() {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -48,7 +48,7 @@ public class Media {
         return releaseDate;
     }
 
-    public void setReleaseDate() {
+    public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
     }
 }

@@ -4,3 +4,7 @@ spring:
     url: jdbc:postgresql://localhost:5001/maval
     username: postgres
     password: test
+  jpa:
+    hibernate:
+      # allow spring to create db tables
+      ddl-auto: create
