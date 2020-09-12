@@ -12,6 +12,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/manga")
 public class MangaController {
+
     @Autowired
     public MangaService mangaService;
 
