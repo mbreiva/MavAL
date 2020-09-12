@@ -2,21 +2,24 @@ package com.maval.MavAL.controller;
 
 import com.maval.MavAL.domain.service.MangaService;
 import com.maval.MavAL.domain.model.Manga;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/manga")
 public class MangaController {
     @Autowired
     public MangaService mangaService;
 
     @RequestMapping("/")
-    public List<Manga> index(){
-        return mangaService.getManga();
+    public String showManga(Model model){
+        List<Manga> manga = mangaService.getManga();
+        model.addAttribute("manga", manga);
+        return "manga_page";
     }
 
 
