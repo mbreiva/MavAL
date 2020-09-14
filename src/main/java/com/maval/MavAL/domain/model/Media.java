@@ -2,6 +2,7 @@ package com.maval.MavAL.domain.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -21,6 +22,15 @@ public class Media {
     public String title;
     public String status;
     public Date releaseDate;
+
+    @ManyToMany(mappedBy = "favouriteMedia")
+    Set<User> favourites;
+
+    @ManyToMany(mappedBy = "mediaProgress")
+    Set<User> userProgress;
+
+    @ManyToMany
+    Set<Genre> mediaGenre;
 
     public Media() {
     }
