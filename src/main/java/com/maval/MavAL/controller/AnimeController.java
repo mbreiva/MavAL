@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/anime")
-public class Anime {
+public class AnimeController {
     @RequestMapping(value={"", "/"})
     public String index() {
         return "Anime";
