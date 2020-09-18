@@ -9,7 +9,14 @@ import java.util.Date;
 public class Media {
 
     @Id
-    @GeneratedValue
+    /**
+        using identity has a performance imapct on entity creation when using hibernate bc it
+        forces the a db call to create the entity (since it requires pk)
+        
+        this is fine for us bc we don't will mostly be importing data directly from csv files
+     */
+
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     public int id;
     public String title;
     public String status;
