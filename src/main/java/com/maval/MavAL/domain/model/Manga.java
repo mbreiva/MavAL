@@ -21,10 +21,6 @@ public class Manga extends Media{
         this.releaseDate = releaseDate;
     }
 
-    public Manga() {
-
-    }
-
     public String getAuthor() {
         return author;
     }
