@@ -5,6 +5,8 @@ import com.maval.MavAL.domain.repository.AnimeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Service
@@ -12,7 +14,15 @@ public class AnimeService {
     @Autowired
     private AnimeRepository animeRepository;
 
-    public List<Anime> getAnime() {
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public List<Anime> findAll() {
         return animeRepository.findAll();
     }
+
+    public List<Anime> findTopAnime(int limit) {
+        return entityManager.createQuery("SELECT a FROM Anime a", Anime.class).setMaxResults(limit).getResultList();
+    }
+
 }

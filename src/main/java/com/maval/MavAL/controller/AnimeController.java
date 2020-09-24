@@ -16,11 +16,18 @@ public class AnimeController {
     @Autowired
     public AnimeService animeService;
 
-    @RequestMapping(value={"", "/"})
+    @RequestMapping("/all")
     public String showAnime(Model model) {
-        List<Anime> anime = animeService.getAnime();
-        model.addAttribute("anime", anime);
+        List<Anime> animeList = animeService.findAll();
+        model.addAttribute("animeList", animeList);
         return "anime_page";
     }
 
+    @RequestMapping(value={"", "/"})
+    public String showTopAnime(Model model) {
+        int limit = 20;
+        List<Anime> animeList = animeService.findTopAnime(limit);
+        model.addAttribute("animeList", animeList);
+        return "anime_page";
+    }
 }
