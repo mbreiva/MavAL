@@ -25,6 +25,29 @@ public class MangaService {
     }
 
     public List<Anime> findTopManga(int limit) {
-        return entityManager.createQuery("SELECT a FROM Anime a", Anime.class).setMaxResults(limit).getResultList();
+        return entityManager.createQuery("SELECT a FROM Anime a", Anime.class)
+                .setMaxResults(limit)
+                .getResultList();
+    }
+
+    public List<Manga> findTopMangaByIdLimited(int limit) {
+        return entityManager.createQuery(
+                "SELECT a FROM Manga a", Manga.class)
+                .setMaxResults(limit)
+                .getResultList();
+    }
+
+    public Manga findByTitle(String title) {
+        return entityManager.createQuery(
+                "SELECT a FROM Manga a WHERE a.title LIKE :mangaTitle", Manga.class)
+                .setParameter("mangaTitle", title)
+                .getSingleResult();
+    }
+
+    public List<Manga> findByStatus(String status) {
+        return entityManager.createQuery(
+                "SELECT a FROM Manga a WHERE a.status LIKE :mangaStatus", Manga.class)
+                .setParameter("mangaStatus", status)
+                .getResultList();
     }
 }
