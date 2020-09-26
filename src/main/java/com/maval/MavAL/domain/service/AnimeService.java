@@ -36,6 +36,13 @@ public class AnimeService {
                 .getSingleResult();
     }
 
+    public Anime findById(int id) {
+        return entityManager.createQuery(
+                "SELECT a FROM Anime a WHERE a.id LIKE :animeId", Anime.class)
+                .setParameter("animeId", id)
+                .getSingleResult();
+    }
+
     public List<Anime> findByStatus(String status) {
         return entityManager.createQuery(
                 "SELECT a FROM Anime a WHERE a.status LIKE :animeStatus", Anime.class)

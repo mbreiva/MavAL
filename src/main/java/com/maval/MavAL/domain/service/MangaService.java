@@ -20,33 +20,34 @@ public class MangaService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<Manga> getManga() {
+    public List<Manga> findAll() {
         return mangaRepository.findAll();
-    }
-
-    public List<Anime> findTopManga(int limit) {
-        return entityManager.createQuery("SELECT a FROM Anime a", Anime.class)
-                .setMaxResults(limit)
-                .getResultList();
     }
 
     public List<Manga> findTopMangaByIdLimited(int limit) {
         return entityManager.createQuery(
-                "SELECT a FROM Manga a", Manga.class)
+                "SELECT m FROM Manga m", Manga.class)
                 .setMaxResults(limit)
                 .getResultList();
     }
 
     public Manga findByTitle(String title) {
         return entityManager.createQuery(
-                "SELECT a FROM Manga a WHERE a.title LIKE :mangaTitle", Manga.class)
+                "SELECT m FROM Manga m WHERE m.title LIKE :mangaTitle", Manga.class)
                 .setParameter("mangaTitle", title)
+                .getSingleResult();
+    }
+
+    public Manga findById(int id) {
+        return entityManager.createQuery(
+                "SELECT m FROM Manga m WHERE m.id LIKE :mangaId", Manga.class)
+                .setParameter("mangaId", id)
                 .getSingleResult();
     }
 
     public List<Manga> findByStatus(String status) {
         return entityManager.createQuery(
-                "SELECT a FROM Manga a WHERE a.status LIKE :mangaStatus", Manga.class)
+                "SELECT m FROM Manga m WHERE m.status LIKE :mangaStatus", Manga.class)
                 .setParameter("mangaStatus", status)
                 .getResultList();
     }

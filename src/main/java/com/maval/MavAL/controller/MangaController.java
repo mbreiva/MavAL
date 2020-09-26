@@ -19,16 +19,16 @@ public class MangaController {
 
     @RequestMapping("/all")
     public String showManga(Model model){
-        List<Manga> manga = mangaService.getManga();
+        List<Manga> manga = mangaService.findAll();
         model.addAttribute("manga", manga);
         return "manga_page";
     }
 
     @RequestMapping(value={"", "/"})
-    public String showTopAnime(Model model) {
+    public String showTopManga(Model model) {
         int limit = 20;
-        List<Anime> animeList = mangaService.findTopManga(limit);
-        model.addAttribute("animeList", animeList);
-        return "anime_page";
+        List<Manga> mangaList = mangaService.findTopMangaByIdLimited(limit);
+        model.addAttribute("mangaList", mangaList);
+        return "manga_page";
     }
 }
