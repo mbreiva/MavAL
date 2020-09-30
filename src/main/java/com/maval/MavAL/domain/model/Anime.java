@@ -10,13 +10,15 @@ public class Anime extends Media{
 
     public String studio;
     public int episodeCount;
+    public String season;
 
-    public Anime(String title, String studio, int episodeCount, String status, Date releaseDate){
+    public Anime(String title, String studio, int episodeCount, String status, Date releaseDate, String season){
         this.title = title;
         this.studio = studio;
         this.episodeCount = episodeCount;
         this.status = status;
         this.releaseDate = releaseDate;
+        this.season = season;
     }
 
     public Anime() {
@@ -38,4 +40,8 @@ public class Anime extends Media{
     public void setEpisodeCount(int episodeCount) {
         this.episodeCount = episodeCount;
     }
+
+    public String getSeason() { return season; }
+
+    public void setSeason(String season) { this.season = season; }
 }
