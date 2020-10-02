@@ -38,7 +38,10 @@
     </div>
     <div class="m-5">
         <h1>Anime</h1>
-        <input class="form-control mb-4" id="tableSearch" type="text" placeholder="Search">
+        <form id="animeSearch" class="form-inline my-2 my-lg-0">
+            <input id="animeSearchInput" class="form-control mr-sm-2" type="search" placeholder="Search anime" aria-label="Search">
+            <button id="animeSearchButton" class="btn btn-outline-success my-2 my-sm-0" type="button" >Search</button>
+        </form>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -59,5 +62,6 @@
             </tbody>
         </table>
     </div>
+    <script src="resources/static/search.js"></script>
 </body>
 </html>
