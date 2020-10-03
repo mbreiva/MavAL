@@ -31,21 +31,21 @@ public class AnimeService {
 
     public Anime findByTitle(String title) {
         return entityManager.createQuery(
-                "SELECT a FROM Anime a WHERE a.title LIKE :animeTitle", Anime.class)
+                "SELECT a FROM Anime a WHERE a.title = :animeTitle", Anime.class)
                 .setParameter("animeTitle", title)
                 .getSingleResult();
     }
 
     public Anime findById(int id) {
         return entityManager.createQuery(
-                "SELECT a FROM Anime a WHERE a.id LIKE :animeId", Anime.class)
+                "SELECT a FROM Anime a WHERE a.id = :animeId", Anime.class)
                 .setParameter("animeId", id)
                 .getSingleResult();
     }
 
     public List<Anime> findByStatus(String status) {
         return entityManager.createQuery(
-                "SELECT a FROM Anime a WHERE a.status LIKE :animeStatus", Anime.class)
+                "SELECT a FROM Anime a WHERE a.status = :animeStatus", Anime.class)
                 .setParameter("animeStatus", status)
                 .getResultList();
     }

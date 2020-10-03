@@ -26,27 +26,30 @@ public class UserService {
         User user = new User(name, username, password, email);
     }
 
-    public void loginUser() {
-
+    public User loginUser(String username, String password) {
+        return entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class)
+                .setParameter("username", username)
+                .setParameter("password", password)
+                .getSingleResult();
     }
 
     public User findById (int id) {
         return entityManager.createQuery(
-                "SELECT u FROM User u WHERE u.id LIKE :userId", User.class)
+                "SELECT u FROM User u WHERE u.id = :userId", User.class)
                 .setParameter("userId", id)
                 .getSingleResult();
     }
 
     public User findByEmail (String email) {
         return entityManager.createQuery(
-                "SELECT u from User u WHERE u.email LIKE: userEmail", User.class)
+                "SELECT u from User u WHERE u.email = :userEmail", User.class)
                 .setParameter("userEmail", email)
                 .getSingleResult();
     }
 
     public User findByName (String name) {
         return entityManager.createQuery(
-                "SELECT u from User u WHERE u.name LIKE: userName", User.class)
+                "SELECT u from User u WHERE u.name = :userName", User.class)
                 .setParameter("userName", name)
                 .getSingleResult();
     }

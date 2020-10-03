@@ -1,12 +1,11 @@
 document.getElementById("animeSearchButton").addEventListener("click", getURLParams);
 
 function getURLParams() {
-    //var url =window.location.href;
-    //var search = document.getElementById("animeSearchInput").value;
-    //var searchTerms = search.replace(" ", "+");
-    //var url_query = url + "?title=" + searchTerms;
-    alert("testing");
-    //window.location.replace(url_query);
+    let url = window.location.href;
+    let search = document.getElementById("animeSearchInput").value;
+    let searchTerms = search.replace(" ", "+");
+    let url_query = url + "?title=" + searchTerms;
+    window.location.replace(url_query);
 }
 
 

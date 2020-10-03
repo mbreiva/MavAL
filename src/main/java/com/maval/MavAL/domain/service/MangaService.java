@@ -33,21 +33,21 @@ public class MangaService {
 
     public Manga findByTitle(String title) {
         return entityManager.createQuery(
-                "SELECT m FROM Manga m WHERE m.title LIKE :mangaTitle", Manga.class)
+                "SELECT m FROM Manga m WHERE m.title = :mangaTitle", Manga.class)
                 .setParameter("mangaTitle", title)
                 .getSingleResult();
     }
 
     public Manga findById(int id) {
         return entityManager.createQuery(
-                "SELECT m FROM Manga m WHERE m.id LIKE :mangaId", Manga.class)
+                "SELECT m FROM Manga m WHERE m.id = :mangaId", Manga.class)
                 .setParameter("mangaId", id)
                 .getSingleResult();
     }
 
     public List<Manga> findByStatus(String status) {
         return entityManager.createQuery(
-                "SELECT m FROM Manga m WHERE m.status LIKE :mangaStatus", Manga.class)
+                "SELECT m FROM Manga m WHERE m.status = :mangaStatus", Manga.class)
                 .setParameter("mangaStatus", status)
                 .getResultList();
     }
