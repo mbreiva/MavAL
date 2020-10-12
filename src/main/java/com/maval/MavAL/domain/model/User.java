@@ -1,12 +1,11 @@
 package com.maval.MavAL.domain.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Set;
 
-@Entity(name="maval_user")
+@Entity
+@Table(name="maval_user")
 public class User {
 
     @Id
@@ -16,6 +15,7 @@ public class User {
     private String username;
     private String password;
     private String email;
+    private LocalDate creationDate;
 
     @ManyToMany
     Set<Media> favouriteMedia;
@@ -28,6 +28,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.creationDate = LocalDate.now();
     }
 
     public int getId() {

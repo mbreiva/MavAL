@@ -1,6 +1,5 @@
 package com.maval.MavAL.domain.service;
 
-import com.maval.MavAL.domain.model.Anime;
 import com.maval.MavAL.domain.model.User;
 import com.maval.MavAL.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,10 +46,10 @@ public class UserService {
                 .getSingleResult();
     }
 
-    public User findByName (String name) {
+    public User findByUsername (String username) {
         return entityManager.createQuery(
-                "SELECT u from User u WHERE u.name = :userName", User.class)
-                .setParameter("userName", name)
+                "SELECT u from User u WHERE u.username = :username", User.class)
+                .setParameter("username", username)
                 .getSingleResult();
     }
 
