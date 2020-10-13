@@ -30,17 +30,19 @@ public class AnimeService {
     }
 
     public Anime findByTitle(String title) {
-        return entityManager.createQuery(
+        List<Anime> anime = entityManager.createQuery(
                 "SELECT a FROM Anime a WHERE a.title = :animeTitle", Anime.class)
                 .setParameter("animeTitle", title)
-                .getSingleResult();
+                .getResultList();
+        return anime.isEmpty() ? null : anime.get(0);
     }
 
     public Anime findById(int id) {
-        return entityManager.createQuery(
+        List<Anime> anime = entityManager.createQuery(
                 "SELECT a FROM Anime a WHERE a.id = :animeId", Anime.class)
                 .setParameter("animeId", id)
-                .getSingleResult();
+                .getResultList();
+        return anime.isEmpty() ? null : anime.get(0);
     }
 
     public List<Anime> findByStatus(String status) {

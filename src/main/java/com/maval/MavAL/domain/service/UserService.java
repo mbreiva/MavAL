@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
@@ -21,8 +22,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public void registerUser(String name, String username, String password, String email) {
-        User user = new User(name, username, password, email);
+    public void registerUser(User user) {
+        //Persist new user instance to database
+        entityManager.getTransaction().begin();
+        entityManager.persist(user);
+        entityManager.getTransaction().commit();
     }
 
     public User loginUser(String username, String password) {
@@ -33,24 +37,36 @@ public class UserService {
     }
 
     public User findById (int id) {
-        return entityManager.createQuery(
-                "SELECT u FROM User u WHERE u.id = :userId", User.class)
-                .setParameter("userId", id)
-                .getSingleResult();
+        return entityManager.find(User.class, id);
     }
 
     public User findByEmail (String email) {
-        return entityManager.createQuery(
+        List<User> users = entityManager.createQuery(
                 "SELECT u from User u WHERE u.email = :userEmail", User.class)
                 .setParameter("userEmail", email)
-                .getSingleResult();
+                .getResultList();
+        return users.isEmpty() ? null : users.get(0);
     }
 
     public User findByUsername (String username) {
-        return entityManager.createQuery(
+        List<User> users = entityManager.createQuery(
                 "SELECT u from User u WHERE u.username = :username", User.class)
                 .setParameter("username", username)
-                .getSingleResult();
+                .getResultList();
+        return users.isEmpty() ? null : users.get(0);
     }
 
+    public boolean userExistsByUsername (String username) {
+        if(findByUsername(username) == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean userExistsByEmail (String email) {
+        if(findByEmail(email) == null) {
+            return false;
+        }
+        return true;
+    }
 }

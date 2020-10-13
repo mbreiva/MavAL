@@ -24,6 +24,6 @@ public class LoginController {
         //Check if user exists
         //Check if password matches
 
-        return "login";
+        return "redirect:/login?success";
     }
 }

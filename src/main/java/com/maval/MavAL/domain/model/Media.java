@@ -11,7 +11,7 @@ public class Media {
 
     @Id
     /**
-        using identity has a performance imapct on entity creation when using hibernate bc it
+        using identity has a performance impact on entity creation when using hibernate bc it
         forces the a db call to create the entity (since it requires pk)
         
         this is fine for us bc we don't will mostly be importing data directly from csv files
@@ -19,6 +19,7 @@ public class Media {
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     public int id;
+    @Column(unique = true)
     public String title;
     public String status;
     public Date releaseDate;

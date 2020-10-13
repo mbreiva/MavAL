@@ -12,9 +12,14 @@ public class User {
     @GeneratedValue
     private int id;
     private String name;
+
+    @Column(unique = true)
     private String username;
-    private String password;
+
+    @Column(unique = true)
     private String email;
+
+    private String password;
     private LocalDate creationDate;
 
     @ManyToMany
