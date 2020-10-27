@@ -1,6 +1,7 @@
 package com.maval.MavAL.controller;
 
 import com.maval.MavAL.domain.model.Anime;
+import com.maval.MavAL.domain.repository.MangaRepository;
 import com.maval.MavAL.domain.service.MangaService;
 import com.maval.MavAL.domain.model.Manga;
 import org.springframework.ui.Model;
@@ -17,9 +18,12 @@ public class MangaController {
     @Autowired
     public MangaService mangaService;
 
+    @Autowired
+    public MangaRepository mangaRepository;
+
     @RequestMapping("/all")
     public String showManga(Model model){
-        List<Manga> manga = mangaService.findAll();
+        List<Manga> manga = mangaRepository.findAll();
         model.addAttribute("manga", manga);
         return "manga_page";
     }

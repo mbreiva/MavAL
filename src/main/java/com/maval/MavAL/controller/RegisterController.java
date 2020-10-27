@@ -32,6 +32,7 @@ public class RegisterController {
         //Persist new user instance to database
         userService.registerUser(user);
 
+        // TODO: Redirect page after registration success
         return "redirect:/register?success";
     }
 }

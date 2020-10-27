@@ -1,6 +1,7 @@
 package com.maval.MavAL.controller;
 
 import com.maval.MavAL.domain.model.Anime;
+import com.maval.MavAL.domain.repository.AnimeRepository;
 import com.maval.MavAL.domain.service.AnimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +19,12 @@ public class AnimeController {
     @Autowired
     public AnimeService animeService;
 
+    @Autowired
+    public AnimeRepository animeRepository;
+
     @GetMapping("/")
     public String getAllAnime(Model model) {
-        List<Anime> animeList = animeService.findAll();
+        List<Anime> animeList = animeRepository.findAll();
         model.addAttribute("animeList", animeList);
         return "anime_page";
     }
@@ -34,14 +38,14 @@ public class AnimeController {
 
     @GetMapping(value={"/{title}"})
     public String getAnimeByTitle (Model model, @PathVariable String title) {
-        Anime animeList = animeService.findByTitle(title);
+        Anime animeList = animeRepository.findByTitle(title);
         model.addAttribute("animeList", animeList);
         return "anime_page";
     }
 
     @GetMapping(value={"/{status}"})
     public String getAnimeByStatus (Model model, @PathVariable String status){
-        List<Anime> animeList = animeService.findByStatus(status);
+        List<Anime> animeList = animeRepository.findByStatus(status);
         model.addAttribute("animeList", animeList);
         return "anime_page";
     }

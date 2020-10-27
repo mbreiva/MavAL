@@ -12,6 +12,8 @@ public class Manga extends Media{
     public String artist;
     public int chapterCount;
 
+    public Manga() {}
+
     public Manga(String title, String author, String artist, int chapterCount, String status, Date releaseDate){
         this.title = title;
         this.author = author;

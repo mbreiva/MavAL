@@ -12,6 +12,8 @@ public class Anime extends Media{
     public int episodeCount;
     public String season;
 
+    public Anime() {}
+
     public Anime(String title, String studio, int episodeCount, String status, Date releaseDate, String season){
         this.title = title;
         this.studio = studio;
@@ -19,10 +21,6 @@ public class Anime extends Media{
         this.status = status;
         this.releaseDate = releaseDate;
         this.season = season;
-    }
-
-    public Anime() {
-
     }
 
     public String getStudio() {

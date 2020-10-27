@@ -17,6 +17,7 @@ public class Genre {
     @ManyToMany(mappedBy = "mediaGenre")
     Set<Media> media;
 
+    public Genre () {}
     public Genre(String name){
         this.name = name;
     }

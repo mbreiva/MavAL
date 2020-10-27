@@ -33,8 +33,7 @@ public class Media {
     @ManyToMany
     Set<Genre> mediaGenre;
 
-    public Media() {
-    }
+    public Media() {}
 
     public Media(String title, String status, Date releaseDate) {
         this.title = title;

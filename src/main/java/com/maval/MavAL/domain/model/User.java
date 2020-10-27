@@ -28,6 +28,8 @@ public class User {
     @ManyToMany
     Set<Media> mediaProgress;
 
+    public User() {}
+
     public User(String name, String username, String password, String email){
         this.name = name;
         this.username = username;
