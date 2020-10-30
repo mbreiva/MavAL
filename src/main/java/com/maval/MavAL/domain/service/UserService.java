@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService {
@@ -29,11 +28,9 @@ public class UserService {
         entityManager.persist(user);
     }
 
-    public User loginUser(String username, String password) {
-        return entityManager.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class)
-                .setParameter("username", username)
-                .setParameter("password", password)
-                .getSingleResult();
+    public User loginUser(User user) {
+        // TODO: Figure out login procedure
+        return user;
     }
 
     public boolean userExistsByUsername (String username) {
@@ -44,8 +41,9 @@ public class UserService {
         return userRepository.findByEmail(email) == null;
     }
 
-    public boolean passwordMatch (String password) {
+    public boolean passwordValid (String username, String password) {
         //TODO: Check if password input matches user password
-        return true;
+        User user = userRepository.findByUsername(username);
+        return user.getPassword() == password;
     }
 }

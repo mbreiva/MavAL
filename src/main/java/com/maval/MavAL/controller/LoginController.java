@@ -16,19 +16,4 @@ public class LoginController {
     @GetMapping("/login")
     public String showLoginPage() { return "login";}
 
-    @PostMapping(path="/login", consumes="application/x-www-form-urlencoded")
-    public String loginUser (User user) {
-
-        // TODO: Check if user exists
-        if(userService.userExistsByUsername(user.getUsername()) == false) {
-            return "redirect:/login";
-        }
-        // TODO: Check if password matches
-        if(userService.passwordMatch(user.getPassword()) == false) {
-            return "redirect:/login";
-        }
-
-        // TODO: Redirect page after login success
-        return "redirect:/login?success";
-    }
 }

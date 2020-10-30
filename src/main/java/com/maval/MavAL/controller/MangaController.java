@@ -1,6 +1,5 @@
 package com.maval.MavAL.controller;
 
-import com.maval.MavAL.domain.model.Anime;
 import com.maval.MavAL.domain.repository.MangaRepository;
 import com.maval.MavAL.domain.service.MangaService;
 import com.maval.MavAL.domain.model.Manga;
