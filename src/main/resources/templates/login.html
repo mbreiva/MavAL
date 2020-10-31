@@ -37,7 +37,7 @@
     </div>
     <div class="m-5">
         <h1>Login</h1>
-        <form>
+        <div>
             <div class="form-group">
                 <label for="username"><b>Username </b></label>
                 <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username" required>
@@ -51,8 +51,9 @@
                     <input type="checkbox" class="form-check-input"> Remember me
                 </label>
             </div>
-            <button id="loginButton" name="loginButton" type="submit" class="btn btn-outline-success">Login</button>
-        </form>
+            <button id="loginButton" name="loginButton" class="btn btn-outline-success">Login</button>
+        </div>
     </div>
+    <script th:src="@{/js/login.js}"></script>
 </body>
 </html>

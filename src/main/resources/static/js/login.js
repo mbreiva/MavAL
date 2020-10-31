@@ -14,15 +14,15 @@ function loginRequest() {
         },
         body: JSON.stringify(credentials),
     })
-
-    .then(response => response.json())
+    .then(response => {
+        return response.json();
+    })
     .then(result => {
         console.log("Success:", result);
     })
         .catch(error => {
             console.error("Error", error);
         });
-
 
 }
 
