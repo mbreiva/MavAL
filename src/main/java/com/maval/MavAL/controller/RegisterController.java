@@ -18,21 +18,21 @@ public class RegisterController {
         return "register_new_user";
     }
 
-    @PostMapping(path="/register", consumes="application/x-www-form-urlencoded")
-    public String registerUser(User user) {
-
-        //Check if username is taken
-        if(userService.userExistsByUsername(user.getUsername()) == true){
-            return "redirect:/register";
-        }
-        //Check if email tied to an existing account
-        if(userService.userExistsByEmail(user.getEmail()) == true) {
-            return "redirect:/register";
-        }
-        //Persist new user instance to database
-        userService.registerUser(user);
-
-        // TODO: Redirect page after registration success
-        return "redirect:/register?success";
-    }
+//    @PostMapping(path="/register", consumes="application/x-www-form-urlencoded")
+//    public String registerUser(User user) {
+//
+//        //Check if username is taken
+//        if(userService.userExistsByUsername(user.getUsername())){
+//            return "redirect:/register?fail";
+//        }
+//        //Check if email tied to an existing account
+//        if(userService.userExistsByEmail(user.getEmail())) {
+//            return "redirect:/register?fail";
+//        }
+//        //Persist new user instance to database
+//        userService.registerUser(user);
+//
+//        // TODO: Redirect page after registration success
+//        return "redirect:/login";
+//    }
 }

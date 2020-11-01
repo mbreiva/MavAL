@@ -1,12 +1,12 @@
 package com.maval.MavAL.domain.model;
 
-public class LoginUserResponse {
+public class LoginResponse {
     public boolean usernameValid;
     public boolean passwordValid;
 
-    public LoginUserResponse() {};
+    public LoginResponse() {};
 
-    public LoginUserResponse(boolean usernameValid, boolean passwordValid){
+    public LoginResponse(boolean usernameValid, boolean passwordValid){
         this.usernameValid = usernameValid;
         this.passwordValid = passwordValid;
     }

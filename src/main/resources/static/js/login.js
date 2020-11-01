@@ -14,10 +14,21 @@ function loginRequest() {
         },
         body: JSON.stringify(credentials),
     })
-    .then(response => {
-        return response.json();
-    })
+    .then(response =>
+        response.json()
+    )
     .then(result => {
+        if(!result.usernameValid){
+            alert("Username does not exist.");
+        }
+        else if(!result.passwordValid){
+            alert("Invalid password");
+        }
+        else{
+            localStorage.setItem("username", username);
+            localStorage.setItem("password", password);
+            alert("Login success");
+        }
         console.log("Success:", result);
     })
         .catch(error => {

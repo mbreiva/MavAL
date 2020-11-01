@@ -1,9 +1,10 @@
 package com.maval.MavAL.controller;
 
 import com.maval.MavAL.domain.model.LoginRequestDetails;
-import com.maval.MavAL.domain.model.LoginUserResponse;
+import com.maval.MavAL.domain.model.LoginResponse;
 import com.maval.MavAL.domain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,11 +15,12 @@ public class LoginRestController {
     @Autowired
     public UserService userService;
 
+    @CrossOrigin(origins = "http://localhost:8000")
     @PostMapping(path = "api/authenticate", consumes = "application/json", produces = "application/json")
     // Returns booleans for each credential
-    public LoginUserResponse authenticate(@RequestBody LoginRequestDetails credentials) {
+    public LoginResponse authenticate(@RequestBody LoginRequestDetails credentials) {
 
-        LoginUserResponse credentialsValid = new LoginUserResponse();
+        LoginResponse credentialsValid = new LoginResponse();
 
         // Check if user exists based on username
         credentialsValid.usernameValid = userService.userExistsByUsername(credentials.username);

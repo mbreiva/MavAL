@@ -24,26 +24,22 @@ public class UserService {
 
     @Transactional
     public void registerUser(User user) {
+        User newUser = new User(user.getName(), user.getEmail(), user.getUsername(), user.getPassword());
         //Persist new user instance to database
-        entityManager.persist(user);
-    }
-
-    public User loginUser(User user) {
-        // TODO: Figure out login procedure
-        return user;
+        entityManager.persist(newUser);
     }
 
     public boolean userExistsByUsername (String username) {
-        return userRepository.findByUsername(username) == null;
+        return userRepository.findByUsername(username) != null;
     }
 
     public boolean userExistsByEmail (String email) {
-        return userRepository.findByEmail(email) == null;
+        return userRepository.findByEmail(email) != null;
     }
 
     public boolean passwordValid (String username, String password) {
         //TODO: Check if password input matches user password
         User user = userRepository.findByUsername(username);
-        return user.getPassword() == password;
+        return user.getPassword().equals(password);
     }
 }

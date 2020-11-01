@@ -30,10 +30,10 @@ public class User {
 
     public User() {}
 
-    public User(String name, String username, String password, String email){
+    public User(String name, String email, String username, String password){
         this.name = name;
-        this.username = username;
         this.email = email;
+        this.username = username;
         this.password = password;
         this.creationDate = LocalDate.now();
     }
