@@ -1,6 +1,5 @@
 package com.maval.MavAL.controller;
 
-import com.maval.MavAL.domain.model.RegisterRequestDetails;
 import com.maval.MavAL.domain.model.RegisterResponse;
 import com.maval.MavAL.domain.model.User;
 import com.maval.MavAL.domain.service.UserService;
