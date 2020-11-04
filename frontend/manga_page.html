@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>MavAL</title>
+    <title>Manga</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#navigation').load('navbar.html');
+        });
+    </script>
 </head>
 <body>
     <div class="pl-3">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">MavAL</a>
+            <a class="navbar-brand" href="/">MavAL</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/anime/top-50">Anime</a>
@@ -36,9 +41,26 @@
         </nav>
     </div>
     <div class="m-5">
-        <h1>Welcome to MavAL!</h1>
-        <p>New user? Register <a href="/register">here</a></p>
-        <p>Already have an account? Login <a href="/login">here</a></p>
+        <h1>Manga</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col"> Title </th>
+                <th scope="col"> Status </th>
+                <th scope="col"> Episodes </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${mangaList.empty}">
+                <td colspan="2"> No Manga Available </td>
+            </tr>
+            <tr th:each="manga : ${mangaList}">
+                <td scope="row"><span th:text="${manga.title}"> Title </span></td>
+                <td scope="row"><span th:text="${manga.status}"> Status </span></td>
+                <td scope="row"><span th:text="${manga.episodeCount}"> Episodes </span></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

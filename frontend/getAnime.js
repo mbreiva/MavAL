@@ -2,8 +2,9 @@
 animeRequest();
 
 function animeRequest(){
+    var url = "http://localhost:8080/api/get_anime?limit=20";
 
-    fetch("http://localhost:8080/api/getAnimeDefault", {
+    fetch(url, {
         method: "GET",
     })
         .then(response =>
@@ -21,21 +22,21 @@ function animeRequest(){
 function addAnimeToTable(animeList) {
     let animeTable = document.getElementById("animeTable");
 
-    if(animeList.size() == 0){
-        let row = animeTable.insertRow;
+    if(animeList.length == 0){
+        let row = animeTable.insertRow(0);
         let col = row.insertCell(0);
         col.innerHTML = "No anime available";
     }
     else{
-        for(i=0; i < animeList.size(); i++) {
-            let row = animeTable.insertRow(i);
+        for(i=0; i < animeList.length; i++) {
+            let row = animeTable.insertRow(i+1);
             let title = row.insertCell(0);
             let status = row.insertCell(1);
             let episodeCount = row.insertCell(2);
 
-            title.innerHTML = animeList.get(i).getTitle();
-            status.innerHTML = animeList.get(i).getStatus();
-            episodeCount.innerHTML = animeList.get(i).getEpisodeCount();
+            title.innerHTML = animeList[i].title;
+            status.innerHTML = animeList[i].status;
+            episodeCount.innerHTML = animeList[i].episodeCount;
         }
     }
 }

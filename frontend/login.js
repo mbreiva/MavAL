@@ -7,7 +7,7 @@ function loginRequest() {
 
     let credentials = {username: username, password: password};
 
-    fetch("http://localhost:8080/api/register", {
+    fetch("http://localhost:8080/api/authenticate", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -1,18 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Anime</title>
+    <title>MavAL</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#navigation').load('navbar.html');
-        });
-    </script>
 </head>
 <body>
     <div class="pl-3">
@@ -41,31 +36,9 @@
         </nav>
     </div>
     <div class="m-5">
-        <h1>Anime</h1>
-        <form id="animeSearch" class="form-inline my-2 my-lg-0">
-            <input id="animeSearchInput" class="form-control mr-sm-2" type="search" placeholder="Search anime" aria-label="Search">
-            <button id="animeSearchButton" class="btn btn-outline-success my-2 my-sm-0" type="button" >Search</button>
-        </form>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col"> Title </th>
-                <th scope="col"> Status </th>
-                <th scope="col"> Episodes </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:if="${animeList.empty}">
-                <td colspan="2"> No Anime Available </td>
-            </tr>
-            <tr th:each="anime : ${animeList}">
-                <td scope="row"><span th:text="${anime.title}"> Title </span></td>
-                <td scope="row"><span th:text="${anime.status}"> Status </span></td>
-                <td scope="row"><span th:text="${anime.episodeCount}"> Episodes </span></td>
-            </tr>
-            </tbody>
-        </table>
+        <h1>Welcome to MavAL!</h1>
+        <p>New user? Register <a href="/register">here</a></p>
+        <p>Already have an account? Login <a href="/login">here</a></p>
     </div>
-    <script th:src="@{/js/searchAnime.js}"></script>
 </body>
 </html>
