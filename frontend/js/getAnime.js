@@ -2,7 +2,7 @@
 animeRequest();
 
 function animeRequest(){
-    var url = "http://localhost:8080/api/get_anime?limit=20";
+    let url = "http://localhost:8080/api/get_anime?limit=20";
 
     fetch(url, {
         method: "GET",

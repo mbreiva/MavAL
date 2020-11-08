@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.vs/MavAL/v16/.suo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/ProjectSettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/ProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/getAnime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/searchAnime.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/js/userProfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/src/reportWebVitals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/src/setupTests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/anime_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/anime_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/getAnime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/register.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/searchAnime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/user_profile.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/backend">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MavAL" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hLjFXBg8uKXny905tu9mfEm2yA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/maval-app" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mavel\Desktop\MavAL\src\main\resources\static\" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mavel\Desktop\MavAL\src\main\resources\static\js" />
+      <recent name="C:\Users\mavel\Desktop\Test" />
+      <recent name="C:\Users\mavel\Desktop\MavAL\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MavAlApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.maval.MavAL.MavAlApplication" />
+      <module name="MavAL.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.maval.MavAL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MavAlApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="" />
+      <created>1599797166220</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599797166220</updated>
+      <workItem from="1599797168686" duration="808000" />
+      <workItem from="1599835467779" duration="10868000" />
+      <workItem from="1599880512574" duration="1881000" />
+      <workItem from="1599932751959" duration="6485000" />
+      <workItem from="1600052105802" duration="7032000" />
+      <workItem from="1600397621563" duration="6992000" />
+      <workItem from="1600404693996" duration="1246000" />
+      <workItem from="1600406130659" duration="1669000" />
+      <workItem from="1600485889179" duration="2685000" />
+      <workItem from="1600489467879" duration="2330000" />
+      <workItem from="1600826845081" duration="953000" />
+      <workItem from="1600827818512" duration="4134000" />
+      <workItem from="1600832285949" duration="2129000" />
+      <workItem from="1600911252225" duration="7147000" />
+      <workItem from="1600919440575" duration="1643000" />
+      <workItem from="1600921215265" duration="2700000" />
+      <workItem from="1600996590661" duration="24474000" />
+      <workItem from="1601434317264" duration="7491000" />
+      <workItem from="1601522221914" duration="4721000" />
+      <workItem from="1601584295449" duration="10210000" />
+      <workItem from="1601607636980" duration="6584000" />
+      <workItem from="1601687717732" duration="6004000" />
+      <workItem from="1601694048620" duration="733000" />
+      <workItem from="1601694810255" duration="3539000" />
+      <workItem from="1602089391436" duration="1553000" />
+      <workItem from="1602093843377" duration="4139000" />
+      <workItem from="1602125695733" duration="3376000" />
+      <workItem from="1602525006640" duration="30000" />
+      <workItem from="1602525182168" duration="12780000" />
+      <workItem from="1602631355420" duration="6371000" />
+      <workItem from="1603675298592" duration="895000" />
+      <workItem from="1603765341908" duration="4978000" />
+      <workItem from="1603850626730" duration="4484000" />
+      <workItem from="1603906688136" duration="4490000" />
+      <workItem from="1604005206582" duration="17940000" />
+      <workItem from="1604110828387" duration="4365000" />
+      <workItem from="1604165921354" duration="5626000" />
+      <workItem from="1604186126296" duration="1684000" />
+      <workItem from="1604197971630" duration="10107000" />
+      <workItem from="1604255092209" duration="17436000" />
+      <workItem from="1604458460803" duration="519000" />
+      <workItem from="1604526068637" duration="475000" />
+      <workItem from="1604526568395" duration="734000" />
+      <workItem from="1604630824666" duration="6465000" />
+      <workItem from="1604798109777" duration="1308000" />
+      <workItem from="1604803680100" duration="122000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="53" key="#Plugins" timestamp="1601437999901">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="53" key="#Plugins/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1601437999901" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600923078187">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1600923078187" />
+    <state x="543" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601606323135">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="543" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1601606323135" />
+    <state x="498" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1600922718145">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="498" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1600922718145" />
+    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602525022552">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1602525022552" />
+    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1604803802313">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604803802313" />
+    <state width="1493" height="276" key="GridCell.Tab.0.bottom" timestamp="1604638956826">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="276" key="GridCell.Tab.0.bottom/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604638956826" />
+    <state width="1493" height="276" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
+    <state width="1493" height="276" key="GridCell.Tab.0.center" timestamp="1604638956825">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="276" key="GridCell.Tab.0.center/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604638956825" />
+    <state width="1493" height="276" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602689340982" />
+    <state width="1493" height="276" key="GridCell.Tab.0.left" timestamp="1604638956825">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="276" key="GridCell.Tab.0.left/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604638956825" />
+    <state width="1493" height="276" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602689340982" />
+    <state width="1493" height="276" key="GridCell.Tab.0.right" timestamp="1604638956826">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="276" key="GridCell.Tab.0.right/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604638956826" />
+    <state width="1493" height="276" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
+    <state width="1493" height="276" key="GridCell.Tab.1.bottom" timestamp="1604638956826">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="276" key="GridCell.Tab.1.bottom/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604638956826" />
+    <state width="1493" height="276" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
+    <state width="1493" height="276" key="GridCell.Tab.1.center" timestamp="1604638956826">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="276" key="GridCell.Tab.1.center/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604638956826" />
+    <state width="1493" height="276" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
+    <state width="1493" height="276" key="GridCell.Tab.1.left" timestamp="1604638956826">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="276" key="GridCell.Tab.1.left/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604638956826" />
+    <state width="1493" height="276" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
+    <state width="1493" height="276" key="GridCell.Tab.1.right" timestamp="1604638956826">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="276" key="GridCell.Tab.1.right/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604638956826" />
+    <state width="1493" height="276" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1604803803899">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604803803899" />
+    <state x="320" y="110" width="1030" height="592" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1600916973879">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="320" y="110" width="1030" height="592" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1600916973879" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1600828164609">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1600828164609" />
+  </component>
+</project>
