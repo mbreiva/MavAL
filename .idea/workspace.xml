@@ -23,42 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.vs/MavAL/v16/.suo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/ProjectSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/ProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/js/getAnime.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/js/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/js/searchAnime.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/js/userProfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/src/App.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/src/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/src/reportWebVitals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/src/setupTests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/anime_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/anime_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/getAnime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/register.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/searchAnime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/user_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +172,8 @@
       <workItem from="1604526568395" duration="734000" />
       <workItem from="1604630824666" duration="6465000" />
       <workItem from="1604798109777" duration="1308000" />
-      <workItem from="1604803680100" duration="122000" />
+      <workItem from="1604803680100" duration="946000" />
+      <workItem from="1604855377090" duration="5000" />
     </task>
     <servers />
   </component>
