@@ -16,7 +16,7 @@ export default function App() {
   return (
     <Switch>
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/login" component={LoginView} />
+      <Route exact path="/login" component={LoginScreen} />
       <Route exact path="/register" component={RegisterPage} />
       <Route exact path="/anime" component={AnimePage} />
       <Route exact path="/manga" component={MangaPage} />

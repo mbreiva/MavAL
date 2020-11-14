@@ -7,6 +7,8 @@ export default class LoginScreen extends Component {
         super(props);
         this.state = {isLoggedIn: false, username: null, password: null};
 
+        this.handleUsernameChange = this.handleUsernameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
     }
