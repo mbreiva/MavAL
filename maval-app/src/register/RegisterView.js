@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function RegisterPage(){
+export default function RegisterPage(props){
     const classes = useStyles();
 
     return (
@@ -43,6 +43,7 @@ export default function RegisterPage(){
                             name="name" 
                             label="Name" 
                             size="small"
+                            onChange={props.handleNameChange}
                         />
                         <TextField 
                             variant="outlined" 
@@ -53,6 +54,7 @@ export default function RegisterPage(){
                             name="email" 
                             label="Email" 
                             size="small"
+                            onChange={props.handleEmailChange}
                         />
                         <TextField 
                             variant="outlined"
@@ -63,6 +65,7 @@ export default function RegisterPage(){
                             name="username" 
                             label="Username" 
                             size="small"
+                            onChange={props.handleUsernameChange}
                         />
                         <TextField 
                             variant="outlined" 
@@ -73,13 +76,16 @@ export default function RegisterPage(){
                             name="password" 
                             label="Password" 
                             size="small"
+                            onChange={props.handlePasswordChange}
                         />
                     </form>
                     <Button 
                         type="submit"
                         fullWidth
                         variant="contained" 
-                        color="primary">
+                        color="primary"
+                        onClick={props.handleRegister}
+                    >
                         Register
                     </Button>
                 </div>

@@ -15,7 +15,7 @@ public class RegisterRestController {
     @Autowired
     public UserService userService;
 
-    @CrossOrigin(origins = "http://localhost:8000")
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(path = "api/register", consumes = "application/json", produces = "application/json")
     // Returns booleans for each credential
     public RegisterResponse registerNewUser(@RequestBody User user) {

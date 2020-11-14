@@ -78,7 +78,8 @@ export default function LoginView(props){
                             fullWidth
                             variant="contained" 
                             color="primary"
-                            onClick={props.handleLogin}>
+                            onClick={props.handleLogin}
+                        >
                             Login
                         </Button>
                         <Grid container>
