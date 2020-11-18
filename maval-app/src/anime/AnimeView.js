@@ -17,8 +17,16 @@ const useStyles = makeStyles({
     },
 });
 
-export default function AnimePage(){
+export default function AnimeView(props){
     const classes = useStyles();
+    const animeList = props.anime;
+    const animeRows = animeList.map((anime) =>
+        <tr key={anime.id}>
+            <td>{anime.title}</td>
+            <td>{anime.status}</td>
+            <td>{anime.episodeCount}</td>
+        </tr>
+    );
 
     return (
         <div>
@@ -28,11 +36,14 @@ export default function AnimePage(){
                 <TableContainer component={Paper}>
                     <Table className={classes.table}>
                         <TableHead>
-                            <TableCell>Title</TableCell>
-                            <TableCell>Status</TableCell>
-                            <TableCell>Episodes</TableCell>
+                            <TableRow>
+                                <TableCell>Title</TableCell>
+                                <TableCell>Status</TableCell>
+                                <TableCell>Episodes</TableCell>
+                            </TableRow>
                         </TableHead>
                         <TableBody>
+                            {animeRows}
                         </TableBody>
                     </Table>
                 </TableContainer>

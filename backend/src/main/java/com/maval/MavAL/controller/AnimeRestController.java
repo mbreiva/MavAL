@@ -18,7 +18,7 @@ public class AnimeRestController {
     @Autowired
     public AnimeRepository animeRepository;
 
-    @CrossOrigin(origins = "http://localhost:8000")
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="api/get_anime")
     public List<Anime> getAnime(Integer limit, String status) {
         List<Anime> animeList = new ArrayList<Anime>();

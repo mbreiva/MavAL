@@ -62,7 +62,7 @@ export default class RegisterScreen extends Component {
                 else {
                     this.setState({
                         isRegistered: true
-                    })
+                    });
                     alert("Register success");
                 }
                 console.log("Success:", result);

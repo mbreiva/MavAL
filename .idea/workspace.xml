@@ -23,9 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/AnimeRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/AnimeRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/MangaRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/MangaRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maval-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/anime/Anime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/login/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/login/LoginScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/manga/Manga.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/register/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/register/RegisterScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +179,7 @@
       <workItem from="1604798109777" duration="1308000" />
       <workItem from="1604803680100" duration="946000" />
       <workItem from="1604855377090" duration="5000" />
+      <workItem from="1605742494333" duration="274000" />
     </task>
     <servers />
   </component>

@@ -42,7 +42,7 @@ export default class LoginScreen extends Component {
                 else{
                     this.setState({
                         isLoggedIn: true
-                    })
+                    });
                     localStorage.setItem("username", this.state.username);
                     localStorage.setItem("password", this.state.password);
                     alert("Login success");

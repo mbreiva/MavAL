@@ -17,8 +17,16 @@ const useStyles = makeStyles({
     },
 });
 
-export default function MangaPage(){
+export default function MangaPage(props){
     const classes = useStyles();
+    const mangaList = props.manga;
+    const mangaRows = mangaList.map((manga) =>
+        <tr key={manga.id}>
+            <td>{manga.title}</td>
+            <td>{manga.status}</td>
+            <td>{manga.chapterCount}</td>
+        </tr>
+    );
 
     return (
         <div>
@@ -28,11 +36,14 @@ export default function MangaPage(){
                 <TableContainer component={Paper}>
                     <Table className={classes.table}>
                         <TableHead>
-                            <TableCell>Title</TableCell>
-                            <TableCell>Status</TableCell>
-                            <TableCell>Chapters</TableCell>
+                            <TableRow>
+                                <TableCell>Title</TableCell>
+                                <TableCell>Status</TableCell>
+                                <TableCell>Chapters</TableCell>
+                            </TableRow>
                         </TableHead>
                         <TableBody>
+                            {mangaRows}
                         </TableBody>
                     </Table>
                 </TableContainer>
