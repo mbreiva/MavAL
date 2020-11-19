@@ -15,7 +15,7 @@ public class LoginRestController {
     @Autowired
     public UserService userService;
 
-    @CrossOrigin(origins = "http://localhost:8000")
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(path = "api/authenticate", consumes = "application/json", produces = "application/json")
     // Returns booleans for each credential
     public LoginResponse authenticate(@RequestBody LoginRequestDetails credentials) {
