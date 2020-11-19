@@ -1,5 +1,4 @@
 import React from 'react'
-import NavBar from '../shared_components/NavBar'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
@@ -28,7 +27,6 @@ export default function RegisterPage(props){
 
     return (
         <div>
-            <NavBar />
             <CssBaseline />
             <Container component="main" maxWidth="xs">
                 <div className={classes.paper}>

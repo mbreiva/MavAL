@@ -1,6 +1,5 @@
 import React from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import NavBar from '../shared_components/NavBar'
 import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
@@ -39,7 +38,6 @@ export default function LoginView(props){
     return (
         <div>
             <CssBaseline />
-            <NavBar />
             <Container component="main" maxWidth="xs">
                 <div className={classes.paper}>
                     <Avatar className={classes.avatar}>
