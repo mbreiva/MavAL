@@ -5,12 +5,12 @@ import { Route, Switch } from 'react-router-dom'
 import HomePage from './home/MavalHome'
 import AnimeScreen from './anime/AnimeScreen'
 import MangaScreen from './manga/MangaScreen'
-import UserProfilePage from './user_profile/UserProfile'
+import UserProfilePage from './user_profile/UserProfileView'
 import LoginScreen from './login/LoginScreen'
 import RegisterScreen from './register/RegisterScreen'
-import LoginView from './login/LoginView';
 import IndividualAnimeScreen from './anime/IndividualAnimeScreen'
 import IndividualMangaScreen from './manga/IndividualMangaScreen'
+import UserProfileScreen from './user_profile/UserProfileScreen'
 import NavBar from './shared_components/NavBar'
 
 //import UserPage from './pages/UserPage'
@@ -27,7 +27,7 @@ export default function App() {
         <Route exact path="/anime/:id" component={IndividualAnimeScreen} />
         <Route exact path="/manga" component={MangaScreen} />
         <Route exact path="/manga/:id" component={IndividualMangaScreen} />
-        <Route exact path="/user" component={UserProfilePage} />
+        <Route exact path="/user/:id" component={UserProfileScreen} />
         {/* <Route path="/:id" component={UserPage} />
         <Route path="/categories" component={CategoriesPage} />
         <Route path="/categories/:id" component={IndividualCategoryPage} /> */}

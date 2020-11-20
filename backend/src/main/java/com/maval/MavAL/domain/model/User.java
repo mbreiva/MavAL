@@ -2,6 +2,7 @@ package com.maval.MavAL.domain.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,10 +24,18 @@ public class User {
     private LocalDate creationDate;
 
     @ManyToMany
-    Set<Media> favouriteMedia;
+    @JoinTable(
+        name = "Favourite_Media",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "media_id"))
+    private Set<Media> favouriteMedia = new HashSet<>();
 
     @ManyToMany
-    Set<Media> mediaProgress;
+    @JoinTable(
+            name = "Media_Progress",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "media_id"))
+    private Set<Media> mediaProgress = new HashSet<>();
 
     public User() {}
 
