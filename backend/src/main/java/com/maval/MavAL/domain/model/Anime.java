@@ -1,5 +1,7 @@
 package com.maval.MavAL.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -16,6 +18,7 @@ public class Anime extends Media{
     public String season;
 
     @OneToMany(mappedBy="anime")
+    @JsonIgnore
     public Set<UserMedia> userMedia = new HashSet<>();
 
 

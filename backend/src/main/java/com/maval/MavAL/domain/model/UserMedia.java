@@ -1,5 +1,7 @@
 package com.maval.MavAL.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class UserMedia {
 
     @ManyToOne
     @JoinColumn(name="anime_id")
+    @JsonIgnore
     public Anime anime;
 
     public boolean favourite = false;

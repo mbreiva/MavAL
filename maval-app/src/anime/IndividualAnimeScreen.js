@@ -41,10 +41,8 @@ export default class IndividualAnimeScreen extends Component {
         fetch(url, {
             method: "GET",
         })
-            .then(response => {
-                console.log(response);
-                response.json();
-            }
+            .then(response =>
+                response.json()
             )
             .then(result => {
                 this.setState({
