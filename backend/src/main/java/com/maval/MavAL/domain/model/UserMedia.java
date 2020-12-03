@@ -8,12 +8,15 @@ import javax.persistence.*;
 public class UserMedia {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+
+    @ManyToOne
     @JoinColumn(name="anime_id")
-    @JsonIgnore
     public Anime anime;
 
     public boolean favourite = false;
@@ -21,9 +24,7 @@ public class UserMedia {
     public int episode = 0;
     public int chapter = 0;
 
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User user;
+
 
     public UserMedia() {}
 

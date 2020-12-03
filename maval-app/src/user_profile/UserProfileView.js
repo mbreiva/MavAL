@@ -1,33 +1,33 @@
 import React from 'react'
 
-export default function UserProfilePage(props){
-    let favourites;
-    let favRows;
-    let favTable;
+export default function UserProfileView(props){
+    let userMedia;
+    let userMediaRows;
+    let userMediaTable;
     let username;
 
     if(props.user == null) {
         username = <div/>;
     }
-    else if(props.user.favouriteMedia == null){
+    else if(props.user.userMedia == null){
         username = props.user.username;
-        favTable = <div/>;
+        userMedia = <div/>;
     }
     else {
         username = props.user.username;
-        favourites = props.user.favouriteMedia;
+        userMedia = props.user.userMedia;
 
-        favRows = favourites.map((media) =>
+        userMediaRows = userMedia.map((media) =>
             <tr key={media.id}>
-                <td><a href={`/anime/${media.id}`}>{media.title}</a></td>
-                <td>{media.status}</td>
-                <td>{media.episodeCount}</td>
+                <td><a href={`/anime/${media.anime.id}`}>{media.anime.title}</a></td>
+                <td>{media.anime.status}</td>
+                <td>{media.anime.episodeCount}</td>
             </tr>
         );
 
-        favTable = (
+        userMediaTable = (
             <div>
-                <h2>Favourites</h2>
+                <h2>My Anime</h2>
                 <thead>
                     <tr>
                         <td>Title</td>
@@ -36,7 +36,7 @@ export default function UserProfilePage(props){
                     </tr>
                 </thead>
                 <tbody>
-                    {favRows}
+                    {userMediaRows}
                 </tbody>
             </div>
         );
@@ -45,7 +45,7 @@ export default function UserProfilePage(props){
     let userInfo = (
         <div>
             <h1>{username}</h1>
-            {favTable}
+            {userMediaTable}
         </div>
     );
 

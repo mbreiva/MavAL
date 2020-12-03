@@ -17,11 +17,6 @@ public class Anime extends Media{
     public int episodeCount;
     public String season;
 
-    @OneToMany(mappedBy="anime")
-    @JsonIgnore
-    public Set<UserMedia> userMedia = new HashSet<>();
-
-
     public Anime() {}
 
     public Anime(String title, String studio, int episodeCount, String status, Date releaseDate, String season){

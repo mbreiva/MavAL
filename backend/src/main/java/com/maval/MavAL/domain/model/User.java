@@ -23,13 +23,6 @@ public class User {
     private String password;
     private LocalDate creationDate;
 
-//    @ManyToMany
-//    @JoinTable(
-//        name = "Favourite_Anime",
-//        joinColumns = @JoinColumn(name = "user_id"),
-//        inverseJoinColumns = @JoinColumn(name = "anime_id"))
-//    public Set<Anime> favouriteAnime = new HashSet<>();
-//
     @OneToMany(mappedBy="user")
     public Set<UserMedia> userMedia = new HashSet<>();
 //

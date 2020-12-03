@@ -1,11 +1,9 @@
-import logo from './logo.svg';
 import './App.css'
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import HomePage from './home/MavalHome'
 import AnimeScreen from './anime/AnimeScreen'
 import MangaScreen from './manga/MangaScreen'
-import UserProfilePage from './user_profile/UserProfileView'
 import LoginScreen from './login/LoginScreen'
 import RegisterScreen from './register/RegisterScreen'
 import IndividualAnimeScreen from './anime/IndividualAnimeScreen'

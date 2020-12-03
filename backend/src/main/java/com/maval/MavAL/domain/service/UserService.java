@@ -40,6 +40,12 @@ public class UserService {
         entityManager.persist(userMedia);
     }
 
+    public boolean animeExistsInUserMedia(User user, Anime anime) {
+        // TODO: Check if user already has relation to anime
+        boolean animeExists = user.userMedia.stream().anyMatch(o -> o.anime == anime);
+        return animeExists;
+    }
+
     public boolean userExistsByUsername (String username) {
         return userRepository.findByUsername(username) != null;
     }

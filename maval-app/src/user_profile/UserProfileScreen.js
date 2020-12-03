@@ -6,14 +6,14 @@ export default class UserProfileScreen extends Component {
         super(props);
 
         this.state = {
-            username: this.props.match.params.id,
+            user_id: this.props.match.params.id,
             user: null,
         }
     }
 
     componentDidMount(){
-        let url = "http://localhost:8080/api/get_user_by_username?username=";
-        url = url + this.state.username;
+        let url = "http://localhost:8080/api/get_user_by_id?user_id=";
+        url = url + this.state.user_id;
 
         fetch(url, {
             method: "GET",
