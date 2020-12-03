@@ -9,6 +9,27 @@ export default class IndividualAnimeScreen extends Component {
             id: this.props.match.params.id,
             anime: null,
         }
+
+        this.addUserAnime = this.addUserAnime.bind(this);
+    }
+
+    addUserAnime() {
+        var username = localStorage.getItem('username');
+        let url = "http://localhost:8080/api/add_user_anime?username=";
+        url = url + username + "&title=" + this.state.anime.title;
+
+        fetch(url, {
+            method: "GET",
+        })
+            .then(response =>
+                response.json()
+            )
+            .then(result => {
+                console.log("Success:", result);
+            })
+            .catch(error => {
+                console.error("Error", error);
+            });
     }
 
     componentDidMount(){
@@ -20,8 +41,10 @@ export default class IndividualAnimeScreen extends Component {
         fetch(url, {
             method: "GET",
         })
-            .then(response =>
-                response.json()
+            .then(response => {
+                console.log(response);
+                response.json();
+            }
             )
             .then(result => {
                 this.setState({
@@ -36,7 +59,10 @@ export default class IndividualAnimeScreen extends Component {
 
     render() {
         return (
-            <IndividualAnimeView anime={this.state.anime} />
+            <IndividualAnimeView 
+                anime={this.state.anime}
+                addUserAnime={this.addUserAnime}
+            />
         );
     }
 }

@@ -25,14 +25,14 @@ public class Media {
     public String status;
     public Date releaseDate;
 
-    @ManyToMany(mappedBy = "favouriteMedia")
-    Set<User> favourites = new HashSet<>();
-
-    @ManyToMany(mappedBy = "mediaProgress")
-    Set<User> userProgress = new HashSet<>();
-
-    @ManyToMany
-    Set<Genre> mediaGenre = new HashSet<>();
+//    @ManyToMany(mappedBy = "favouriteMedia")
+//    Set<User> favourites = new HashSet<>();
+//
+//    @ManyToMany(mappedBy = "mediaProgress")
+//    Set<User> userProgress = new HashSet<>();
+//
+//    @ManyToMany
+//    Set<Genre> mediaGenre = new HashSet<>();
 
     public Media() {}
 

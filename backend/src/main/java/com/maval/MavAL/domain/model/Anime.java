@@ -2,7 +2,10 @@ package com.maval.MavAL.domain.model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @DiscriminatorValue("1")
@@ -11,6 +14,10 @@ public class Anime extends Media{
     public String studio;
     public int episodeCount;
     public String season;
+
+    @OneToMany(mappedBy="anime")
+    public Set<UserMedia> userMedia = new HashSet<>();
+
 
     public Anime() {}
 

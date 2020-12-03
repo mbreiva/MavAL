@@ -23,19 +23,22 @@ public class User {
     private String password;
     private LocalDate creationDate;
 
-    @ManyToMany
-    @JoinTable(
-        name = "Favourite_Media",
-        joinColumns = @JoinColumn(name = "user_id"),
-        inverseJoinColumns = @JoinColumn(name = "media_id"))
-    private Set<Media> favouriteMedia = new HashSet<>();
-
-    @ManyToMany
-    @JoinTable(
-            name = "Media_Progress",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "media_id"))
-    private Set<Media> mediaProgress = new HashSet<>();
+//    @ManyToMany
+//    @JoinTable(
+//        name = "Favourite_Anime",
+//        joinColumns = @JoinColumn(name = "user_id"),
+//        inverseJoinColumns = @JoinColumn(name = "anime_id"))
+//    public Set<Anime> favouriteAnime = new HashSet<>();
+//
+    @OneToMany(mappedBy="user")
+    public Set<UserMedia> userMedia = new HashSet<>();
+//
+//    @ManyToMany
+//    @JoinTable(
+//            name = "Media_Progress",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "media_id"))
+//    public Set<Media> mediaProgress = new HashSet<>();
 
     public User() {}
 
