@@ -4,6 +4,7 @@ import com.maval.MavAL.domain.model.Anime;
 import com.maval.MavAL.domain.model.Media;
 import com.maval.MavAL.domain.model.User;
 import com.maval.MavAL.domain.model.UserMedia;
+import com.maval.MavAL.domain.repository.UserMediaRepository;
 import com.maval.MavAL.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserMediaRepository userMediaRepository;
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -38,6 +42,12 @@ public class UserService {
         UserMedia userMedia = new UserMedia(user, anime);
         user.userMedia.add(userMedia);
         entityManager.persist(userMedia);
+    }
+
+    @Transactional
+    public void addAnimeToFavourites(User user, Anime anime) {
+        UserMedia media = userMediaRepository.findByUserAndAnime(user, anime);
+        media.favourite = true;
     }
 
     public boolean animeExistsInUserMedia(User user, Anime anime) {

@@ -23,6 +23,15 @@ export default function IndividualAnimeView(props) {
                 >
                     Add to my list
                 </Button>
+                <Button 
+                        type="submit"
+                        fullWidth
+                        variant="contained" 
+                        color="primary"
+                        onClick={props.addMediaToFavourites}
+                >
+                    Favourite
+                </Button>
             </div>
         );
     }

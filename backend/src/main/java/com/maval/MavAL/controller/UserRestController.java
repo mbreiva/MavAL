@@ -3,6 +3,7 @@ package com.maval.MavAL.controller;
 import com.maval.MavAL.domain.model.*;
 import com.maval.MavAL.domain.repository.AnimeRepository;
 import com.maval.MavAL.domain.repository.MangaRepository;
+import com.maval.MavAL.domain.repository.UserMediaRepository;
 import com.maval.MavAL.domain.repository.UserRepository;
 import com.maval.MavAL.domain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class UserRestController {
     @Autowired
     public MangaRepository mangaRepository;
 
+    @Autowired
+    public UserMediaRepository userMediaRepository;
+
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="/api/get_user_by_id")
     public Optional<User> getUserById(Integer user_id) {
@@ -44,13 +48,23 @@ public class UserRestController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="/api/add_user_anime")
-    public ResponseEntity addUserAnime(String username, String title) {
+    public void addUserAnime(String username, String title) {
         User user = userRepository.findByUsername(username);
         Anime anime = animeRepository.findByTitle(title);
         if(!userService.animeExistsInUserMedia(user, anime)){
             userService.addUserAnime(user, anime);
         }
-        return ResponseEntity.ok().build();
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping(path="/api/add_media_to_favourites")
+    public void addMediaToFavourites(String username, String title) {
+        User user = userRepository.findByUsername(username);
+        Anime anime = animeRepository.findByTitle(title);
+        if(!userService.animeExistsInUserMedia(user, anime)){
+            userService.addUserAnime(user, anime);
+        }
+        userService.addAnimeToFavourites(user, anime);
     }
 
     @CrossOrigin(origins = "http://localhost:3000")

@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class UserMedia {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue
     private int id;
 
     @ManyToOne

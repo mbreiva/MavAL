@@ -3,7 +3,8 @@ import React from 'react'
 export default function UserProfileView(props){
     let userMedia;
     let userMediaRows;
-    let userMediaTable;
+    let animeTable;
+    let mangaTable;
     let username;
 
     if(props.user == null) {
@@ -22,22 +23,30 @@ export default function UserProfileView(props){
                 <td><a href={`/anime/${media.anime.id}`}>{media.anime.title}</a></td>
                 <td>{media.anime.status}</td>
                 <td>{media.anime.episodeCount}</td>
+                <td>{media.episode}</td>
+                <td>{media.rating}</td>
+                <td>{media.favourite.toString()}</td>
             </tr>
         );
 
-        userMediaTable = (
+        animeTable = (
             <div>
                 <h2>My Anime</h2>
-                <thead>
-                    <tr>
-                        <td>Title</td>
-                        <td>Status</td>
-                        <td>Episodes</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {userMediaRows}
-                </tbody>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Title</td>
+                            <td>Status</td>
+                            <td>Episodes</td>
+                            <td>My Episode</td>
+                            <td>My Rating</td>
+                            <td>Favourite</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {userMediaRows}
+                    </tbody>
+                </table>
             </div>
         );
     } 
@@ -45,7 +54,7 @@ export default function UserProfileView(props){
     let userInfo = (
         <div>
             <h1>{username}</h1>
-            {userMediaTable}
+            {animeTable}
         </div>
     );
 

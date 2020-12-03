@@ -25,13 +25,6 @@ public class User {
 
     @OneToMany(mappedBy="user")
     public Set<UserMedia> userMedia = new HashSet<>();
-//
-//    @ManyToMany
-//    @JoinTable(
-//            name = "Media_Progress",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "media_id"))
-//    public Set<Media> mediaProgress = new HashSet<>();
 
     public User() {}
 
