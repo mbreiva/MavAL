@@ -1,10 +1,7 @@
 package com.maval.MavAL.controller;
 
 import com.maval.MavAL.domain.model.*;
-import com.maval.MavAL.domain.repository.AnimeRepository;
-import com.maval.MavAL.domain.repository.MangaRepository;
-import com.maval.MavAL.domain.repository.UserMediaRepository;
-import com.maval.MavAL.domain.repository.UserRepository;
+import com.maval.MavAL.domain.repository.*;
 import com.maval.MavAL.domain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,10 +29,13 @@ public class UserRestController {
     @Autowired
     public UserMediaRepository userMediaRepository;
 
+    @Autowired
+    public MediaRepository mediaRepository;
+
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="/api/get_user_by_id")
-    public Optional<User> getUserById(Integer user_id) {
-        Optional<User> user = userRepository.findById(user_id);
+    public User getUserById(Integer user_id) {
+        User user = userRepository.findById(user_id).get();
         return user;
     }
 
@@ -47,12 +47,12 @@ public class UserRestController {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(path="/api/add_user_anime")
-    public void addUserAnime(String username, String title) {
+    @GetMapping(path="/api/add_user_media")
+    public void addUserMedia(String username, String title) {
         User user = userRepository.findByUsername(username);
-        Anime anime = animeRepository.findByTitle(title);
-        if(!userService.animeExistsInUserMedia(user, anime)){
-            userService.addUserAnime(user, anime);
+        Media media = mediaRepository.findByTitle(title);
+        if(!userService.mediaExistsInUserMedia(user, media)){
+            userService.addUserMedia(user, media);
         }
     }
 
@@ -60,18 +60,22 @@ public class UserRestController {
     @GetMapping(path="/api/add_media_to_favourites")
     public void addMediaToFavourites(String username, String title) {
         User user = userRepository.findByUsername(username);
-        Anime anime = animeRepository.findByTitle(title);
-        if(!userService.animeExistsInUserMedia(user, anime)){
-            userService.addUserAnime(user, anime);
+        Media media = mediaRepository.findByTitle(title);
+        if(!userService.mediaExistsInUserMedia(user, media)){
+            userService.addUserMedia(user, media);
         }
-        userService.addAnimeToFavourites(user, anime);
+        userService.addMediaToFavourites(user, media);
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(path="/api/get_user_media")
-    public Set<UserMedia> getUserMedia(String username) {
-        User user = userRepository.findByUsername(username);
-        Set<UserMedia> userMedia = user.userMedia;
-        return userMedia;
+    @GetMapping(path="/api/get_user_profile_by_id")
+    public ProfileResponse getUserProfileById(Integer user_id) {
+        ProfileResponse profileResponse = new ProfileResponse();
+        profileResponse.user = userRepository.findById(user_id).get();
+        profileResponse.userAnime = userMediaRepository.findByUserAndMediaType(profileResponse.user, 1);
+        profileResponse.userManga = userMediaRepository.findByUserAndMediaType(profileResponse.user, 2);
+        profileResponse.favAnime = userMediaRepository.findByUserAndMediaTypeAndFavourite(profileResponse.user, 1, true);
+        profileResponse.favManga = userMediaRepository.findByUserAndMediaTypeAndFavourite(profileResponse.user, 2, true);
+        return profileResponse;
     }
 }

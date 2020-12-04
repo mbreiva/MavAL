@@ -16,21 +16,27 @@ public class UserMedia {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name="anime_id")
-    public Anime anime;
+    @JoinColumn(name="media_id")
+    public Media media;
 
+    public int mediaType;
     public boolean favourite = false;
     public double rating = 0.0;
-    public int episode = 0;
-    public int chapter = 0;
+    public int currentPosition = 0;
 
 
 
     public UserMedia() {}
 
-    public UserMedia(User user, Anime anime){
+    public UserMedia(User user, Media media){
         this.user = user;
-        this.anime = anime;
+        this.media = media;
+        if(media instanceof Anime){
+            mediaType = 1;
+        }
+        else if(media instanceof Manga){
+            mediaType = 2;
+        }
     }
 
     public int getId() {

@@ -7,12 +7,14 @@ export default class UserProfileScreen extends Component {
 
         this.state = {
             user_id: this.props.match.params.id,
-            user: null,
+            userProfile: [],
+            userAnime: [],
+            userManga:[],
         }
     }
 
     componentDidMount(){
-        let url = "http://localhost:8080/api/get_user_by_id?user_id=";
+        let url = "http://localhost:8080/api/get_user_profile_by_id?user_id=";
         url = url + this.state.user_id;
 
         fetch(url, {
@@ -23,9 +25,13 @@ export default class UserProfileScreen extends Component {
             )
             .then(result => {
                 this.setState({
-                    user: result
+                    //userProfile: [...this.state.userProfile, ...result],
+                    user: result.user,
+                    userAnime: [...this.state.userAnime, ...result.userAnime],
+                    userManga: [...this.state.userManga, ...result.userManga],
                 });
                 console.log("Success:", result);
+                console.log(this.state.user.username);
             })
             .catch(error => {
                 console.error("Error", error);
@@ -34,7 +40,7 @@ export default class UserProfileScreen extends Component {
 
     render() {
         return (
-            <UserProfileView user={this.state.user} />
+            <UserProfileView user={this.state.user} userProfile={this.state.userProfile} />
         );
     }
 }

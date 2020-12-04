@@ -1,9 +1,6 @@
 package com.maval.MavAL.domain.service;
 
-import com.maval.MavAL.domain.model.Anime;
-import com.maval.MavAL.domain.model.Media;
-import com.maval.MavAL.domain.model.User;
-import com.maval.MavAL.domain.model.UserMedia;
+import com.maval.MavAL.domain.model.*;
 import com.maval.MavAL.domain.repository.UserMediaRepository;
 import com.maval.MavAL.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService {
@@ -38,22 +34,22 @@ public class UserService {
     }
 
     @Transactional
-    public void addUserAnime(User user, Anime anime) {
-        UserMedia userMedia = new UserMedia(user, anime);
+    public void addUserMedia(User user, Media media) {
+        UserMedia userMedia = new UserMedia(user, media);
         user.userMedia.add(userMedia);
         entityManager.persist(userMedia);
     }
 
     @Transactional
-    public void addAnimeToFavourites(User user, Anime anime) {
-        UserMedia media = userMediaRepository.findByUserAndAnime(user, anime);
-        media.favourite = true;
+    public void addMediaToFavourites(User user, Media media) {
+        UserMedia userMedia = userMediaRepository.findByUserAndMedia(user, media);
+        userMedia.favourite = true;
     }
 
-    public boolean animeExistsInUserMedia(User user, Anime anime) {
+    public boolean mediaExistsInUserMedia(User user, Media media) {
         // TODO: Check if user already has relation to anime
-        boolean animeExists = user.userMedia.stream().anyMatch(o -> o.anime == anime);
-        return animeExists;
+        boolean mediaExists = user.userMedia.stream().anyMatch(o -> o.media == media);
+        return mediaExists;
     }
 
     public boolean userExistsByUsername (String username) {

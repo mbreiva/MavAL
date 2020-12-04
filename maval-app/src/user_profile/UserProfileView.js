@@ -1,63 +1,106 @@
 import React from 'react'
 
 export default function UserProfileView(props){
-    let userMedia;
-    let userMediaRows;
-    let animeTable;
-    let mangaTable;
-    let username;
+    let animeTable = <div/>;
+    let animeTableRows;
+    let mangaTable = <div/>;
+    let mangaTableRows;
+    let favAnimeTable = <div/>;
+    let favAnimeTableRows;
+    let favMangaTable = <div/>;
+    let favMangaTableRows;
+    let username = <div/>;
+    let userInfo;
 
-    if(props.user == null) {
-        username = <div/>;
+    if(!props.userProfile){
+        userInfo = <div/>
     }
-    else if(props.user.userMedia == null){
-        username = props.user.username;
-        userMedia = <div/>;
-    }
-    else {
-        username = props.user.username;
-        userMedia = props.user.userMedia;
+    // else{
+    //     if(props.userProfile.user.username) {
+    //         username = props.userProfile.user.username;
+    //     }
+    //     if(props.userProfile.userAnime) {
+    //         animeTableRows = props.userProfile.userAnime.map((userAnime) =>
+    //             <tr key={userAnime.id}>
+    //                 <td>{userAnime.media.title}</td>
+    //                 <td>{userAnime.media.status}</td>
+    //                 <td>{userAnime.media.episodeCount}</td>
+    //                 <td>{userAnime.media}</td>
+    //                 <td>{userAnime.media}</td>
+    //                 <td>{userAnime.media.toString()}</td>
+    //             </tr>
+    //         );
 
-        userMediaRows = userMedia.map((media) =>
-            <tr key={media.id}>
-                <td><a href={`/anime/${media.anime.id}`}>{media.anime.title}</a></td>
-                <td>{media.anime.status}</td>
-                <td>{media.anime.episodeCount}</td>
-                <td>{media.episode}</td>
-                <td>{media.rating}</td>
-                <td>{media.favourite.toString()}</td>
-            </tr>
-        );
+    //         animeTable = (
+    //             <div>
+    //                 <h2>My Anime</h2>
+    //                 <table>
+    //                     <thead>
+    //                         <tr>
+    //                             <td>Title</td>
+    //                             <td>Status</td>
+    //                             <td>Episodes</td>
+    //                             <td>My Episode</td>
+    //                             <td>My Rating</td>
+    //                             <td>Favourite</td>
+    //                         </tr>
+    //                     </thead>
+    //                     <tbody>
+    //                         {animeTableRows}
+    //                     </tbody>
+    //                 </table>
+    //             </div>
+    //         );
+    //     }
+    //     if(props.userProfile.userManga) {
+    //         //TODO: fill table
+    //         mangaTable = <div/>
+    //     }
+    //     if(props.userProfile.favAnime) {
+    //         favAnimeTableRows = props.userProfile.favAnime.map((userAnime) =>
+    //             <tr key={userAnime.id}>
+    //                 <td>{userAnime.media.title}</td>
+    //                 <td>{userAnime.media.status}</td>
+    //                 <td>{userAnime.media.episodeCount}</td>
+    //                 <td>{userAnime.media}</td>
+    //                 <td>{userAnime.media}</td>
+    //                 <td>{userAnime.media.toString()}</td>
+    //             </tr>
+    //         );
 
-        animeTable = (
-            <div>
-                <h2>My Anime</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Title</td>
-                            <td>Status</td>
-                            <td>Episodes</td>
-                            <td>My Episode</td>
-                            <td>My Rating</td>
-                            <td>Favourite</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {userMediaRows}
-                    </tbody>
-                </table>
-            </div>
-        );
-    } 
-
-    let userInfo = (
-        <div>
-            <h1>{username}</h1>
-            {animeTable}
-        </div>
-    );
-
+    //         animeTable = (
+    //             <div>
+    //                 <h2>My Favourite Anime</h2>
+    //                 <table>
+    //                     <thead>
+    //                         <tr>
+    //                             <td>Title</td>
+    //                             <td>Status</td>
+    //                             <td>Episodes</td>
+    //                             <td>My Episode</td>
+    //                             <td>My Rating</td>
+    //                             <td>Favourite</td>
+    //                         </tr>
+    //                     </thead>
+    //                     <tbody>
+    //                         {animeTableRows}
+    //                     </tbody>
+    //                 </table>           
+    //             </div>
+    //         );
+            
+    //     }
+    //     if(props.userProfile.favManga) {
+    //         //TODO: fill table
+    //     }
+    //     userInfo = (
+    //         <div>
+    //             <h1>{username}</h1>
+    //             {animeTable}
+    //             {favAnimeTable}
+    //         </div>
+    //     );
+    // }
     return (
         <div>
             {userInfo}

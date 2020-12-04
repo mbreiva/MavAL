@@ -16,7 +16,7 @@ export default class IndividualAnimeScreen extends Component {
     }
 
     addUserAnime() {
-        let url = "http://localhost:8080/api/add_user_anime?username=";
+        let url = "http://localhost:8080/api/add_user_media?username=";
         url = url + this.state.username + "&title=" + this.state.anime.title;
 
         fetch(url, {
