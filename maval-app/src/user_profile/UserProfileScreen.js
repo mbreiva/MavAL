@@ -8,8 +8,11 @@ export default class UserProfileScreen extends Component {
         this.state = {
             user_id: this.props.match.params.id,
             userProfile: [],
-            userAnime: [],
-            userManga:[],
+            // user: null,
+            // userAnime: [],
+            // userManga:[],
+            // favAnime:[],
+            // favManga:[],
         }
     }
 
@@ -25,13 +28,14 @@ export default class UserProfileScreen extends Component {
             )
             .then(result => {
                 this.setState({
-                    //userProfile: [...this.state.userProfile, ...result],
-                    user: result.user,
-                    userAnime: [...this.state.userAnime, ...result.userAnime],
-                    userManga: [...this.state.userManga, ...result.userManga],
+                    userProfile: result,
+                    // user:result.user,
+                    // userAnime:result.userAnime,
+                    // userManga: result.userManga,
+                    // favAnime:result.userAnime,
+                    // favManga:result.favManga,
                 });
                 console.log("Success:", result);
-                console.log(this.state.user.username);
             })
             .catch(error => {
                 console.error("Error", error);
@@ -40,7 +44,14 @@ export default class UserProfileScreen extends Component {
 
     render() {
         return (
-            <UserProfileView user={this.state.user} userProfile={this.state.userProfile} />
+            <UserProfileView 
+                userProfile={this.state.userProfile} 
+                // user={this.state.user}
+                // userAnime={this.state.userAnime}
+                // userManga={this.state.userManga}
+                // favAnime={this.state.favAnime}
+                // favManga={this.state.favManga}
+            />
         );
     }
 }
