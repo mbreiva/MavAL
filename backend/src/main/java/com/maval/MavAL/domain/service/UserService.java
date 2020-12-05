@@ -28,7 +28,7 @@ public class UserService {
 
     @Transactional
     public void registerUser(User user) {
-        User newUser = new User(user.getName(), user.getEmail(), user.getUsername(), user.getPassword());
+        User newUser = new User(user.getEmail(), user.getUsername(), user.getPassword());
         //Persist new user instance to database
         entityManager.persist(newUser);
     }

@@ -29,17 +29,6 @@ export default function RegisterDialog(props) {
                 </DialogTitle>
                 <DialogContent>
                     <TextField 
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="name" 
-                        name="name" 
-                        label="Name" 
-                        size="small"
-                        onChange={props.handleNameChange}
-                    />
-                    <TextField 
                         variant="outlined" 
                         margin="normal"
                         required

@@ -32,17 +32,6 @@ export default function RegisterPage(props){
                 <div className={classes.paper}>
                     <Typography component="h1" variant="h4">Sign Up</Typography>
                     <form className={classes.form}>
-                    <TextField 
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="name" 
-                            name="name" 
-                            label="Name" 
-                            size="small"
-                            onChange={props.handleNameChange}
-                        />
                         <TextField 
                             variant="outlined" 
                             margin="normal"

@@ -12,7 +12,6 @@ public class User {
     @Id
     @GeneratedValue
     private int id;
-    private String name;
 
     @Column(unique = true)
     private String username;
@@ -28,8 +27,7 @@ public class User {
 
     public User() {}
 
-    public User(String name, String email, String username, String password){
-        this.name = name;
+    public User(String email, String username, String password){
         this.email = email;
         this.username = username;
         this.password = password;
@@ -38,14 +36,6 @@ public class User {
 
     public int getId() {
         return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getUsername() {

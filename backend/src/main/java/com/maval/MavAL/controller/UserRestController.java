@@ -21,12 +21,6 @@ public class UserRestController {
     public UserService userService;
 
     @Autowired
-    public AnimeRepository animeRepository;
-
-    @Autowired
-    public MangaRepository mangaRepository;
-
-    @Autowired
     public UserMediaRepository userMediaRepository;
 
     @Autowired
