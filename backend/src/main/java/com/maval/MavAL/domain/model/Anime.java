@@ -1,8 +1,13 @@
 package com.maval.MavAL.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @DiscriminatorValue("1")

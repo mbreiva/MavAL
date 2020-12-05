@@ -2,6 +2,7 @@ package com.maval.MavAL.domain.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -24,14 +25,14 @@ public class Media {
     public String status;
     public Date releaseDate;
 
-    @ManyToMany(mappedBy = "favouriteMedia")
-    Set<User> favourites;
-
-    @ManyToMany(mappedBy = "mediaProgress")
-    Set<User> userProgress;
-
-    @ManyToMany
-    Set<Genre> mediaGenre;
+//    @ManyToMany(mappedBy = "favouriteMedia")
+//    Set<User> favourites = new HashSet<>();
+//
+//    @ManyToMany(mappedBy = "mediaProgress")
+//    Set<User> userProgress = new HashSet<>();
+//
+//    @ManyToMany
+//    Set<Genre> mediaGenre = new HashSet<>();
 
     public Media() {}
 
