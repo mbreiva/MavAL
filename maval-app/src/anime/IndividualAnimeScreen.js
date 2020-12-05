@@ -11,11 +11,11 @@ export default class IndividualAnimeScreen extends Component {
             username: localStorage.getItem("username"),
         }
 
-        this.addUserAnime = this.addUserAnime.bind(this);
+        this.addUserMedia = this.addUserMedia.bind(this);
         this.addMediaToFavourites = this.addMediaToFavourites.bind(this);
     }
 
-    addUserAnime() {
+    addUserMedia() {
         let url = "http://localhost:8080/api/add_user_media?username=";
         url = url + this.state.username + "&title=" + this.state.anime.title;
 
@@ -78,7 +78,7 @@ export default class IndividualAnimeScreen extends Component {
         return (
             <IndividualAnimeView 
                 anime={this.state.anime}
-                addUserAnime={this.addUserAnime}
+                addUserMedia={this.addUserMedia}
                 addMediaToFavourites={this.addMediaToFavourites}
             />
         );

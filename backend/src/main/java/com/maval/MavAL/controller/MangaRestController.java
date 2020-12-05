@@ -20,9 +20,16 @@ public class MangaRestController {
     @Autowired
     public MangaRepository mangaRepository;
 
+    @CrossOrigin(origins= "http://localhost:3000")
+    @GetMapping(path = "api/get_manga")
+    public List<Manga> getManga() {
+        List<Manga> mangaList = mangaRepository.findAll();
+        return mangaList;
+    }
+
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(path="api/get_manga")
-    public List<Manga> getManga(Integer limit, String status) {
+    @GetMapping(path="api/get_manga_by_status_limited")
+    public List<Manga> getMangaByStatusLimited(Integer limit, String status) {
         List<Manga> mangaList = new ArrayList<Manga>();
 
         if(limit != null && limit > 0){

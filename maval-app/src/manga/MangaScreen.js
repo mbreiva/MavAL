@@ -12,8 +12,7 @@ export default class MangaScreen extends Component {
     }
 
     componentDidMount() {
-        let url = "http://localhost:8080/api/get_manga?limit=";
-        url = url + this.state.limit;
+        let url = "http://localhost:8080/api/get_manga";
 
         fetch(url, {
             method: "GET",

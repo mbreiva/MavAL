@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
     },
+    tableHeadCell: {
+        fontWeight: "bold",
+    },
 }));
 
 export default function UserProfileView(props){
@@ -52,7 +55,11 @@ export default function UserProfileView(props){
         if(props.userProfile.userAnime.length > 0) {
             animeTableRows = props.userProfile.userAnime.map((userMedia) =>
                 <TableRow key={userMedia.id}>
-                    <TableCell>{userMedia.media.title}</TableCell>
+                    <TableCell>
+                        <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
+                            {userMedia.media.title}
+                        </a>
+                    </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.episodeCount}</TableCell>
                     <TableCell>{userMedia.currentPosition}</TableCell>
@@ -68,12 +75,24 @@ export default function UserProfileView(props){
                         <Table>
                             <TableHead >
                                 <TableRow>
-                                    <TableCell>Title</TableCell>
-                                    <TableCell>Status</TableCell>
-                                    <TableCell>Episodes</TableCell>
-                                    <TableCell>My Episode</TableCell>
-                                    <TableCell>My Rating</TableCell>
-                                    <TableCell>Favourite</TableCell>
+                                    <TableCell className={classes.tableHeadCell}>
+                                        Title
+                                    </TableCell>
+                                    <TableCell className={classes.tableHeadCell}>
+                                        Status
+                                    </TableCell>
+                                    <TableCell className={classes.tableHeadCell}>
+                                        Episodes
+                                    </TableCell>
+                                    <TableCell className={classes.tableHeadCell}>
+                                        My Episode
+                                    </TableCell>
+                                    <TableCell className={classes.tableHeadCell}>
+                                        My Rating
+                                    </TableCell>
+                                    <TableCell className={classes.tableHeadCell}>
+                                        Favourite
+                                    </TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -87,7 +106,11 @@ export default function UserProfileView(props){
         if(props.userProfile.userManga.length > 0) {
             mangaTableRows = props.userProfile.userManga.map((userMedia) => 
                 <TableRow key={userMedia.id}>
-                    <TableCell>{userMedia.media.title}</TableCell>
+                    <TableCell>
+                        <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
+                            {userMedia.media.title}
+                        </a>
+                    </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.chapterCount}</TableCell>
                     <TableCell>{userMedia.currentPosition}</TableCell>
@@ -121,7 +144,11 @@ export default function UserProfileView(props){
         if(props.userProfile.favAnime.length > 0) {
             favAnimeTableRows = props.userProfile.favAnime.map((userMedia) =>
                 <TableRow key={userMedia.id}>
-                    <TableCell>{userMedia.media.title}</TableCell>
+                    <TableCell>
+                        <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
+                            {userMedia.media.title}
+                        </a>
+                    </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.episodeCount}</TableCell>
                     <TableCell>{userMedia.currentPosition}</TableCell>
@@ -157,7 +184,11 @@ export default function UserProfileView(props){
         if(props.userProfile.favManga.length > 0) {
             favMangaTableRows = props.userProfile.favManga.map((userMedia) => 
                 <TableRow key={userMedia.id}>
-                    <TableCell>{userMedia.media.title}</TableCell>
+                    <TableCell>
+                        <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
+                            {userMedia.media.title}
+                        </a>
+                    </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.chapterCount}</TableCell>
                     <TableCell>{userMedia.currentPosition}</TableCell>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
+import TablePagination from '@material-ui/core/TablePagination'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -25,17 +26,31 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
     },
+    tableHeadCell: {
+        fontWeight: "bold",
+    },
 }));
 
 export default function AnimeView(props){
     const classes = useStyles();
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
     const animeList = props.anime;
     let animeRows = <div/>
 
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage);
+    };
+
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(+event.target.value);
+        setPage(0);
+    };
+
     if(animeList.length > 0){
-        animeRows = animeList.map((anime) =>
+        animeRows = animeList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((anime) =>
             <TableRow key={anime.id}>
-                <TableCell><a href={`/anime/${anime.id}`}>{anime.title}</a></TableCell>
+                <TableCell><a href={`/anime/${anime.id}`} style={{ color:'black', textDecoration: 'none' }}>{anime.title}</a></TableCell>
                 <TableCell>{anime.status}</TableCell>
                 <TableCell>{anime.episodeCount}</TableCell>
             </TableRow>
@@ -50,9 +65,15 @@ export default function AnimeView(props){
                 <Table className={classes.table}>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Title</TableCell>
-                            <TableCell>Status</TableCell>
-                            <TableCell>Episodes</TableCell>
+                            <TableCell className={classes.tableHeadCell}>
+                                Title
+                            </TableCell>
+                            <TableCell className={classes.tableHeadCell}>
+                                Status
+                            </TableCell>
+                            <TableCell className={classes.tableHeadCell}>
+                                Episodes
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -60,6 +81,15 @@ export default function AnimeView(props){
                     </TableBody>
                 </Table>
             </TableContainer>
+            <TablePagination
+                rowsPerPageOptions={[10, 25, 50, 100]}
+                component="div"
+                count={animeList.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onChangePage={handleChangePage}
+                onChangeRowsPerPage={handleChangeRowsPerPage}
+            />
         </Container>
     )
 }

@@ -8,7 +8,47 @@ export default class IndividualMangaScreen extends Component {
         this.state = {
             id: this.props.match.params.id,
             manga: null,
+            username: localStorage.getItem("username"),
         }
+
+        this.addUserMedia = this.addUserMedia.bind(this);
+        this.addMediaToFavourites = this.addMediaToFavourites.bind(this);
+    }
+
+    addUserMedia() {
+        let url = "http://localhost:8080/api/add_user_media?username=";
+        url = url + this.state.username + "&title=" + this.state.manga.title;
+
+        fetch(url, {
+            method: "GET",
+        })
+            .then(response =>
+                response.json()
+            )
+            .then(result => {
+                console.log("Success:", result);
+            })
+            .catch(error => {
+                console.error("Error", error);
+            });
+    }
+
+    addMediaToFavourites() {
+        let url = "http://localhost:8080/api/add_media_to_favourites?username=";
+        url = url + this.state.username + "&title=" + this.state.media.title;
+
+        fetch(url, {
+            method: "GET",
+        })
+            .then(response =>
+                response.json()
+            )
+            .then(result => {
+                console.log("Success:", result);
+            })
+            .catch(error => {
+                console.error("Error", error);
+            });
     }
 
     componentDidMount(){
@@ -36,7 +76,11 @@ export default class IndividualMangaScreen extends Component {
 
     render() {
         return (
-            <IndividualMangaView manga={this.state.manga} />
+            <IndividualMangaView 
+                manga={this.state.manga}
+                addUserMedia={this.addUserMedia}
+                addMediaToFavourites={this.addMediaToFavourites}
+            />
         );
     }
 }

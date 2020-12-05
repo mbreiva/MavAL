@@ -22,7 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="" />
+    <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/AnimeRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/AnimeRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/MangaRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/MangaRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/anime/AnimeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/anime/AnimeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/anime/AnimeView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/anime/AnimeView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,6 +187,7 @@
       <workItem from="1607012299894" duration="8399000" />
       <workItem from="1607029923368" duration="14115000" />
       <workItem from="1607116845865" duration="1877000" />
+      <workItem from="1607192369617" duration="1106000" />
     </task>
     <servers />
   </component>

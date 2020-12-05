@@ -20,8 +20,15 @@ public class AnimeRestController {
     public AnimeRepository animeRepository;
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(path="api/get_anime")
-    public List<Anime> getAnime(Integer limit, String status) {
+    @GetMapping(path = "api/get_anime")
+    public List<Anime> getAnime() {
+        List<Anime> animeList = animeRepository.findAll();
+        return animeList;
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping(path = "api/get_anime_by_status_limited")
+    public List<Anime> getAnimeByStatusLimited(Integer limit, String status) {
         List<Anime> animeList = new ArrayList<Anime>();
 
         if(limit != null && limit > 0){
@@ -35,7 +42,7 @@ public class AnimeRestController {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(path="api/get_anime_by_id")
+    @GetMapping(path = "api/get_anime_by_id")
     public Optional<Anime> getAnimeById(Integer id) {
         Optional<Anime> anime = animeRepository.findById(id);
         return anime;

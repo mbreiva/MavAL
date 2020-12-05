@@ -6,14 +6,13 @@ export default class AnimeScreen extends Component {
         super(props);
 
         this.state = {
-            limit:15,
+            limit:100,
             anime: [],
         };
     }
 
     componentDidMount() {
-        let url = "http://localhost:8080/api/get_anime?limit=";
-        url = url + this.state.limit;
+        let url = "http://localhost:8080/api/get_anime";
 
         fetch(url, {
             method: "GET",
