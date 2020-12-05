@@ -1,5 +1,5 @@
 import React , { Component } from 'react'
-import LoginView from './LoginView'
+import LoginDialog from './LoginDialog'
 
 export default class LoginScreen extends Component {
     
@@ -62,7 +62,7 @@ export default class LoginScreen extends Component {
 
     render() {
         return (
-            <LoginView 
+            <LoginDialog
                 handleUsernameChange={this.handleUsernameChange}
                 handlePasswordChange={this.handlePasswordChange}
                 handleLogin={this.handleLogin}

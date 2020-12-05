@@ -4,8 +4,6 @@ import { Route, Switch } from 'react-router-dom'
 import HomePage from './home/MavalHome'
 import AnimeScreen from './anime/AnimeScreen'
 import MangaScreen from './manga/MangaScreen'
-import LoginScreen from './login/LoginScreen'
-import RegisterScreen from './register/RegisterScreen'
 import IndividualAnimeScreen from './anime/IndividualAnimeScreen'
 import IndividualMangaScreen from './manga/IndividualMangaScreen'
 import UserProfileScreen from './user_profile/UserProfileScreen'
@@ -24,8 +22,6 @@ export default function App() {
         <NavBar/>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/login" component={LoginScreen} />
-          <Route exact path="/register" component={RegisterScreen} />
           <Route exact path="/anime" component={AnimeScreen} />
           <Route exact path="/anime/:id" component={IndividualAnimeScreen} />
           <Route exact path="/manga" component={MangaScreen} />

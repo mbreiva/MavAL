@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import RegisterView from './RegisterView'
+import RegisterDialog from './RegisterDialog'
 
 export default class RegisterScreen extends Component {
 
@@ -74,7 +74,7 @@ export default class RegisterScreen extends Component {
 
     render() {
         return (
-            <RegisterView 
+            <RegisterDialog
                 handleNameChange = {this.handleNameChange}
                 handleEmailChange = {this.handleEmailChange}
                 handleUsernameChange={this.handleUsernameChange}
