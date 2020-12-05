@@ -1,6 +1,32 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
+import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
+import Container from '@material-ui/core/Container'
+import Paper from '@material-ui/core/Paper'
+import Grid from '@material-ui/core/Grid'
+
+const useStyles = makeStyles((theme) => ({
+    title: {
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(2),
+        fontWeight: theme.typography.fontWeightBold,
+    },
+    paper: {
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(4),
+        display: 'flex',
+        alignItems: 'center',
+    },
+}));
 
 export default function UserProfileView(props){
+    const classes = useStyles();
     let animeTable = <div/>;
     let animeTableRows;
     let mangaTable = <div/>;
@@ -17,153 +43,171 @@ export default function UserProfileView(props){
     }
     else{
         if(props.userProfile.user.username) {
-            username = props.userProfile.user.username;
+            username = (
+                <Typography component="h1" variant="h4" className={classes.title}>
+                    {props.userProfile.user.username}
+                </Typography>
+            );
         }
         if(props.userProfile.userAnime.length > 0) {
             animeTableRows = props.userProfile.userAnime.map((userMedia) =>
-                <tr key={userMedia.id}>
-                    <td>{userMedia.media.title}</td>
-                    <td>{userMedia.media.status}</td>
-                    <td>{userMedia.media.episodeCount}</td>
-                    <td>{userMedia.currentPosition}</td>
-                    <td>{userMedia.rating}</td>
-                    <td>{userMedia.favourite.toString()}</td>
-                </tr>
+                <TableRow key={userMedia.id}>
+                    <TableCell>{userMedia.media.title}</TableCell>
+                    <TableCell>{userMedia.media.status}</TableCell>
+                    <TableCell>{userMedia.media.episodeCount}</TableCell>
+                    <TableCell>{userMedia.currentPosition}</TableCell>
+                    <TableCell>{userMedia.rating}</TableCell>
+                    <TableCell>{userMedia.favourite.toString()}</TableCell>
+                </TableRow>
             );
 
             animeTable = (
                 <div>
-                    <h2>My Anime</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Title</td>
-                                <td>Status</td>
-                                <td>Episodes</td>
-                                <td>My Episode</td>
-                                <td>My Rating</td>
-                                <td>Favourite</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {animeTableRows}
-                        </tbody>
-                    </table>
+                    <Typography variant="h5">My Anime</Typography>
+                    <TableContainer component={Paper} className={classes.paper}>
+                        <Table>
+                            <TableHead >
+                                <TableRow>
+                                    <TableCell>Title</TableCell>
+                                    <TableCell>Status</TableCell>
+                                    <TableCell>Episodes</TableCell>
+                                    <TableCell>My Episode</TableCell>
+                                    <TableCell>My Rating</TableCell>
+                                    <TableCell>Favourite</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {animeTableRows}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
                 </div>
             );
         }
         if(props.userProfile.userManga.length > 0) {
             mangaTableRows = props.userProfile.userManga.map((userMedia) => 
-                <tr key={userMedia.id}>
-                    <td>{userMedia.media.title}</td>
-                    <td>{userMedia.media.status}</td>
-                    <td>{userMedia.media.chapterCount}</td>
-                    <td>{userMedia.currentPosition}</td>
-                    <td>{userMedia.rating}</td>
-                    <td>{userMedia.favourite.toString()}</td>
-                </tr>
+                <TableRow key={userMedia.id}>
+                    <TableCell>{userMedia.media.title}</TableCell>
+                    <TableCell>{userMedia.media.status}</TableCell>
+                    <TableCell>{userMedia.media.chapterCount}</TableCell>
+                    <TableCell>{userMedia.currentPosition}</TableCell>
+                    <TableCell>{userMedia.rating}</TableCell>
+                    <TableCell>{userMedia.favourite.toString()}</TableCell>
+                </TableRow>
             );
             mangaTable = (
                 <div>
-                    <h2>My Manga</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Title</td>
-                                <td>Status</td>
-                                <td>Episodes</td>
-                                <td>My Episode</td>
-                                <td>My Rating</td>
-                                <td>Favourite</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {mangaTableRows}
-                        </tbody>
-                    </table>
+                    <Typography variant="h5">My Manga</Typography>
+                    <TableContainer component={Paper} className={classes.paper}>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Title</TableCell>
+                                    <TableCell>Status</TableCell>
+                                    <TableCell>Episodes</TableCell>
+                                    <TableCell>My Episode</TableCell>
+                                    <TableCell>My Rating</TableCell>
+                                    <TableCell>Favourite</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {mangaTableRows}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
                 </div>
             );
         }
         if(props.userProfile.favAnime.length > 0) {
             favAnimeTableRows = props.userProfile.favAnime.map((userMedia) =>
-                <tr key={userMedia.id}>
-                    <td>{userMedia.media.title}</td>
-                    <td>{userMedia.media.status}</td>
-                    <td>{userMedia.media.episodeCount}</td>
-                    <td>{userMedia.currentPosition}</td>
-                    <td>{userMedia.rating}</td>
-                    <td>{userMedia.favourite.toString()}</td>
-                </tr>
+                <TableRow key={userMedia.id}>
+                    <TableCell>{userMedia.media.title}</TableCell>
+                    <TableCell>{userMedia.media.status}</TableCell>
+                    <TableCell>{userMedia.media.episodeCount}</TableCell>
+                    <TableCell>{userMedia.currentPosition}</TableCell>
+                    <TableCell>{userMedia.rating}</TableCell>
+                    <TableCell>{userMedia.favourite.toString()}</TableCell>
+                </TableRow>
             );
 
             favAnimeTable = (
                 <div>
-                    <h2>My Favourite Anime</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Title</td>
-                                <td>Status</td>
-                                <td>Episodes</td>
-                                <td>My Episode</td>
-                                <td>My Rating</td>
-                                <td>Favourite</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {favAnimeTableRows}
-                        </tbody>
-                    </table>           
+                    <Typography variant="h5">My Favourite Anime</Typography>
+                    <TableContainer component={Paper} className={classes.paper}>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Title</TableCell>
+                                    <TableCell>Status</TableCell>
+                                    <TableCell>Episodes</TableCell>
+                                    <TableCell>My Episode</TableCell>
+                                    <TableCell>My Rating</TableCell>
+                                    <TableCell>Favourite</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {favAnimeTableRows}
+                            </TableBody>
+                        </Table>       
+                    </TableContainer>    
                 </div>
             );
             
         }
         if(props.userProfile.favManga.length > 0) {
             favMangaTableRows = props.userProfile.favManga.map((userMedia) => 
-                <tr key={userMedia.id}>
-                    <td>{userMedia.media.title}</td>
-                    <td>{userMedia.media.status}</td>
-                    <td>{userMedia.media.chapterCount}</td>
-                    <td>{userMedia.currentPosition}</td>
-                    <td>{userMedia.rating}</td>
-                    <td>{userMedia.favourite.toString()}</td>
-                </tr>
+                <TableRow key={userMedia.id}>
+                    <TableCell>{userMedia.media.title}</TableCell>
+                    <TableCell>{userMedia.media.status}</TableCell>
+                    <TableCell>{userMedia.media.chapterCount}</TableCell>
+                    <TableCell>{userMedia.currentPosition}</TableCell>
+                    <TableCell>{userMedia.rating}</TableCell>
+                    <TableCell>{userMedia.favourite.toString()}</TableCell>
+                </TableRow>
             );
             favMangaTable = (
                 <div>
-                    <h2>My Favourite Manga</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Title</td>
-                                <td>Status</td>
-                                <td>Episodes</td>
-                                <td>My Episode</td>
-                                <td>My Rating</td>
-                                <td>Favourite</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {favMangaTableRows}
-                        </tbody>
-                    </table>
+                    <Typography variant="h5">My Favourite Manga</Typography>
+                    <TableContainer component={Paper} className={classes.paper}>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Title</TableCell>
+                                    <TableCell>Status</TableCell>
+                                    <TableCell>Episodes</TableCell>
+                                    <TableCell>My Episode</TableCell>
+                                    <TableCell>My Rating</TableCell>
+                                    <TableCell>Favourite</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {favMangaTableRows}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
                 </div>
             );
         }
         userInfo = (
             <div>
-                <h1>{username}</h1>
-                {animeTable}
-                {mangaTable}
-                {favAnimeTable}
-                {favMangaTable}
+                <Grid containter spacing={3}>
+                    <Grid item xs={4}>
+                        {username}
+                    </Grid>
+                    <Grid item xs={8}>
+                        {animeTable}
+                        {mangaTable}
+                        {favAnimeTable}
+                        {favMangaTable}
+                    </Grid>
+                </Grid>
             </div>
         );
     }
     return (
-        <div>
+        <Container component="main" maxWidth="lg">
             {userInfo}
-        </div>
+        </Container>
     );
 
 }
