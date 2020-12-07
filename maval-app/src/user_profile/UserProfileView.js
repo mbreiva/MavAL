@@ -13,7 +13,7 @@ import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles((theme) => ({
     title: {
-        marginTop: theme.spacing(2),
+        marginTop: theme.spacing(4),
         marginBottom: theme.spacing(2),
         fontWeight: theme.typography.fontWeightBold,
     },
@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
     },
     tableHeadCell: {
         fontWeight: "bold",
+    },
+    tableSection: {
+        marginTop: theme.spacing(4),
+        marginBottom: theme.spacing(2),
     },
 }));
 
@@ -221,11 +225,11 @@ export default function UserProfileView(props){
         }
         userInfo = (
             <div>
-                <Grid containter spacing={3}>
-                    <Grid item xs={4}>
+                <Grid container>
+                    <Grid item sm={2}>
                         {username}
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item sm={10} className={classes.tableSection}>
                         {animeTable}
                         {mangaTable}
                         {favAnimeTable}

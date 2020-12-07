@@ -2,10 +2,14 @@ import React , { Component } from 'react'
 import LoginDialog from './LoginDialog'
 
 export default class LoginScreen extends Component {
-    
     constructor(props) {
         super(props);
-        this.state = {isLoggedIn: false, username: null, password: null};
+        this.state = {
+            isLoggedIn: false,
+            id: null,
+            username: null,
+            password: null
+        };
 
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -41,7 +45,8 @@ export default class LoginScreen extends Component {
                 }
                 else{
                     this.setState({
-                        isLoggedIn: true
+                        isLoggedIn: true,
+                        id: result.id,
                     });
                     localStorage.setItem("user_id", this.state.id)
                     localStorage.setItem("username", this.state.username);

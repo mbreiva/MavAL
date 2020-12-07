@@ -6,8 +6,6 @@ export default function HomePage() {
         <div className="container" >
             <div style={{textAlign:"center"}}>
                 <h1>Welcome to MavAL!</h1>
-                <p>New user? Register <Link to="/register">here</Link>.</p>
-                <p>Already have an account? Login <Link to="login">here</Link>.</p>
             </div>
         </div>
     )

@@ -1,1 +1,3 @@
 [1203/162220.717:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1205/132958.938:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1205/132958.950:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\mavel\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\ee6930b7-16c3-46fa-a7fe-eb1ea2840c87: The system cannot find the path specified. (0x3)

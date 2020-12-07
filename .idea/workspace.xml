@@ -23,9 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/LoginRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/LoginRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/anime/IndividualAnimeView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/anime/IndividualAnimeView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/home/MavalHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/home/MavalHome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/login/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/login/LoginScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/manga/IndividualMangaView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/manga/IndividualMangaView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/shared_components/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/shared_components/NavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +191,8 @@
       <workItem from="1607012299894" duration="8399000" />
       <workItem from="1607029923368" duration="14115000" />
       <workItem from="1607116845865" duration="1877000" />
-      <workItem from="1607192369617" duration="1769000" />
+      <workItem from="1607192369617" duration="2938000" />
+      <workItem from="1607291231391" duration="952000" />
     </task>
     <servers />
   </component>
