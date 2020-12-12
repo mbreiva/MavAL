@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import TablePagination from '@material-ui/core/TablePagination'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import AddRemoveMediaButton from '../shared_components/AddRemoveMediaButton'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -29,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
     },
     tableHeadCell: {
         fontWeight: "bold",
+        alignItems: "center",
+        justifyContent: "center",
     },
 }));
 
@@ -59,6 +62,9 @@ export default function AnimeView(props){
                 <TableCell><a href={`/anime/${anime.id}`} style={{ color:'black', textDecoration: 'none' }}>{anime.title}</a></TableCell>
                 <TableCell>{anime.status}</TableCell>
                 <TableCell>{anime.episodeCount}</TableCell>
+                <TableCell>
+                    <AddRemoveMediaButton />
+                </TableCell>
             </TableRow>
         );
 
@@ -76,6 +82,9 @@ export default function AnimeView(props){
                                 </TableCell>
                                 <TableCell className={classes.tableHeadCell}>
                                     Episodes
+                                </TableCell>
+                                <TableCell className={classes.tableHeadCell}>
+                                    Add
                                 </TableCell>
                             </TableRow>
                         </TableHead>

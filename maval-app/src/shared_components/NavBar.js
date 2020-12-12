@@ -66,12 +66,12 @@ export default function NavBar() {
     const classes = useStyles();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     
-    let login = <LoginScreen />;
+    let userStatus = <LoginScreen />;
     let register = <RegisterScreen />;
     // TODO: Get user id from local storage
-    let user_id = localStorage.getItem("user_id")
+    //let user_id = localStorage.getItem("user_id")
     //let userProfile = <Button component={ Link } to={`/user/${user_id}`} color="inherit">Profile</Button>;
-    let userProfile = <ProfileDropdown />
+    //let userProfile = <ProfileDropdown />
 
     return (
         <div className={classes.root}>
@@ -84,7 +84,6 @@ export default function NavBar() {
                     <Button component={ Link } to="/" color="inherit">Home</Button>
                     <Button component={ Link } to="/anime" color="inherit">Anime</Button>
                     <Button component={ Link } to="/manga" color="inherit">Manga</Button>
-                    {/* TODO: Conditional rendering of login/logout button */}
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
@@ -97,9 +96,8 @@ export default function NavBar() {
                             }}
                         />
                     </div>
-                    {login}
-                    {register}
-                    {userProfile}
+                    {/* TODO: Conditional rendering of login/logout button */}
+                    {userStatus}
                 </Toolbar>
             </Container>
             </AppBar>

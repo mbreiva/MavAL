@@ -4,11 +4,14 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import Grow from '@material-ui/core/Grow'
 import Paper from '@material-ui/core/Paper'
 import Popper from '@material-ui/core/Popper'
+import { Link } from 'react-router-dom'
 import MenuItem from '@material-ui/core/MenuItem'
 import MenuList from '@material-ui/core/MenuList'
 import { makeStyles } from '@material-ui/core/styles'
 import Menu from '@material-ui/core/Menu'
 import Fade from '@material-ui/core/Fade'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+import IconButton from '@material-ui/core/IconButton'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,10 +22,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ProfileDropdown() {
+export default function ProfileDropdown(props) {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
+    let user_id = localStorage.getItem("user_id");
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -34,12 +38,13 @@ export default function ProfileDropdown() {
 
     return (
         <div className={classes.root}>
-            <Button
+            <IconButton
                 color="inherit"
-                onClick={handleClick}
+                onMouseOver={handleClick}
+                //onMouseOut={handleClose}
             >
-                Profile
-            </Button>
+                <AccountCircleIcon />
+            </IconButton>
             <Menu
                 anchorEl={anchorEl}
                 keepMounted
@@ -58,11 +63,11 @@ export default function ProfileDropdown() {
                     horizontal: 'left',
                 }}
             >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem component={ Link } to={`/user/${user_id}`}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My Anime</MenuItem>
                 <MenuItem onClick={handleClose}>My Manga</MenuItem>
                 <MenuItem onClick={handleClose}>Settings</MenuItem>
-                <MenuItem onClick={handleClose}>Log out</MenuItem>
+                <MenuItem onClick={props.handleLogout}>Log out</MenuItem>
             </Menu>
         </div>
     );

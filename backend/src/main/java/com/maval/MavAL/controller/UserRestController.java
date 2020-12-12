@@ -52,14 +52,13 @@ public class UserRestController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="/api/change_favourite_status")
-    public String changeFavouriteStatus(String username, Integer id, String favourite_status) {
+    public void changeFavouriteStatus(String username, Integer id, String favourite_status) {
         User user = userRepository.findByUsername(username);
         Media media = mediaRepository.findById(id).get();
         if(!userService.mediaExistsInUserMedia(user, media)){
             userService.addUserMedia(user, media);
         }
         userService.changeFavouriteStatus(user, media, favourite_status);
-        return "Favourite status changed";
     }
 
     @CrossOrigin(origins = "http://localhost:3000")

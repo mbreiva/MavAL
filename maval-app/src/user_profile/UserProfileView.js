@@ -11,6 +11,7 @@ import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import FavouriteMediaButton from '../shared_components/FavouriteMediaButton'
+import UserAnimeTable from './UserAnimeTable'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -79,40 +80,7 @@ export default function UserProfileView(props){
                 </TableRow>
             );
 
-            animeTable = (
-                <div>
-                    <Typography variant="h5">My Anime</Typography>
-                    <TableContainer component={Paper} className={classes.paper}>
-                        <Table>
-                            <TableHead >
-                                <TableRow>
-                                    <TableCell className={classes.tableHeadCell}>
-                                        Title
-                                    </TableCell>
-                                    <TableCell className={classes.tableHeadCell}>
-                                        Status
-                                    </TableCell>
-                                    <TableCell className={classes.tableHeadCell}>
-                                        Episodes
-                                    </TableCell>
-                                    <TableCell className={classes.tableHeadCell}>
-                                        My Episode
-                                    </TableCell>
-                                    <TableCell className={classes.tableHeadCell}>
-                                        My Rating
-                                    </TableCell>
-                                    <TableCell className={classes.tableHeadCell}>
-                                        Favourite
-                                    </TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {animeTableRows}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </div>
-            );
+            animeTable = <UserAnimeTable title={"My Anime"} rows={animeTableRows}/>;
         }
         if(props.userProfile.userManga.length > 0) {
             mangaTableRows = props.userProfile.userManga.map((userMedia) => 
@@ -144,8 +112,8 @@ export default function UserProfileView(props){
                                 <TableRow>
                                     <TableCell>Title</TableCell>
                                     <TableCell>Status</TableCell>
-                                    <TableCell>Episodes</TableCell>
-                                    <TableCell>My Episode</TableCell>
+                                    <TableCell>Chapters</TableCell>
+                                    <TableCell>My Chapter</TableCell>
                                     <TableCell>My Rating</TableCell>
                                     <TableCell>Favourite</TableCell>
                                 </TableRow>
@@ -180,28 +148,7 @@ export default function UserProfileView(props){
                 </TableRow>
             );
 
-            favAnimeTable = (
-                <div>
-                    <Typography variant="h5">My Favourite Anime</Typography>
-                    <TableContainer component={Paper} className={classes.paper}>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>Title</TableCell>
-                                    <TableCell>Status</TableCell>
-                                    <TableCell>Episodes</TableCell>
-                                    <TableCell>My Episode</TableCell>
-                                    <TableCell>My Rating</TableCell>
-                                    <TableCell>Favourite</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {favAnimeTableRows}
-                            </TableBody>
-                        </Table>       
-                    </TableContainer>    
-                </div>
-            );
+            favAnimeTable = <UserAnimeTable title={"My Favourite Anime"} rows={favAnimeTableRows} />;
             
         }
         if(props.userProfile.favManga.length > 0) {
@@ -234,8 +181,8 @@ export default function UserProfileView(props){
                                 <TableRow>
                                     <TableCell>Title</TableCell>
                                     <TableCell>Status</TableCell>
-                                    <TableCell>Episodes</TableCell>
-                                    <TableCell>My Episode</TableCell>
+                                    <TableCell>Chapters</TableCell>
+                                    <TableCell>My Chapter</TableCell>
                                     <TableCell>My Rating</TableCell>
                                     <TableCell>Favourite</TableCell>
                                 </TableRow>

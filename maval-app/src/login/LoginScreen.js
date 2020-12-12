@@ -1,11 +1,13 @@
 import React , { Component } from 'react'
 import LoginDialog from './LoginDialog'
+import ProfileDropdown from '../shared_components/ProfileDropdown'
+import RegisterScreen from '../register/RegisterScreen';
 
 export default class LoginScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: false,
+            isLoggedIn: localStorage.getItem("is_logged_in"),
             id: null,
             username: null,
             password: null
@@ -48,7 +50,8 @@ export default class LoginScreen extends Component {
                         isLoggedIn: true,
                         id: result.id,
                     });
-                    localStorage.setItem("user_id", this.state.id)
+                    localStorage.setItem("is_logged_in", true);
+                    localStorage.setItem("user_id", this.state.id);
                     localStorage.setItem("username", this.state.username);
                     localStorage.setItem("password", this.state.password);
                     alert("Login success");
@@ -61,17 +64,26 @@ export default class LoginScreen extends Component {
     }
 
     handleLogout() {
-        // TODO: Add logout logic
         this.setState({isLoggedIn:false});
+        localStorage.clear();
+        localStorage.setItem("is_logged_in", false);
     }
 
     render() {
         return (
-            <LoginDialog
-                handleUsernameChange={this.handleUsernameChange}
-                handlePasswordChange={this.handlePasswordChange}
-                handleLogin={this.handleLogin}
-            />
+            <div>
+                {this.state.isLoggedIn ? 
+                    <ProfileDropdown handleLogout={this.handleLogout}/> :
+                    (<div style={{display:"flex"}}>
+                        <LoginDialog
+                        handleUsernameChange={this.handleUsernameChange}
+                        handlePasswordChange={this.handlePasswordChange}
+                        handleLogin={this.handleLogin}
+                        />
+                        <RegisterScreen />
+                    </div>)
+                }
+            </div>
         );
     } 
 }
