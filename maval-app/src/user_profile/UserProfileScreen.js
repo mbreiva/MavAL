@@ -8,12 +8,9 @@ export default class UserProfileScreen extends Component {
         this.state = {
             user_id: this.props.match.params.id,
             userProfile: [],
-            // user: null,
-            // userAnime: [],
-            // userManga:[],
-            // favAnime:[],
-            // favManga:[],
         }
+
+        this.handleFavouriteChange = this.handleFavouriteChange.bind(this);
     }
 
     componentDidMount(){
@@ -29,12 +26,25 @@ export default class UserProfileScreen extends Component {
             .then(result => {
                 this.setState({
                     userProfile: result,
-                    // user:result.user,
-                    // userAnime:result.userAnime,
-                    // userManga: result.userManga,
-                    // favAnime:result.userAnime,
-                    // favManga:result.favManga,
                 });
+                console.log("Success:", result);
+            })
+            .catch(error => {
+                console.error("Error", error);
+            });
+    }
+
+    handleFavouriteChange(id, favouriteStatus) {
+        let url = "http://localhost:8080/api/change_favourite_status?username=";
+        url = url + this.state.userProfile.user.username + "&id=" + id + "&favourite_status=" + favouriteStatus;
+
+        fetch(url, {
+            method: "GET",
+        })
+            .then(response =>
+                response.json()
+            )
+            .then(result => {
                 console.log("Success:", result);
             })
             .catch(error => {
@@ -46,11 +56,7 @@ export default class UserProfileScreen extends Component {
         return (
             <UserProfileView 
                 userProfile={this.state.userProfile} 
-                // user={this.state.user}
-                // userAnime={this.state.userAnime}
-                // userManga={this.state.userManga}
-                // favAnime={this.state.favAnime}
-                // favManga={this.state.favManga}
+                handleFavouriteChange={this.handleFavouriteChange}
             />
         );
     }

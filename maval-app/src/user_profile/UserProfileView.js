@@ -10,6 +10,7 @@ import TableRow from '@material-ui/core/TableRow'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
+import FavouriteMediaButton from '../shared_components/FavouriteMediaButton'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -68,7 +69,13 @@ export default function UserProfileView(props){
                     <TableCell>{userMedia.media.episodeCount}</TableCell>
                     <TableCell>{userMedia.currentPosition}</TableCell>
                     <TableCell>{userMedia.rating}</TableCell>
-                    <TableCell>{userMedia.favourite.toString()}</TableCell>
+                    <TableCell>
+                        <FavouriteMediaButton 
+                            favourite={userMedia.favourite}
+                            mediaId={userMedia.media.id}
+                            handleFavouriteChange={props.handleFavouriteChange} 
+                        />
+                    </TableCell>
                 </TableRow>
             );
 
@@ -119,7 +126,13 @@ export default function UserProfileView(props){
                     <TableCell>{userMedia.media.chapterCount}</TableCell>
                     <TableCell>{userMedia.currentPosition}</TableCell>
                     <TableCell>{userMedia.rating}</TableCell>
-                    <TableCell>{userMedia.favourite.toString()}</TableCell>
+                    <TableCell>
+                        <FavouriteMediaButton 
+                            favourite={userMedia.favourite}
+                            mediaId={userMedia.media.id}
+                            handleFavouriteChange={props.handleFavouriteChange} 
+                        />
+                    </TableCell>
                 </TableRow>
             );
             mangaTable = (
@@ -157,7 +170,13 @@ export default function UserProfileView(props){
                     <TableCell>{userMedia.media.episodeCount}</TableCell>
                     <TableCell>{userMedia.currentPosition}</TableCell>
                     <TableCell>{userMedia.rating}</TableCell>
-                    <TableCell>{userMedia.favourite.toString()}</TableCell>
+                    <TableCell>
+                        <FavouriteMediaButton 
+                            favourite={userMedia.favourite}
+                            mediaId={userMedia.media.id}
+                            handleFavouriteChange={props.handleFavouriteChange} 
+                        />
+                    </TableCell>
                 </TableRow>
             );
 
@@ -197,7 +216,13 @@ export default function UserProfileView(props){
                     <TableCell>{userMedia.media.chapterCount}</TableCell>
                     <TableCell>{userMedia.currentPosition}</TableCell>
                     <TableCell>{userMedia.rating}</TableCell>
-                    <TableCell>{userMedia.favourite.toString()}</TableCell>
+                    <TableCell>
+                        <FavouriteMediaButton 
+                            favourite={userMedia.favourite}
+                            mediaId={userMedia.media.id}
+                            handleFavouriteChange={props.handleFavouriteChange} 
+                        />
+                    </TableCell>
                 </TableRow>
             );
             favMangaTable = (

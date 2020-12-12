@@ -41,9 +41,15 @@ public class UserService {
     }
 
     @Transactional
-    public void addMediaToFavourites(User user, Media media) {
+    public void changeFavouriteStatus(User user, Media media, String prevFavouriteStatus) {
         UserMedia userMedia = userMediaRepository.findByUserAndMedia(user, media);
-        userMedia.favourite = true;
+        // Previously favourited
+        if(prevFavouriteStatus.equals("true")){
+            userMedia.favourite = false;
+        }
+        else{
+            userMedia.favourite = true;
+        }
     }
 
     public boolean mediaExistsInUserMedia(User user, Media media) {

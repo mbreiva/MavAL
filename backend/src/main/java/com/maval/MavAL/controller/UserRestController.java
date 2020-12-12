@@ -42,23 +42,24 @@ public class UserRestController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="/api/add_user_media")
-    public void addUserMedia(String username, String title) {
+    public void addUserMedia(String username, Integer id) {
         User user = userRepository.findByUsername(username);
-        Media media = mediaRepository.findByTitle(title);
+        Media media = mediaRepository.findById(id).get();
         if(!userService.mediaExistsInUserMedia(user, media)){
             userService.addUserMedia(user, media);
         }
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(path="/api/add_media_to_favourites")
-    public void addMediaToFavourites(String username, String title) {
+    @GetMapping(path="/api/change_favourite_status")
+    public String changeFavouriteStatus(String username, Integer id, String favourite_status) {
         User user = userRepository.findByUsername(username);
-        Media media = mediaRepository.findByTitle(title);
+        Media media = mediaRepository.findById(id).get();
         if(!userService.mediaExistsInUserMedia(user, media)){
             userService.addUserMedia(user, media);
         }
-        userService.addMediaToFavourites(user, media);
+        userService.changeFavouriteStatus(user, media, favourite_status);
+        return "Favourite status changed";
     }
 
     @CrossOrigin(origins = "http://localhost:3000")

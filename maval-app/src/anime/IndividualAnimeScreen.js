@@ -17,7 +17,7 @@ export default class IndividualAnimeScreen extends Component {
 
     addUserMedia() {
         let url = "http://localhost:8080/api/add_user_media?username=";
-        url = url + this.state.username + "&title=" + this.state.anime.title;
+        url = url + this.state.username + "&id=" + this.state.anime.id;
 
         fetch(url, {
             method: "GET",
@@ -35,7 +35,7 @@ export default class IndividualAnimeScreen extends Component {
 
     addMediaToFavourites() {
         let url = "http://localhost:8080/api/add_media_to_favourites?username=";
-        url = url + this.state.username + "&title=" + this.state.anime.title;
+        url = url + this.state.username + "&id=" + this.state.anime.id;
 
         fetch(url, {
             method: "GET",
