@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import TablePagination from '@material-ui/core/TablePagination'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -36,7 +37,12 @@ export default function AnimeView(props){
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const animeList = props.anime;
-    let animeRows = <div/>
+    let animeRows = <div/>;
+    let animeTable = (
+        <div style={{display:"flex", justifyContent: "center"}}>
+            <CircularProgress/>
+        </div>
+    );
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -55,41 +61,47 @@ export default function AnimeView(props){
                 <TableCell>{anime.episodeCount}</TableCell>
             </TableRow>
         );
+
+        animeTable = (
+            <div>
+                <TableContainer component={Paper} className={classes.paper}>
+                    <Table className={classes.table}>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell className={classes.tableHeadCell}>
+                                    Title
+                                </TableCell>
+                                <TableCell className={classes.tableHeadCell}>
+                                    Status
+                                </TableCell>
+                                <TableCell className={classes.tableHeadCell}>
+                                    Episodes
+                                </TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {animeRows}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <TablePagination
+                    rowsPerPageOptions={[10, 25, 50, 100]}
+                    component="div"
+                    count={animeList.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onChangePage={handleChangePage}
+                    onChangeRowsPerPage={handleChangeRowsPerPage}
+                />
+            </div>
+        );
     }
     
 
     return (
         <Container component="main" maxWidth="lg">
             <Typography component="h1" variant="h4" className={classes.title}>Anime</Typography>
-            <TableContainer component={Paper} className={classes.paper}>
-                <Table className={classes.table}>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell className={classes.tableHeadCell}>
-                                Title
-                            </TableCell>
-                            <TableCell className={classes.tableHeadCell}>
-                                Status
-                            </TableCell>
-                            <TableCell className={classes.tableHeadCell}>
-                                Episodes
-                            </TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {animeRows}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[10, 25, 50, 100]}
-                component="div"
-                count={animeList.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onChangePage={handleChangePage}
-                onChangeRowsPerPage={handleChangeRowsPerPage}
-            />
+            {animeTable}
         </Container>
     )
 }

@@ -48,13 +48,14 @@ export default function ProfileDropdown() {
                 TransitionComponent={Fade}
                 elevation={0}
                 getContentAnchorEl={null}
+                
                 anchorOrigin={{
                     vertical: 'bottom',
-                    horizontal: 'center',
+                    horizontal: 'right',
                 }}
                 transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'center',
+                    vertical: -14,
+                    horizontal: 'left',
                 }}
             >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>

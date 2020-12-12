@@ -10,6 +10,7 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import TablePagination from '@material-ui/core/TablePagination'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -37,6 +38,11 @@ export default function MangaPage(props){
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const mangaList = props.manga;
     let mangaRows = <div/>
+    let mangaTable = (
+        <div style={{display:"flex", justifyContent: "center"}}>
+            <CircularProgress/>
+        </div>
+    );
     
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -55,13 +61,9 @@ export default function MangaPage(props){
                 <TableCell>{manga.chapterCount}</TableCell>
             </TableRow>
         );
-    }
 
-
-    return (
-        <div>
-            <Container component="main" maxWidth="lg">
-                <Typography component="h1" variant="h4" className={classes.title}>Manga</Typography>
+        mangaTable = (
+            <div>
                 <TableContainer component={Paper} className={classes.paper}>
                     <Table className={classes.table}>
                         <TableHead>
@@ -76,15 +78,25 @@ export default function MangaPage(props){
                         </TableBody>
                     </Table>
                 </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[10, 25, 50, 100]}
-                component="div"
-                count={mangaList.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onChangePage={handleChangePage}
-                onChangeRowsPerPage={handleChangeRowsPerPage}
-            />
+                <TablePagination
+                    rowsPerPageOptions={[10, 25, 50, 100]}
+                    component="div"
+                    count={mangaList.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onChangePage={handleChangePage}
+                    onChangeRowsPerPage={handleChangeRowsPerPage}
+                />
+            </div>
+        );
+    }
+
+
+    return (
+        <div>
+            <Container component="main" maxWidth="lg">
+                <Typography component="h1" variant="h4" className={classes.title}>Manga</Typography>
+                {mangaTable}
             </Container>
         </div>
     )
