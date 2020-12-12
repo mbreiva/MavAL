@@ -1,13 +1,24 @@
 import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Typography from '@material-ui/core/Typography'
+
+const useStyles = makeStyles((theme) => ({
+    title: {
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(-2),
+        fontWeight: theme.typography.fontWeightBold,
+    },
+}));
 
 export default function LoginDialog(props) {
     const [open, setOpen] = useState(false);
+    const classes = useStyles();
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -24,7 +35,9 @@ export default function LoginDialog(props) {
             </Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>
-                    Login
+                    <Typography component="h1" variant="h4" className={classes.title}>
+                        Login
+                    </Typography>
                 </DialogTitle>
                 <DialogContent>
                     <TextField 
