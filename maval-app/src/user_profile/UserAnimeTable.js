@@ -38,7 +38,7 @@ export default function UserAnimeTable(props) {
             <Typography variant="h5">{props.title}</Typography>
             <TableContainer component={Paper} className={classes.paper}>
                 <Table>
-                    <TableHead >
+                    <TableHead>
                         <TableRow>
                             <TableCell className={classes.tableHeadCell}>
                                 Title

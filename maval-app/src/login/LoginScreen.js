@@ -10,13 +10,15 @@ export default class LoginScreen extends Component {
             isLoggedIn: localStorage.getItem("is_logged_in"),
             id: null,
             username: null,
-            password: null
+            password: null,
+            errorMsg: null,
         };
 
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
+        this.clearStates = this.clearStates.bind(this);
     }
     
     handleUsernameChange(event) {
@@ -25,6 +27,14 @@ export default class LoginScreen extends Component {
 
     handlePasswordChange(event) {
         this.setState({password: event.target.value});
+    }
+
+    clearStates() {
+        this.setState({
+            username: null,
+            password: null,
+            errorMsg: null,
+        });
     }
 
     handleLogin() {
@@ -40,15 +50,20 @@ export default class LoginScreen extends Component {
             )
             .then(result => {
                 if(!result.usernameValid){
-                    alert("Username does not exist.");
+                    this.setState({
+                        errorMsg: "Username does not exist."
+                    });
                 }
                 else if(!result.passwordValid){
-                    alert("Invalid password");
+                    this.setState({
+                        errorMsg: "Invalid password."
+                    });
                 }
                 else{
                     this.setState({
                         isLoggedIn: true,
                         id: result.id,
+                        errorMsg: null,
                     });
                     localStorage.setItem("is_logged_in", true);
                     localStorage.setItem("user_id", this.state.id);
@@ -64,7 +79,13 @@ export default class LoginScreen extends Component {
     }
 
     handleLogout() {
-        this.setState({isLoggedIn:false});
+        this.setState({
+            isLoggedIn:false,
+            id: null,
+            username: null,
+            password: null,
+            errorMsg: null,
+        });
         localStorage.clear();
         localStorage.setItem("is_logged_in", false);
     }
@@ -72,13 +93,15 @@ export default class LoginScreen extends Component {
     render() {
         return (
             <div>
-                {this.state.isLoggedIn ? 
-                    <ProfileDropdown handleLogout={this.handleLogout}/> :
-                    (<div style={{display:"flex"}}>
+                {(this.state.isLoggedIn === true) ? 
+                    <ProfileDropdown handleLogout={this.handleLogout}/>
+                    : (<div style={{display:"flex"}}>
                         <LoginDialog
-                        handleUsernameChange={this.handleUsernameChange}
-                        handlePasswordChange={this.handlePasswordChange}
-                        handleLogin={this.handleLogin}
+                            handleUsernameChange={this.handleUsernameChange}
+                            handlePasswordChange={this.handlePasswordChange}
+                            handleLogin={this.handleLogin}
+                            errorMsg={this.state.errorMsg}
+                            clearStates={this.clearStates}
                         />
                         <RegisterScreen />
                     </div>)

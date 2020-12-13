@@ -23,11 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/maval-app/src/shared_components/AddRemoveMediaButton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserAnimeTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maval-app/src/anime/AnimeView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/anime/AnimeView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,6 +187,7 @@
       <workItem from="1607291231391" duration="1547000" />
       <workItem from="1607374276367" duration="595000" />
       <workItem from="1607723073315" duration="6304000" />
+      <workItem from="1607809023788" duration="598000" />
     </task>
     <servers />
   </component>

@@ -7,12 +7,17 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography'
+import { InputLabel } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     title: {
         marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(-2),
+        marginBottom: theme.spacing(1),
         fontWeight: theme.typography.fontWeightBold,
+    },
+    error: {
+        color: "#ff3d00",
+        fontSize: 15,
     },
 }));
 
@@ -33,35 +38,43 @@ export default function LoginDialog(props) {
             <Button color="inherit" onClick={handleClickOpen}>
                 Login
             </Button>
-            <Dialog open={open} onClose={handleClose}>
+            <Dialog 
+                open={open} 
+                onClose={() => {
+                    handleClose();
+                    props.clearStates();
+                }}  
+            >
                 <DialogTitle>
                     <Typography component="h1" variant="h4" className={classes.title}>
                         Login
                     </Typography>
                 </DialogTitle>
                 <DialogContent>
+                    <InputLabel shrink required>
+                        Username
+                    </InputLabel>
                     <TextField 
-                        variant="outlined"
-                        margin="normal"
-                        required
                         fullWidth
                         id="username" 
                         name="username" 
-                        label="Username" 
-                        size="small"
                         onChange = {props.handleUsernameChange}
                     />
+                    <InputLabel shrink required>
+                        Password
+                    </InputLabel>
                     <TextField 
-                        variant="outlined" 
-                        margin="normal"
-                        required
                         fullWidth
                         id="password" 
-                        name="password" 
-                        label="Password" 
-                        size="small"
+                        name="password"  
                         onChange = {props.handlePasswordChange}
                     />
+                    {props.errorMsg ? 
+                        <Typography className={classes.error}>
+                            {props.errorMsg}
+                        </Typography>
+                        : <div />
+                    }
                     <DialogActions>
                         <Button 
                             type="submit"
@@ -70,7 +83,13 @@ export default function LoginDialog(props) {
                         >
                             Login
                         </Button>
-                        <Button onClick={handleClose} color="primary">
+                        <Button 
+                            onClick={() => {
+                                handleClose();
+                                props.clearStates();
+                            }} 
+                            color="primary"
+                        >
                             Cancel
                         </Button>
                     </DialogActions>

@@ -64,24 +64,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavBar() {
     const classes = useStyles();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
     
     let userStatus = <LoginScreen />;
     let register = <RegisterScreen />;
-    // TODO: Get user id from local storage
-    //let user_id = localStorage.getItem("user_id")
-    //let userProfile = <Button component={ Link } to={`/user/${user_id}`} color="inherit">Profile</Button>;
-    //let userProfile = <ProfileDropdown />
 
     return (
         <div className={classes.root}>
             <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar>
-                    <Typography variant="h5" className={classes.title}>
-                        MavAL
-                    </Typography>
-                    <Button component={ Link } to="/" color="inherit">Home</Button>
+                    <div className={classes.title}>
+                        <Button component={ Link } to="/" color="inherit" disableRipple>
+                            <Typography variant="h5" >
+                                MavAL
+                            </Typography>
+                        </Button>
+                    </div>
                     <Button component={ Link } to="/anime" color="inherit">Anime</Button>
                     <Button component={ Link } to="/manga" color="inherit">Manga</Button>
                     <div className={classes.search}>
@@ -96,7 +94,6 @@ export default function NavBar() {
                             }}
                         />
                     </div>
-                    {/* TODO: Conditional rendering of login/logout button */}
                     {userStatus}
                 </Toolbar>
             </Container>

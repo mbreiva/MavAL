@@ -11,6 +11,7 @@ export default class RegisterScreen extends Component {
             username: null,
             password: null,
             passwordConfirmed: false,
+            errorMsg: null,
         };
 
         this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -18,6 +19,7 @@ export default class RegisterScreen extends Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this);
         this.handleRegister = this.handleRegister.bind(this);
+        this.clearStates = this.clearStates.bind(this);
     }
 
     handleEmailChange(event) {
@@ -33,12 +35,22 @@ export default class RegisterScreen extends Component {
     }
 
     handleConfirmPasswordChange(event) {
-        if(event.target.value == this.state.password){
+        if(event.target.value === this.state.password){
             this.setState({passwordConfirmed: true});
         }
         else{
             this.setState({passwordConfirmed:false});
         }
+    }
+
+    clearStates() {
+        this.setState({
+            email: null,
+            username: null,
+            password: null,
+            passwordConfirmed: false,
+            errorMsg: null,
+        });
     }
 
     handleRegister() {
@@ -59,14 +71,21 @@ export default class RegisterScreen extends Component {
                 )
                 .then(result => {
                     if(result.emailExists) {
+                        this.setState({
+                            errorMsg: "This email is tied to an existing account.",
+                        });
                         alert("This email is tied to an existing account.");
                     }
                     else if(result.usernameExists) {
+                        this.setState({
+                            errorMsg: "This username is taken.",
+                        });
                         alert("This username is taken.");
                     }
                     else {
                         this.setState({
-                            isRegistered: true
+                            isRegistered: true,
+                            errorMsg: null,
                         });
                         alert("Register success");
                     }
@@ -77,7 +96,9 @@ export default class RegisterScreen extends Component {
                 });
         }
         else {
-            alert("Passwords do not match.")
+            this.setState({
+                errorMsg: "Passwords do not match.",
+            });
         }
     }
 
@@ -89,6 +110,8 @@ export default class RegisterScreen extends Component {
                 handlePasswordChange={this.handlePasswordChange}
                 handleConfirmPasswordChange={this.handleConfirmPasswordChange}
                 handleRegister={this.handleRegister}
+                errorMsg={this.state.errorMsg}
+                clearStates={this.clearStates}
             />
         );
     } 

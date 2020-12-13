@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 export default function UserProfileView(props){
     const classes = useStyles();
     const [value, setValue] = useState(0);
+    const [subValue, setSubValue] = useState(0);
     let animeTable = <div/>;
     let animeTableRows;
     let mangaTable = <div/>;
@@ -53,6 +54,10 @@ export default function UserProfileView(props){
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+    };
+
+    const handleSubChange = (event, newValue) => {
+        setSubValue(newValue);
     };
 
     if(!props.userProfile.user){
@@ -76,8 +81,8 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.episodeCount}</TableCell>
-                    <TableCell>{userMedia.currentPosition}</TableCell>
-                    <TableCell>{userMedia.rating}</TableCell>
+                    <TableCell>{(userMedia.currentPosition === 0) ? "-" : userMedia.currentPosition}</TableCell>
+                    <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
                             favourite={userMedia.favourite}
@@ -100,8 +105,8 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.chapterCount}</TableCell>
-                    <TableCell>{userMedia.currentPosition}</TableCell>
-                    <TableCell>{userMedia.rating}</TableCell>
+                    <TableCell>{(userMedia.currentPosition === 0) ? "-" : userMedia.currentPosition}</TableCell>
+                    <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
                             favourite={userMedia.favourite}
@@ -144,8 +149,8 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.episodeCount}</TableCell>
-                    <TableCell>{userMedia.currentPosition}</TableCell>
-                    <TableCell>{userMedia.rating}</TableCell>
+                    <TableCell>{(userMedia.currentPosition === 0) ? "-" : userMedia.currentPosition}</TableCell>
+                    <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
                             favourite={userMedia.favourite}
@@ -169,8 +174,8 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.chapterCount}</TableCell>
-                    <TableCell>{userMedia.currentPosition}</TableCell>
-                    <TableCell>{userMedia.rating}</TableCell>
+                    <TableCell>{(userMedia.currentPosition === 0) ? "-" : userMedia.currentPosition}</TableCell>
+                    <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
                             favourite={userMedia.favourite}
@@ -204,6 +209,17 @@ export default function UserProfileView(props){
             );
         }
         
+        let favourites =(
+            <Tabs
+                value={subValue}
+                indicatorColor="primary"
+                textColor="primary"
+                onChange={handleSubChange}
+            >
+                <Tab label="Anime" />
+                <Tab label="Manga" />
+            </Tabs>
+        );
         userInfo = (
             <div>
                 <TabPanel value={value} index={0}>
@@ -219,8 +235,13 @@ export default function UserProfileView(props){
                     {mangaTable}
                 </TabPanel>
                 <TabPanel value={value} index={3}>
-                    {favAnimeTable}
-                    {favMangaTable}
+                    {favourites}
+                    <TabPanel value={subValue} index={0}>
+                        {favAnimeTable}
+                    </TabPanel>
+                    <TabPanel value={subValue} index={1}>
+                        {favMangaTable}
+                    </TabPanel>
                 </TabPanel>
             </div>
         );

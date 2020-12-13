@@ -8,12 +8,17 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Typography from '@material-ui/core/Typography'
+import { InputLabel } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     title: {
         marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(-2),
+        marginBottom: theme.spacing(1),
         fontWeight: theme.typography.fontWeightBold,
+    },
+    error: {
+        color: "#ff3d00",
+        fontSize: 15,
     },
 }));
 
@@ -34,57 +39,61 @@ export default function RegisterDialog(props) {
             <Button color="inherit" onClick={handleClickOpen}>
                 Register
             </Button>
-            <Dialog open={open} onClose={handleClose}>
+            <Dialog 
+                open={open} 
+                onClose={() => {
+                    handleClose();
+                    props.clearStates();
+                }}  
+            >
                 <DialogTitle>
                     <Typography component="h1" variant="h4" className={classes.title}>
                         Register
                     </Typography>
                 </DialogTitle>
                 <DialogContent>
+                    <InputLabel shrink required>
+                        Email
+                    </InputLabel>
                     <TextField 
-                        variant="outlined" 
-                        margin="normal"
-                        required
                         fullWidth
                         id="email" 
                         name="email" 
-                        label="Email" 
-                        size="small"
                         onChange={props.handleEmailChange}
                     />
+                    <InputLabel shrink required>
+                        Username
+                    </InputLabel>
                     <TextField 
-                        variant="outlined"
-                        margin="normal"
-                        required
                         fullWidth
                         id="username" 
                         name="username" 
-                        label="Username" 
-                        size="small"
                         onChange={props.handleUsernameChange}
                     />
+                    <InputLabel shrink required>
+                        Password
+                    </InputLabel>
                     <TextField 
-                        variant="outlined" 
-                        margin="normal"
-                        required
                         fullWidth
                         id="password" 
                         name="password" 
-                        label="Password" 
-                        size="small"
                         onChange={props.handlePasswordChange}
                     />
+                    <InputLabel shrink required>
+                        Confirm password
+                    </InputLabel>
                     <TextField 
-                        variant="outlined" 
-                        margin="normal"
-                        required
                         fullWidth
                         id="confirm_password" 
                         name="confirm_password" 
-                        label="Confirm password" 
-                        size="small"
                         onChange={props.handleConfirmPasswordChange}
                     />
+                    {props.errorMsg ? 
+                        <Typography className={classes.error}>
+                            {props.errorMsg}
+                        </Typography>
+                        : <div />
+                    }
                     <DialogActions>
                         <Button 
                             type="submit"
@@ -93,7 +102,13 @@ export default function RegisterDialog(props) {
                         >
                             Register
                         </Button>
-                        <Button onClick={handleClose} color="primary">
+                        <Button 
+                            onClick={() => {
+                                handleClose();
+                                props.clearStates();
+                            }} 
+                            color="primary"
+                        >
                             Cancel
                         </Button>
                     </DialogActions>
