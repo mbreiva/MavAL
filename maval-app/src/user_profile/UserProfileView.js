@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import Table from '@material-ui/core/Table'
@@ -10,6 +10,9 @@ import TableRow from '@material-ui/core/TableRow'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
+import Tabs from '@material-ui/core/Tabs'
+import Tab from '@material-ui/core/Tab'
+import TabPanel from '../shared_components/TabPanel'
 import FavouriteMediaButton from '../shared_components/FavouriteMediaButton'
 import UserAnimeTable from './UserAnimeTable'
 
@@ -36,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserProfileView(props){
     const classes = useStyles();
+    const [value, setValue] = useState(0);
     let animeTable = <div/>;
     let animeTableRows;
     let mangaTable = <div/>;
@@ -46,6 +50,10 @@ export default function UserProfileView(props){
     let favMangaTableRows;
     let username = <div/>;
     let userInfo;
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
     if(!props.userProfile.user){
         userInfo = <div/>
@@ -195,25 +203,62 @@ export default function UserProfileView(props){
                 </div>
             );
         }
+        
         userInfo = (
             <div>
-                <Grid container>
-                    <Grid item sm={2}>
-                        {username}
-                    </Grid>
-                    <Grid item sm={10} className={classes.tableSection}>
-                        {animeTable}
-                        {mangaTable}
-                        {favAnimeTable}
-                        {favMangaTable}
-                    </Grid>
-                </Grid>
+                <TabPanel value={value} index={0}>
+                    {animeTable}
+                    {mangaTable}
+                    {favAnimeTable}
+                    {favMangaTable}
+                </TabPanel>
+                <TabPanel value={value} index={1}>
+                    {animeTable}
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    {mangaTable}
+                </TabPanel>
+                <TabPanel value={value} index={3}>
+                    {favAnimeTable}
+                    {favMangaTable}
+                </TabPanel>
             </div>
         );
     }
+
+    let profileTabs =(
+        <div>
+            <Paper>
+                <Tabs
+                    value={value}
+                    indicatorColor="primary"
+                    textColor="primary"
+                    onChange={handleChange}
+                >
+                    <Tab label="Home" />
+                    <Tab label="Anime" />
+                    <Tab label="Manga" />
+                    <Tab label="Favourites" />
+                    <Tab label="Currently Watching" />
+                    <Tab label="Completed" />
+                    <Tab label="On Hold" />
+                    <Tab label="Dropped" />
+                </Tabs>
+            </Paper>
+        </div>
+    );
+
     return (
-        <Container component="main" maxWidth="lg">
-            {userInfo}
+        <Container component="main" maxWidth="xl">
+            <Grid container>
+                <Grid item xs={2}>
+                    {username}
+                </Grid>
+                <Grid item xs={10} className={classes.tableSection}>
+                    {profileTabs}
+                    {userInfo}
+                </Grid>
+            </Grid>
         </Container>
     );
 
