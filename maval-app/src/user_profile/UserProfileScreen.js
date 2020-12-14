@@ -34,9 +34,9 @@ export default class UserProfileScreen extends Component {
             });
     }
 
-    handleFavouriteChange(id, favouriteStatus) {
+    handleFavouriteChange(media_id, favouriteStatus) {
         let url = "http://localhost:8080/api/change_favourite_status?username=";
-        url = url + this.state.userProfile.user.username + "&id=" + id + "&favourite_status=" + favouriteStatus;
+        url = url + this.state.userProfile.user.username + "&media_id=" + media_id + "&favourite_status=" + favouriteStatus;
 
         fetch(url, {
             method: "GET",

@@ -61,7 +61,7 @@ export default class LoginScreen extends Component {
                 }
                 else{
                     this.setState({
-                        isLoggedIn: true,
+                        isLoggedIn: "true",
                         id: result.id,
                         errorMsg: null,
                     });
@@ -69,7 +69,6 @@ export default class LoginScreen extends Component {
                     localStorage.setItem("user_id", this.state.id);
                     localStorage.setItem("username", this.state.username);
                     localStorage.setItem("password", this.state.password);
-                    alert("Login success");
                 }
                 console.log("Success:", result);
             })
@@ -80,7 +79,7 @@ export default class LoginScreen extends Component {
 
     handleLogout() {
         this.setState({
-            isLoggedIn:false,
+            isLoggedIn: "false",
             id: null,
             username: null,
             password: null,
@@ -93,7 +92,7 @@ export default class LoginScreen extends Component {
     render() {
         return (
             <div>
-                {(this.state.isLoggedIn === true) ? 
+                {(this.state.isLoggedIn === "true") ? 
                     <ProfileDropdown handleLogout={this.handleLogout}/>
                     : (<div style={{display:"flex"}}>
                         <LoginDialog

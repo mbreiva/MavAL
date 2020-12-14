@@ -1,0 +1,12 @@
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    position:absolute;
+    z-index: 1;
+    display: none,
+}
+
+.dropdown:hover .dropdown-content{display: block;}
+.dropdown:hover {color: #f44336}

@@ -78,7 +78,6 @@ export default function LoginDialog(props) {
                     <DialogActions>
                         <Button 
                             type="submit"
-                            color="primary"
                             onClick={props.handleLogin}
                         >
                             Login
@@ -88,7 +87,6 @@ export default function LoginDialog(props) {
                                 handleClose();
                                 props.clearStates();
                             }} 
-                            color="primary"
                         >
                             Cancel
                         </Button>

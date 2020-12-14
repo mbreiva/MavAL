@@ -22,7 +22,8 @@ public class UserMedia {
     public int mediaType;
     public boolean favourite = false;
     public double rating = 0.0;
-    public int currentPosition = 0;
+    public int progress = 0;
+    public String progressType;
 
 
 

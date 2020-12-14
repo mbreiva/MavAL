@@ -1,7 +1,6 @@
 package com.maval.MavAL.domain.service;
 
 import com.maval.MavAL.domain.model.*;
-import com.maval.MavAL.domain.repository.UserMediaRepository;
 import com.maval.MavAL.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,9 +15,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private UserMediaRepository userMediaRepository;
-
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -31,31 +27,6 @@ public class UserService {
         User newUser = new User(user.getEmail(), user.getUsername(), user.getPassword());
         //Persist new user instance to database
         entityManager.persist(newUser);
-    }
-
-    @Transactional
-    public void addUserMedia(User user, Media media) {
-        UserMedia userMedia = new UserMedia(user, media);
-        user.userMedia.add(userMedia);
-        entityManager.persist(userMedia);
-    }
-
-    @Transactional
-    public void changeFavouriteStatus(User user, Media media, String prevFavouriteStatus) {
-        UserMedia userMedia = userMediaRepository.findByUserAndMedia(user, media);
-        // Previously favourited
-        if(prevFavouriteStatus.equals("true")){
-            userMedia.favourite = false;
-        }
-        else{
-            userMedia.favourite = true;
-        }
-    }
-
-    public boolean mediaExistsInUserMedia(User user, Media media) {
-        // TODO: Check if user already has relation to anime
-        boolean mediaExists = user.userMedia.stream().anyMatch(o -> o.media == media);
-        return mediaExists;
     }
 
     public boolean userExistsByUsername (String username) {

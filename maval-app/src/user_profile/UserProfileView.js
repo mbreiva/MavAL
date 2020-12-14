@@ -81,7 +81,7 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.episodeCount}</TableCell>
-                    <TableCell>{(userMedia.currentPosition === 0) ? "-" : userMedia.currentPosition}</TableCell>
+                    <TableCell>{(userMedia.progress === 0) ? "-" : userMedia.progress}</TableCell>
                     <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
@@ -105,7 +105,7 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.chapterCount}</TableCell>
-                    <TableCell>{(userMedia.currentPosition === 0) ? "-" : userMedia.currentPosition}</TableCell>
+                    <TableCell>{(userMedia.progress === 0) ? "-" : userMedia.progress}</TableCell>
                     <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
@@ -149,7 +149,7 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.episodeCount}</TableCell>
-                    <TableCell>{(userMedia.currentPosition === 0) ? "-" : userMedia.currentPosition}</TableCell>
+                    <TableCell>{(userMedia.progress === 0) ? "-" : userMedia.progress}</TableCell>
                     <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
@@ -174,7 +174,7 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.chapterCount}</TableCell>
-                    <TableCell>{(userMedia.currentPosition === 0) ? "-" : userMedia.currentPosition}</TableCell>
+                    <TableCell>{(userMedia.progress === 0) ? "-" : userMedia.progress}</TableCell>
                     <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
@@ -272,7 +272,7 @@ export default function UserProfileView(props){
     return (
         <Container component="main" maxWidth="xl">
             <Grid container>
-                <Grid item xs={2}>
+                <Grid item xs={2} style={{paddingLeft: 20}}>
                     {username}
                 </Grid>
                 <Grid item xs={10} className={classes.tableSection}>

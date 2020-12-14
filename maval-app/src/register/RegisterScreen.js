@@ -74,20 +74,17 @@ export default class RegisterScreen extends Component {
                         this.setState({
                             errorMsg: "This email is tied to an existing account.",
                         });
-                        alert("This email is tied to an existing account.");
                     }
                     else if(result.usernameExists) {
                         this.setState({
                             errorMsg: "This username is taken.",
                         });
-                        alert("This username is taken.");
                     }
                     else {
                         this.setState({
                             isRegistered: true,
                             errorMsg: null,
                         });
-                        alert("Register success");
                     }
                     console.log("Success:", result);
                 })

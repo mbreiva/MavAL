@@ -8,6 +8,7 @@ const theme = createMuiTheme ({
         MuiButton: {
             root: {
                 textTransform: "none",
+                color: "primary",
             }
         },
         MuiTextField: {
@@ -25,6 +26,11 @@ const theme = createMuiTheme ({
                 paddingLeft: 20,
                 paddingRight: 20,
                 paddingBottom: 10,
+            }
+        },
+        MuiTab: {
+            root: {
+                textTransform: "none",
             }
         },
     },

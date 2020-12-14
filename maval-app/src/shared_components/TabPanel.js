@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 export default function TabPanel(props) {
@@ -16,7 +15,7 @@ export default function TabPanel(props) {
       >
         {value === index && (
           <Box p={3}>
-            <Typography>{children}</Typography>
+            {children}
           </Box>
         )}
       </div>
@@ -27,11 +26,5 @@ export default function TabPanel(props) {
     children: PropTypes.node,
     index: PropTypes.any.isRequired,
     value: PropTypes.any.isRequired,
-  };
+};
   
-  function a11yProps(index) {
-    return {
-      id: `scrollable-prevent-tab-${index}`,
-      'aria-controls': `scrollable-prevent-tabpanel-${index}`,
-    };
-  }

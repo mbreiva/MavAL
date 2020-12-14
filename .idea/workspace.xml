@@ -23,6 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserMediaRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserMediaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/src/shared_components/ProfileDropdown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/UserMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/UserMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/login/LoginDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/login/LoginDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/login/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/login/LoginScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/register/RegisterDialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/register/RegisterDialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/register/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/register/RegisterScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/shared_components/ProfileDropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/shared_components/ProfileDropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/shared_components/TabPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/shared_components/TabPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/shared_components/Theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/shared_components/Theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +202,8 @@
       <workItem from="1607291231391" duration="1547000" />
       <workItem from="1607374276367" duration="595000" />
       <workItem from="1607723073315" duration="6304000" />
-      <workItem from="1607809023788" duration="598000" />
+      <workItem from="1607809023788" duration="1192000" />
+      <workItem from="1607900948277" duration="4405000" />
     </task>
     <servers />
   </component>
@@ -298,9 +314,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="320" y="110" width="1030" height="592" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1600916973879" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1600828164609">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607913026070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1600828164609" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1607913026070" />
   </component>
 </project>
