@@ -50,8 +50,14 @@ export default function UserMediaRowView(props) {
                     {media.title}
                 </a>
             </TableCell>
-            <TableCell>{media.status}</TableCell>
-            <TableCell>{media.episodeCount}</TableCell>
+            <TableCell>
+                {media.status}
+            </TableCell>
+            <TableCell>
+                <div className={classes.tableCell}>
+                    {media.episodeCount}
+                </div>
+            </TableCell>
             <TableCell>
                 <Select
                     value={userProgress}
@@ -84,14 +90,6 @@ export default function UserMediaRowView(props) {
                 </Select>
             </TableCell>
             <TableCell>
-                <IconButton 
-                    onClick={() => {handleFavouriteChange(!props.favourite);}}
-                    className={classes.tableCell}
-                >
-                    {favourite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-                </IconButton>
-            </TableCell>
-            <TableCell>
                 <Select
                     value={userProgressType}
                     onChange={handleProgressTypeChange}
@@ -105,6 +103,15 @@ export default function UserMediaRowView(props) {
                     <MenuItem value={"On Hold"}>On Hold</MenuItem>
                     <MenuItem value={"Saved for Later"}>Saved for Later</MenuItem>
                 </Select>
+            </TableCell>
+            <TableCell>
+                <div className={classes.tableCell}>
+                    <IconButton 
+                        onClick={() => {handleFavouriteChange(!props.favourite);}}
+                    >
+                        {favourite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                    </IconButton>
+                </div>
             </TableCell>
         </TableRow>
     )

@@ -74,11 +74,11 @@ export default function UserProfileView(props){
             );
         }
         if(props.userProfile.userAnime.length > 0) {
-            animeTableRows = props.userProfile.userAnime.map((userMedia) =>
-                <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
-            );
+            // animeTableRows = props.userProfile.userAnime.map((userMedia) =>
+            //     <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
+            // );
 
-            animeTable = <UserAnimeTable title={"My Anime"} rows={animeTableRows}/>;
+            animeTable = <UserAnimeTable title={"My Anime"} user={props.userProfile.user} userAnime={props.userProfile.userAnime} />;
         }
         if(props.userProfile.userManga.length > 0) {
             mangaTableRows = props.userProfile.userManga.map((userMedia) => 
@@ -96,8 +96,8 @@ export default function UserProfileView(props){
                                     <TableCell>Chapters</TableCell>
                                     <TableCell>My Chapter</TableCell>
                                     <TableCell>My Rating</TableCell>
-                                    <TableCell>Favourite</TableCell>
                                     <TableCell>Read Status</TableCell>
+                                    <TableCell>Favourite</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -109,11 +109,11 @@ export default function UserProfileView(props){
             );
         }
         if(props.userProfile.favAnime.length > 0) {
-            favAnimeTableRows = props.userProfile.favAnime.map((userMedia) =>
-                <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
-            );
+            // favAnimeTableRows = props.userProfile.favAnime.map((userMedia) =>
+            //     <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
+            // );
 
-            favAnimeTable = <UserAnimeTable title={"My Favourite Anime"} rows={favAnimeTableRows} />;
+            favAnimeTable = <UserAnimeTable title={"My Favourite Anime"} user={props.userProfile.user} userAnime={props.userProfile.favAnime} />;
             
         }
         if(props.userProfile.favManga.length > 0) {
@@ -132,8 +132,8 @@ export default function UserProfileView(props){
                                     <TableCell>Chapters</TableCell>
                                     <TableCell>My Chapter</TableCell>
                                     <TableCell>My Rating</TableCell>
-                                    <TableCell>Favourite</TableCell>
                                     <TableCell>Read Status</TableCell>
+                                    <TableCell>Favourite</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
