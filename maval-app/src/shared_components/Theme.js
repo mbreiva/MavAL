@@ -46,6 +46,9 @@ const theme = createMuiTheme ({
         MuiDialogTitle: {
             disableTypography: true,
         },
+        MuiTab: {
+            disableRipple: true,
+        },
     }
 })
 

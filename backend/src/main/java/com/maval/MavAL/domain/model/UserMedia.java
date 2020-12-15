@@ -1,7 +1,5 @@
 package com.maval.MavAL.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +11,7 @@ public class UserMedia {
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    private User user;
+    public User user;
 
     @ManyToOne
     @JoinColumn(name="media_id")
@@ -24,8 +22,6 @@ public class UserMedia {
     public double rating = 0.0;
     public int progress = 0;
     public String progressType;
-
-
 
     public UserMedia() {}
 

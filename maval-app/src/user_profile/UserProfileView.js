@@ -14,7 +14,9 @@ import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import TabPanel from '../shared_components/TabPanel'
 import FavouriteMediaButton from '../shared_components/FavouriteMediaButton'
+import EditIcon from '@material-ui/icons/Edit'
 import UserAnimeTable from './UserAnimeTable'
+import IconButton from '@material-ui/core/IconButton'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -35,6 +37,11 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(4),
         marginBottom: theme.spacing(2),
     },
+    tableCell: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    },  
 }));
 
 export default function UserProfileView(props){
@@ -81,14 +88,30 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.episodeCount}</TableCell>
-                    <TableCell>{(userMedia.progress === 0) ? "-" : userMedia.progress}</TableCell>
-                    <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {(userMedia.progress === 0) ? "-" : userMedia.progress}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
+                    </TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {(userMedia.rating === 0) ? "-" : userMedia.rating}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
+                    </TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
                             favourite={userMedia.favourite}
                             mediaId={userMedia.media.id}
                             handleFavouriteChange={props.handleFavouriteChange} 
                         />
+                    </TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {userMedia.progressType ? userMedia.progressType : "-"}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
                     </TableCell>
                 </TableRow>
             );
@@ -105,14 +128,30 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.chapterCount}</TableCell>
-                    <TableCell>{(userMedia.progress === 0) ? "-" : userMedia.progress}</TableCell>
-                    <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {(userMedia.progress === 0) ? "-" : userMedia.progress}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
+                    </TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {(userMedia.rating === 0) ? "-" : userMedia.rating}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
+                    </TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
                             favourite={userMedia.favourite}
                             mediaId={userMedia.media.id}
                             handleFavouriteChange={props.handleFavouriteChange} 
                         />
+                    </TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {userMedia.progressType ? userMedia.progressType : "-"}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
                     </TableCell>
                 </TableRow>
             );
@@ -129,6 +168,7 @@ export default function UserProfileView(props){
                                     <TableCell>My Chapter</TableCell>
                                     <TableCell>My Rating</TableCell>
                                     <TableCell>Favourite</TableCell>
+                                    <TableCell>Read Status</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -149,14 +189,30 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.episodeCount}</TableCell>
-                    <TableCell>{(userMedia.progress === 0) ? "-" : userMedia.progress}</TableCell>
-                    <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {(userMedia.progress === 0) ? "-" : userMedia.progress}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
+                    </TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {(userMedia.rating === 0) ? "-" : userMedia.rating}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
+                    </TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
                             favourite={userMedia.favourite}
                             mediaId={userMedia.media.id}
                             handleFavouriteChange={props.handleFavouriteChange} 
                         />
+                    </TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {userMedia.progressType ? userMedia.progressType : "-"}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
                     </TableCell>
                 </TableRow>
             );
@@ -174,14 +230,30 @@ export default function UserProfileView(props){
                     </TableCell>
                     <TableCell>{userMedia.media.status}</TableCell>
                     <TableCell>{userMedia.media.chapterCount}</TableCell>
-                    <TableCell>{(userMedia.progress === 0) ? "-" : userMedia.progress}</TableCell>
-                    <TableCell>{(userMedia.rating === 0) ? "-" : userMedia.rating}</TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {(userMedia.progress === 0) ? "-" : userMedia.progress}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
+                    </TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {(userMedia.rating === 0) ? "-" : userMedia.rating}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
+                    </TableCell>
                     <TableCell>
                         <FavouriteMediaButton 
                             favourite={userMedia.favourite}
                             mediaId={userMedia.media.id}
                             handleFavouriteChange={props.handleFavouriteChange} 
                         />
+                    </TableCell>
+                    <TableCell>
+                        <div className={classes.tableCell}>
+                            {userMedia.progressType ? userMedia.progressType : "-"}
+                            <IconButton><EditIcon fontSize="small" /></IconButton>
+                        </div>
                     </TableCell>
                 </TableRow>
             );
@@ -198,6 +270,7 @@ export default function UserProfileView(props){
                                     <TableCell>My Chapter</TableCell>
                                     <TableCell>My Rating</TableCell>
                                     <TableCell>Favourite</TableCell>
+                                    <TableCell>Read Status</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>

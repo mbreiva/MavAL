@@ -73,17 +73,17 @@ public class UserMediaRestController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="api/update_user_rating")
-    public void updateUserRating(String username, Integer media_id, Integer rating) {
+    public void updateUserRating(String username, Integer media_id, Integer user_rating) {
         User user = userRepository.findByUsername(username);
         Media media = mediaRepository.findById(media_id).get();
         if(!userMediaService.mediaExistsInUserMedia(user, media)) {
             userMediaService.addUserMedia(user, media);
         }
-        userMediaService.updateUserRating(user, media, rating);
+        userMediaService.updateUserRating(user, media, user_rating);
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(path="api/update_progress_type")
+    @GetMapping(path="api/update_user_progress_type")
     public void updateUserProgressType(String username, Integer media_id, String progress_type) {
         User user = userRepository.findByUsername(username);
         Media media = mediaRepository.findById(media_id).get();

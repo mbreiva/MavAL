@@ -58,6 +58,9 @@ export default function UserAnimeTable(props) {
                             <TableCell className={classes.tableHeadCell}>
                                 Favourite
                             </TableCell>
+                            <TableCell className={classes.tableHeadCell}>
+                                Watch Status
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
