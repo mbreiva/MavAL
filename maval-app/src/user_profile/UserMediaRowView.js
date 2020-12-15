@@ -1,49 +1,110 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
 import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
-import Container from '@material-ui/core/Container'
-import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
 import FavouriteMediaButton from '../shared_components/FavouriteMediaButton'
 import EditIcon from '@material-ui/icons/Edit'
+import FavoriteIcon from '@material-ui/icons/Favorite'
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import IconButton from '@material-ui/core/IconButton'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
 
-export default function UserMediaRowView() {
+
+const useStyles = makeStyles((theme) => ({
+    tableCell: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    },  
+}));
+
+export default function UserMediaRowView(props) {
+    const classes = useStyles();
+    const {
+        userMediaId,
+        mediaType,
+        media,
+        userProgress,
+        userRating,
+        favourite,
+        userProgressType,
+        handleProgressChange,
+        handleRatingChange,
+        handleFavouriteChange,
+        handleProgressTypeChange,
+    } = props;
+    
+    // For anime only
+    // TODO: Do for manga and other media as well
+    var animeProgressOptions = [];
+
+    for(let i = 0; i <= media.episodeCount; i++) {
+        animeProgressOptions.push(<MenuItem value={i}>{i}</MenuItem>)
+    }
+
     return (
-        <TableRow key={userMedia.id}>
+        <TableRow key={userMediaId}>
             <TableCell>
-                <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
-                    {userMedia.media.title}
+                <a href={`/anime/${media.id}`} style={{ color:'black', textDecoration: 'none' }}>
+                    {media.title}
                 </a>
             </TableCell>
-            <TableCell>{userMedia.media.status}</TableCell>
-            <TableCell>{userMedia.media.episodeCount}</TableCell>
+            <TableCell>{media.status}</TableCell>
+            <TableCell>{media.episodeCount}</TableCell>
             <TableCell>
-                <div className={classes.tableCell}>
-                    {(userMedia.progress === 0) ? "-" : userMedia.progress}
-                    <IconButton><EditIcon fontSize="small" /></IconButton>
-                </div>
+                <Select
+                    value={userProgress}
+                    onChange={handleProgressChange}
+                    displayEmpty
+                    className={classes.tableCell}
+                >
+                    {animeProgressOptions}
+                </Select>
             </TableCell>
             <TableCell>
-                <div className={classes.tableCell}>
-                    {(userMedia.rating === 0) ? "-" : userMedia.rating}
-                    <IconButton><EditIcon fontSize="small" /></IconButton>
-                </div>
+                <Select
+                    value={userRating}
+                    onChange={handleRatingChange}
+                    displayEmpty
+                    className={classes.tableCell}
+                >
+                    <MenuItem value={null}>-</MenuItem>
+                    <MenuItem value={0}>0</MenuItem>
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                    <MenuItem value={4}>4</MenuItem>
+                    <MenuItem value={5}>5</MenuItem>
+                    <MenuItem value={6}>6</MenuItem>
+                    <MenuItem value={7}>7</MenuItem>
+                    <MenuItem value={8}>8</MenuItem>
+                    <MenuItem value={9}>9</MenuItem>
+                    <MenuItem value={10}>10</MenuItem>
+                </Select>
             </TableCell>
             <TableCell>
-                <FavouriteMediaButton 
-                    favourite={userMedia.favourite}
-                    mediaId={userMedia.media.id}
-                    handleFavouriteChange={props.handleFavouriteChange} 
-                />
+                <IconButton 
+                    onClick={() => {handleFavouriteChange(!props.favourite);}}
+                    className={classes.tableCell}
+                >
+                    {favourite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                </IconButton>
             </TableCell>
             <TableCell>
-                <div className={classes.tableCell}>
-                    {userMedia.progressType ? userMedia.progressType : "-"}
-                    <IconButton><EditIcon fontSize="small" /></IconButton>
-                </div>
+                <Select
+                    value={userProgressType}
+                    onChange={handleProgressTypeChange}
+                    displayEmpty
+                    className={classes.tableCell}
+                >
+                    <MenuItem value={null}>-</MenuItem>
+                    <MenuItem value={"Currently Watching"}>Currently Watching</MenuItem>
+                    <MenuItem value={"Completed"}>Completed</MenuItem>
+                    <MenuItem value={"Dropped"}>Dropped</MenuItem>
+                    <MenuItem value={"On Hold"}>On Hold</MenuItem>
+                    <MenuItem value={"Saved for Later"}>Saved for Later</MenuItem>
+                </Select>
             </TableCell>
         </TableRow>
     )

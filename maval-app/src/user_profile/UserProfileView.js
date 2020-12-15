@@ -16,7 +16,7 @@ import TabPanel from '../shared_components/TabPanel'
 import FavouriteMediaButton from '../shared_components/FavouriteMediaButton'
 import EditIcon from '@material-ui/icons/Edit'
 import UserAnimeTable from './UserAnimeTable'
-import IconButton from '@material-ui/core/IconButton'
+import UserMediaRowScreen from './UserMediaRowScreen'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -37,11 +37,6 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(4),
         marginBottom: theme.spacing(2),
     },
-    tableCell: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-    },  
 }));
 
 export default function UserProfileView(props){
@@ -80,80 +75,14 @@ export default function UserProfileView(props){
         }
         if(props.userProfile.userAnime.length > 0) {
             animeTableRows = props.userProfile.userAnime.map((userMedia) =>
-                <TableRow key={userMedia.id}>
-                    <TableCell>
-                        <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
-                            {userMedia.media.title}
-                        </a>
-                    </TableCell>
-                    <TableCell>{userMedia.media.status}</TableCell>
-                    <TableCell>{userMedia.media.episodeCount}</TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {(userMedia.progress === 0) ? "-" : userMedia.progress}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {(userMedia.rating === 0) ? "-" : userMedia.rating}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                    <TableCell>
-                        <FavouriteMediaButton 
-                            favourite={userMedia.favourite}
-                            mediaId={userMedia.media.id}
-                            handleFavouriteChange={props.handleFavouriteChange} 
-                        />
-                    </TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {userMedia.progressType ? userMedia.progressType : "-"}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                </TableRow>
+                <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
             );
 
             animeTable = <UserAnimeTable title={"My Anime"} rows={animeTableRows}/>;
         }
         if(props.userProfile.userManga.length > 0) {
             mangaTableRows = props.userProfile.userManga.map((userMedia) => 
-                <TableRow key={userMedia.id}>
-                    <TableCell>
-                        <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
-                            {userMedia.media.title}
-                        </a>
-                    </TableCell>
-                    <TableCell>{userMedia.media.status}</TableCell>
-                    <TableCell>{userMedia.media.chapterCount}</TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {(userMedia.progress === 0) ? "-" : userMedia.progress}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {(userMedia.rating === 0) ? "-" : userMedia.rating}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                    <TableCell>
-                        <FavouriteMediaButton 
-                            favourite={userMedia.favourite}
-                            mediaId={userMedia.media.id}
-                            handleFavouriteChange={props.handleFavouriteChange} 
-                        />
-                    </TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {userMedia.progressType ? userMedia.progressType : "-"}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                </TableRow>
+                <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
             );
             mangaTable = (
                 <div>
@@ -181,40 +110,7 @@ export default function UserProfileView(props){
         }
         if(props.userProfile.favAnime.length > 0) {
             favAnimeTableRows = props.userProfile.favAnime.map((userMedia) =>
-                <TableRow key={userMedia.id}>
-                    <TableCell>
-                        <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
-                            {userMedia.media.title}
-                        </a>
-                    </TableCell>
-                    <TableCell>{userMedia.media.status}</TableCell>
-                    <TableCell>{userMedia.media.episodeCount}</TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {(userMedia.progress === 0) ? "-" : userMedia.progress}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {(userMedia.rating === 0) ? "-" : userMedia.rating}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                    <TableCell>
-                        <FavouriteMediaButton 
-                            favourite={userMedia.favourite}
-                            mediaId={userMedia.media.id}
-                            handleFavouriteChange={props.handleFavouriteChange} 
-                        />
-                    </TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {userMedia.progressType ? userMedia.progressType : "-"}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                </TableRow>
+                <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
             );
 
             favAnimeTable = <UserAnimeTable title={"My Favourite Anime"} rows={favAnimeTableRows} />;
@@ -222,40 +118,7 @@ export default function UserProfileView(props){
         }
         if(props.userProfile.favManga.length > 0) {
             favMangaTableRows = props.userProfile.favManga.map((userMedia) => 
-                <TableRow key={userMedia.id}>
-                    <TableCell>
-                        <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
-                            {userMedia.media.title}
-                        </a>
-                    </TableCell>
-                    <TableCell>{userMedia.media.status}</TableCell>
-                    <TableCell>{userMedia.media.chapterCount}</TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {(userMedia.progress === 0) ? "-" : userMedia.progress}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {(userMedia.rating === 0) ? "-" : userMedia.rating}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                    <TableCell>
-                        <FavouriteMediaButton 
-                            favourite={userMedia.favourite}
-                            mediaId={userMedia.media.id}
-                            handleFavouriteChange={props.handleFavouriteChange} 
-                        />
-                    </TableCell>
-                    <TableCell>
-                        <div className={classes.tableCell}>
-                            {userMedia.progressType ? userMedia.progressType : "-"}
-                            <IconButton><EditIcon fontSize="small" /></IconButton>
-                        </div>
-                    </TableCell>
-                </TableRow>
+                <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
             );
             favMangaTable = (
                 <div>

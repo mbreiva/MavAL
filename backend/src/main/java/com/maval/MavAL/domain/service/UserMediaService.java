@@ -58,9 +58,9 @@ public class UserMediaService {
     }
 
     @Transactional
-    public void updateUserProgressType(User user, Media media, String progress_type) {
+    public void updateUserProgressType(User user, Media media, String user_progress_type) {
         UserMedia userMedia = userMediaRepository.findByUserAndMedia(user, media);
-        userMedia.progressType = progress_type;
+        userMedia.progressType = user_progress_type;
     }
 
 }

@@ -84,12 +84,12 @@ public class UserMediaRestController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="api/update_user_progress_type")
-    public void updateUserProgressType(String username, Integer media_id, String progress_type) {
+    public void updateUserProgressType(String username, Integer media_id, String user_progress_type) {
         User user = userRepository.findByUsername(username);
         Media media = mediaRepository.findById(media_id).get();
         if(!userMediaService.mediaExistsInUserMedia(user, media)) {
             userMediaService.addUserMedia(user, media);
         }
-        userMediaService.updateUserProgressType(user, media, progress_type);
+        userMediaService.updateUserProgressType(user, media, user_progress_type);
     }
 }

@@ -11,7 +11,7 @@ public class UserMedia {
 
     @ManyToOne
     @JoinColumn(name="user_id")
-    public User user;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name="media_id")
