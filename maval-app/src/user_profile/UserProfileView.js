@@ -1,21 +1,13 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableContainer from '@material-ui/core/TableContainer'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import TabPanel from '../shared_components/TabPanel'
-import FavouriteMediaButton from '../shared_components/FavouriteMediaButton'
-import EditIcon from '@material-ui/icons/Edit'
-import UserAnimeTable from './UserAnimeTable'
+import UserMediaTable from './UserMediaTable'
 import UserMediaRowScreen from './UserMediaRowScreen'
 
 const useStyles = makeStyles((theme) => ({
@@ -44,21 +36,17 @@ export default function UserProfileView(props){
     const [value, setValue] = useState(0);
     const [subValue, setSubValue] = useState(0);
     let animeTable = <div/>;
-    let animeTableRows;
     let mangaTable = <div/>;
-    let mangaTableRows;
     let favAnimeTable = <div/>;
-    let favAnimeTableRows;
     let favMangaTable = <div/>;
-    let favMangaTableRows;
     let username = <div/>;
     let userInfo;
 
-    const handleChange = (event, newValue) => {
+    const handleChange = (newValue) => {
         setValue(newValue);
     };
 
-    const handleSubChange = (event, newValue) => {
+    const handleSubChange = (newValue) => {
         setSubValue(newValue);
     };
 
@@ -74,74 +62,44 @@ export default function UserProfileView(props){
             );
         }
         if(props.userProfile.userAnime.length > 0) {
-            // animeTableRows = props.userProfile.userAnime.map((userMedia) =>
-            //     <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
-            // );
-
-            animeTable = <UserAnimeTable title={"My Anime"} user={props.userProfile.user} userAnime={props.userProfile.userAnime} />;
+            animeTable = (
+                <UserMediaTable 
+                    title={"My Anime"} 
+                    user={props.userProfile.user} 
+                    userMedia={props.userProfile.userAnime} 
+                    mediaType={1}
+                />
+            );
         }
         if(props.userProfile.userManga.length > 0) {
-            mangaTableRows = props.userProfile.userManga.map((userMedia) => 
-                <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
-            );
             mangaTable = (
-                <div>
-                    <Typography variant="h5">My Manga</Typography>
-                    <TableContainer component={Paper} className={classes.paper}>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>Title</TableCell>
-                                    <TableCell>Status</TableCell>
-                                    <TableCell>Chapters</TableCell>
-                                    <TableCell>My Chapter</TableCell>
-                                    <TableCell>My Rating</TableCell>
-                                    <TableCell>Read Status</TableCell>
-                                    <TableCell>Favourite</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {mangaTableRows}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </div>
+                <UserMediaTable
+                    title={"My Manga"}
+                    user={props.userProfile.user}
+                    userMedia={props.userProfile.userManga}
+                    mediaType={2}
+                />
             );
         }
         if(props.userProfile.favAnime.length > 0) {
-            // favAnimeTableRows = props.userProfile.favAnime.map((userMedia) =>
-            //     <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
-            // );
-
-            favAnimeTable = <UserAnimeTable title={"My Favourite Anime"} user={props.userProfile.user} userAnime={props.userProfile.favAnime} />;
+            favAnimeTable = (
+                <UserMediaTable 
+                    title={"My Favourite Anime"} 
+                    user={props.userProfile.user} 
+                    userMedia={props.userProfile.favAnime} 
+                    mediaType={1}
+                />
+            );
             
         }
         if(props.userProfile.favManga.length > 0) {
-            favMangaTableRows = props.userProfile.favManga.map((userMedia) => 
-                <UserMediaRowScreen user={props.userProfile.user} userMedia={userMedia} />
-            );
             favMangaTable = (
-                <div>
-                    <Typography variant="h5">My Favourite Manga</Typography>
-                    <TableContainer component={Paper} className={classes.paper}>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>Title</TableCell>
-                                    <TableCell>Status</TableCell>
-                                    <TableCell>Chapters</TableCell>
-                                    <TableCell>My Chapter</TableCell>
-                                    <TableCell>My Rating</TableCell>
-                                    <TableCell>Read Status</TableCell>
-                                    <TableCell>Favourite</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {favMangaTableRows}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                </div>
+                <UserMediaTable
+                    title={"My Manga"}
+                    user={props.userProfile.user}
+                    userMedia={props.userProfile.favManga}
+                    mediaType={2}
+                />
             );
         }
         
@@ -156,6 +114,7 @@ export default function UserProfileView(props){
                 <Tab label="Manga" />
             </Tabs>
         );
+
         userInfo = (
             <div>
                 <TabPanel value={value} index={0}>

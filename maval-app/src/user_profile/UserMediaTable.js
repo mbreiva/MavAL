@@ -35,9 +35,9 @@ export default function UserAnimeTable(props) {
     const classes = useStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
-    let animeTableRows=<div/>
+    let rows=<div/>
 
-    const handleChangePage = (event, newPage) => {
+    const handleChangePage = (newPage) => {
         setPage(newPage);
     };
 
@@ -46,10 +46,25 @@ export default function UserAnimeTable(props) {
         setPage(0);
     };
 
-    if(props.userAnime) {
-        animeTableRows = props.userAnime.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((userMedia) =>
+    if(props.userMedia) {
+        rows = props.userMedia.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((userMedia) =>
             <UserMediaRowScreen user={props.user} userMedia={userMedia} />
         );
+    }
+
+    let episodeOrChapter;
+    let myEpisodeOrChapter;
+    let watchOrReadStatus;
+
+    if(props.mediaType == 1) {
+        episodeOrChapter = "Episode";
+        myEpisodeOrChapter = "My Episode";
+        watchOrReadStatus = "Watch Status";
+    }
+    else if(props.mediaType == 2) {
+        episodeOrChapter = "Chapter";
+        myEpisodeOrChapter = "My Chapter";
+        watchOrReadStatus = "Read Status";
     }
 
     return (
@@ -66,16 +81,22 @@ export default function UserAnimeTable(props) {
                                 Status
                             </TableCell>
                             <TableCell>
-                                <div className={classes.tableHeadCell}>Episodes</div>
+                                <div className={classes.tableHeadCell}>
+                                    {episodeOrChapter}
+                                </div>
                             </TableCell>
                             <TableCell>
-                                <div className={classes.tableHeadCell}>My Episode</div>
+                                <div className={classes.tableHeadCell}>
+                                    {myEpisodeOrChapter}
+                                </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadCell}>My Rating</div>
                             </TableCell>
                             <TableCell>
-                                <div className={classes.tableHeadCell}>Watch Status</div>
+                                <div className={classes.tableHeadCell}>
+                                    {watchOrReadStatus}
+                                </div>
                             </TableCell>
                             <TableCell>
                                 <div className={classes.tableHeadCell}>Favourite</div>
@@ -83,14 +104,14 @@ export default function UserAnimeTable(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {animeTableRows}
+                        {rows}
                     </TableBody>
                 </Table>
             </TableContainer>
             <TablePagination
                     rowsPerPageOptions={[5, 10, 25, 50, 100]}
                     component="div"
-                    count={props.userAnime ? props.userAnime.length : 0}
+                    count={props.userMedia ? props.userMedia.length : 0}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onChangePage={handleChangePage}
