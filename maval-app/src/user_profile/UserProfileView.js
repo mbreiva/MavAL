@@ -8,7 +8,6 @@ import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import TabPanel from '../shared_components/TabPanel'
 import UserMediaTable from './UserMediaTable'
-import UserMediaRowScreen from './UserMediaRowScreen'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -35,83 +34,224 @@ export default function UserProfileView(props){
     const classes = useStyles();
     const [value, setValue] = useState(0);
     const [subValue, setSubValue] = useState(0);
+
+    let userProfile = props.userProfile;
+    let userInfo;
+    let username = <div/>;
+
     let animeTable = <div/>;
     let mangaTable = <div/>;
     let favAnimeTable = <div/>;
     let favMangaTable = <div/>;
-    let username = <div/>;
-    let userInfo;
+    let currentlyWatchingAnimeTable = <div/>;
+    let currentlyReadingMangaTable = <div/>;
+    let completedAnimeTable = <div/>;
+    let completedMangaTable = <div/>;
+    let onHoldAnimeTable = <div/>;
+    let onHoldMangaTable = <div/>;
+    let droppedAnimeTable = <div/>;
+    let droppedMangaTable = <div/>;
+    let savedAnimeTable = <div/>;
+    let savedMangaTable = <div/>;
 
-    const handleChange = (newValue) => {
+    const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
-    const handleSubChange = (newValue) => {
+    const handleSubChange = (event, newValue) => {
         setSubValue(newValue);
     };
 
-    if(!props.userProfile.user){
+    if(!userProfile.user){
         userInfo = <div/>
     }
     else{
-        if(props.userProfile.user.username) {
+        if(userProfile.user.username) {
             username = (
                 <Typography component="h1" variant="h4" className={classes.title}>
-                    {props.userProfile.user.username}
+                    {userProfile.user.username}
                 </Typography>
             );
         }
-        if(props.userProfile.userAnime.length > 0) {
+        if(userProfile.userAnime.length > 0) {
             animeTable = (
                 <UserMediaTable 
                     title={"My Anime"} 
-                    user={props.userProfile.user} 
-                    userMedia={props.userProfile.userAnime} 
+                    user={userProfile.user} 
+                    userMedia={userProfile.userAnime} 
                     mediaType={1}
                 />
             );
         }
-        if(props.userProfile.userManga.length > 0) {
+        if(userProfile.userManga.length > 0) {
             mangaTable = (
                 <UserMediaTable
                     title={"My Manga"}
-                    user={props.userProfile.user}
-                    userMedia={props.userProfile.userManga}
+                    user={userProfile.user}
+                    userMedia={userProfile.userManga}
                     mediaType={2}
                 />
             );
         }
-        if(props.userProfile.favAnime.length > 0) {
+        if(userProfile.favAnime.length > 0) {
             favAnimeTable = (
                 <UserMediaTable 
                     title={"My Favourite Anime"} 
-                    user={props.userProfile.user} 
-                    userMedia={props.userProfile.favAnime} 
+                    user={userProfile.user} 
+                    userMedia={userProfile.favAnime} 
                     mediaType={1}
                 />
             );
             
         }
-        if(props.userProfile.favManga.length > 0) {
+        if(userProfile.favManga.length > 0) {
             favMangaTable = (
                 <UserMediaTable
                     title={"My Manga"}
-                    user={props.userProfile.user}
-                    userMedia={props.userProfile.favManga}
+                    user={userProfile.user}
+                    userMedia={userProfile.favManga}
+                    mediaType={2}
+                />
+            );
+        }
+
+        if(userProfile.currentlyWatchingAnime.length > 0) {
+            currentlyWatchingAnimeTable = (
+                <UserMediaTable
+                    title={"Currently Watching"}
+                    user={userProfile.user}
+                    userMedia={userProfile.currentlyWatchingAnime}
+                    mediaType={1}
+                />
+            );
+        }
+
+        if(userProfile.currentlyReadingManga.length > 0) {
+            currentlyReadingMangaTable = (
+                <UserMediaTable
+                    title={"Currently Reading"}
+                    user={userProfile.user}
+                    userMedia={userProfile.currentlyReadingManga}
+                    mediaType={2}
+                />
+            );
+        }
+
+        if(userProfile.completedAnime.length > 0) {
+            completedAnimeTable = (
+                <UserMediaTable
+                    title={"Completed Anime"}
+                    user={userProfile.user}
+                    userMedia={userProfile.completedAnime}
+                    mediaType={1}
+                />
+            );
+        }
+
+        if(userProfile.completedManga.length > 0) {
+            completedMangaTable = (
+                <UserMediaTable
+                    title={"Completed Manga"}
+                    user={userProfile.user}
+                    userMedia={userProfile.completedManga}
+                    mediaType={2}
+                />
+            );
+        }
+
+        if(userProfile.onHoldAnime.length > 0) {
+            onHoldAnimeTable = (
+                <UserMediaTable
+                    title={"On Hold Anime"}
+                    user={userProfile.user}
+                    userMedia={userProfile.onHoldAnime}
+                    mediaType={1}
+                />
+            );
+        }
+
+        if(userProfile.onHoldManga.length > 0) {
+            onHoldMangaTable = (
+                <UserMediaTable
+                    title={"On Hold Manga"}
+                    user={userProfile.user}
+                    userMedia={userProfile.onHoldManga}
+                    mediaType={2}
+                />
+            );
+        }
+
+        if(userProfile.droppedAnime.length > 0) {
+            droppedAnimeTable = (
+                <UserMediaTable
+                    title={"Dropped Anime"}
+                    user={userProfile.user}
+                    userMedia={userProfile.droppedAnime}
+                    mediaType={1}
+                />
+            );
+        }
+
+        if(userProfile.droppedManga.length > 0) {
+            droppedMangaTable = (
+                <UserMediaTable
+                    title={"Dropped Manga"}
+                    user={userProfile.user}
+                    userMedia={userProfile.droppedManga}
+                    mediaType={2}
+                />
+            );
+        }
+
+        if(userProfile.savedAnime.length > 0) {
+            savedAnimeTable = (
+                <UserMediaTable
+                    title={"Saved Anime"}
+                    user={userProfile.user}
+                    userMedia={userProfile.savedAnime}
+                    mediaType={1}
+                />
+            );
+        }
+
+        if(userProfile.savedManga.length > 0) {
+            savedMangaTable = (
+                <UserMediaTable
+                    title={"Saved Manga"}
+                    user={userProfile.user}
+                    userMedia={userProfile.savedManga}
                     mediaType={2}
                 />
             );
         }
         
-        let favourites =(
+        let animeTabs =(
             <Tabs
                 value={subValue}
                 indicatorColor="primary"
                 textColor="primary"
                 onChange={handleSubChange}
             >
-                <Tab label="Anime" />
-                <Tab label="Manga" />
+                <Tab label="Currently Watching" />
+                <Tab label="Completed" />
+                <Tab label="On Hold" />
+                <Tab label="Saved for Lated" />
+                <Tab label="Dropped" />
+            </Tabs>
+        );
+
+        let mangaTabs =(
+            <Tabs
+                value={subValue}
+                indicatorColor="primary"
+                textColor="primary"
+                onChange={handleSubChange}
+            >
+                <Tab label="Currently Reading" />
+                <Tab label="Completed" />
+                <Tab label="On Hold" />
+                <Tab label="Saved for Lated" />
+                <Tab label="Dropped" />
             </Tabs>
         );
 
@@ -124,18 +264,39 @@ export default function UserProfileView(props){
                     {favMangaTable}
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    {animeTable}
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                    {mangaTable}
-                </TabPanel>
-                <TabPanel value={value} index={3}>
-                    {favourites}
+                    {animeTabs}
                     <TabPanel value={subValue} index={0}>
-                        {favAnimeTable}
+                        {currentlyWatchingAnimeTable}
                     </TabPanel>
                     <TabPanel value={subValue} index={1}>
-                        {favMangaTable}
+                        {completedAnimeTable}
+                    </TabPanel>
+                    <TabPanel value={subValue} index={2}>
+                        {onHoldAnimeTable}
+                    </TabPanel>
+                    <TabPanel value={subValue} index={3}>
+                        {savedAnimeTable}
+                    </TabPanel>
+                    <TabPanel value={subValue} index={4}>
+                        {droppedAnimeTable}
+                    </TabPanel>
+                </TabPanel>
+                <TabPanel value={value} index={2}>
+                    {mangaTabs}
+                    <TabPanel value={subValue} index={0}>
+                        {currentlyReadingMangaTable}
+                    </TabPanel>
+                    <TabPanel value={subValue} index={1}>
+                        {completedMangaTable}
+                    </TabPanel>
+                    <TabPanel value={subValue} index={2}>
+                        {onHoldMangaTable}
+                    </TabPanel>
+                    <TabPanel value={subValue} index={3}>
+                        {savedMangaTable}
+                    </TabPanel>
+                    <TabPanel value={subValue} index={4}>
+                        {droppedMangaTable}
                     </TabPanel>
                 </TabPanel>
             </div>
@@ -154,11 +315,6 @@ export default function UserProfileView(props){
                     <Tab label="Home" />
                     <Tab label="Anime" />
                     <Tab label="Manga" />
-                    <Tab label="Favourites" />
-                    <Tab label="Currently Watching" />
-                    <Tab label="Completed" />
-                    <Tab label="On Hold" />
-                    <Tab label="Dropped" />
                 </Tabs>
             </Paper>
         </div>

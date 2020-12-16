@@ -35,9 +35,9 @@ export default function UserAnimeTable(props) {
     const classes = useStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
-    let rows=<div/>
+    let rows = <div/>
 
-    const handleChangePage = (newPage) => {
+    const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
 
@@ -56,12 +56,12 @@ export default function UserAnimeTable(props) {
     let myEpisodeOrChapter;
     let watchOrReadStatus;
 
-    if(props.mediaType == 1) {
+    if(props.mediaType === 1) {
         episodeOrChapter = "Episode";
         myEpisodeOrChapter = "My Episode";
         watchOrReadStatus = "Watch Status";
     }
-    else if(props.mediaType == 2) {
+    else if(props.mediaType === 2) {
         episodeOrChapter = "Chapter";
         myEpisodeOrChapter = "My Chapter";
         watchOrReadStatus = "Read Status";

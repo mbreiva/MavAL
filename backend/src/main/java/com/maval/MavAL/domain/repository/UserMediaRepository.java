@@ -13,5 +13,6 @@ public interface UserMediaRepository extends JpaRepository<UserMedia, Integer> {
     UserMedia findByUserAndMedia(User user, Media media);
     Set<UserMedia> findByUserAndMediaType(User user, Integer mediaType);
     Set<UserMedia> findByUserAndMediaTypeAndFavourite(User user, Integer mediaType, boolean favourite);
+    Set<UserMedia> findByUserAndMediaTypeAndProgressType(User user, Integer mediaType, String progressType);
 }
 

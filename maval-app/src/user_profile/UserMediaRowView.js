@@ -75,7 +75,7 @@ export default function UserMediaRowView(props) {
                     displayEmpty
                     className={classes.tableCell}
                 >
-                    <MenuItem value={null}>-</MenuItem>
+                    <MenuItem value={""}>-</MenuItem>
                     <MenuItem value={0}>0</MenuItem>
                     <MenuItem value={1}>1</MenuItem>
                     <MenuItem value={2}>2</MenuItem>
@@ -96,7 +96,7 @@ export default function UserMediaRowView(props) {
                     displayEmpty
                     className={classes.tableCell}
                 >
-                    <MenuItem value={null}>-</MenuItem>
+                    <MenuItem value={""}>-</MenuItem>
                     <MenuItem value={"Currently Watching"}>Currently Watching</MenuItem>
                     <MenuItem value={"Completed"}>Completed</MenuItem>
                     <MenuItem value={"Dropped"}>Dropped</MenuItem>

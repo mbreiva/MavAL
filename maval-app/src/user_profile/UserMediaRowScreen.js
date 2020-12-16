@@ -71,7 +71,7 @@ export default class userMediaRow extends Component {
             favourite: updatedFavouriteStatus,
         });
         let url = "http://localhost:8080/api/change_favourite_status?username=";
-        url = url + this.state.user.username + "&media_id=" + this.state.media.id + "&favourite_status=" + updatedFavouriteStatus;
+        url = url + this.state.user.username + "&media_id=" + this.state.media.id + "&new_favourite_status=" + updatedFavouriteStatus;
 
         fetch(url, {
             method: "GET",

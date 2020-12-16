@@ -34,14 +34,14 @@ public class UserMediaService {
     }
 
     @Transactional
-    public void changeFavouriteStatus(User user, Media media, String prevFavouriteStatus) {
+    public void changeFavouriteStatus(User user, Media media, String newFavouriteStatus) {
         UserMedia userMedia = userMediaRepository.findByUserAndMedia(user, media);
         // Previously favourited
-        if(prevFavouriteStatus.equals("true")){
-            userMedia.favourite = false;
+        if(newFavouriteStatus.equals("true")){
+            userMedia.favourite = true;
         }
         else{
-            userMedia.favourite = true;
+            userMedia.favourite = false;
         }
     }
 

@@ -39,24 +39,35 @@ public class UserMediaRestController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="/api/change_favourite_status")
-    public void changeFavouriteStatus(String username, Integer media_id, String favourite_status) {
+    public void changeFavouriteStatus(String username, Integer media_id, String new_favourite_status) {
         User user = userRepository.findByUsername(username);
         Media media = mediaRepository.findById(media_id).get();
         if(!userMediaService.mediaExistsInUserMedia(user, media)){
             userMediaService.addUserMedia(user, media);
         }
-        userMediaService.changeFavouriteStatus(user, media, favourite_status);
+        userMediaService.changeFavouriteStatus(user, media, new_favourite_status);
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="/api/get_user_profile_by_id")
     public ProfileResponse getUserProfileById(Integer user_id) {
         ProfileResponse profileResponse = new ProfileResponse();
-        profileResponse.user = userRepository.findById(user_id).get();
-        profileResponse.userAnime = userMediaRepository.findByUserAndMediaType(profileResponse.user, 1);
-        profileResponse.userManga = userMediaRepository.findByUserAndMediaType(profileResponse.user, 2);
-        profileResponse.favAnime = userMediaRepository.findByUserAndMediaTypeAndFavourite(profileResponse.user, 1, true);
-        profileResponse.favManga = userMediaRepository.findByUserAndMediaTypeAndFavourite(profileResponse.user, 2, true);
+        User user = userRepository.findById(user_id).get();
+        profileResponse.user = user;
+        profileResponse.userAnime = userMediaRepository.findByUserAndMediaType(user, 1);
+        profileResponse.userManga = userMediaRepository.findByUserAndMediaType(user, 2);
+        profileResponse.favAnime = userMediaRepository.findByUserAndMediaTypeAndFavourite(user, 1, true);
+        profileResponse.favManga = userMediaRepository.findByUserAndMediaTypeAndFavourite(user, 2, true);
+        profileResponse.currentlyWatchingAnime = userMediaRepository.findByUserAndMediaTypeAndProgressType(user, 1, "Currently Watching");
+        profileResponse.currentlyReadingManga = userMediaRepository.findByUserAndMediaTypeAndProgressType(user, 2, "Currently Reading");
+        profileResponse.completedAnime = userMediaRepository.findByUserAndMediaTypeAndProgressType(user, 1, "Completed");
+        profileResponse.completedManga = userMediaRepository.findByUserAndMediaTypeAndProgressType(user, 2, "Completed");
+        profileResponse.onHoldAnime = userMediaRepository.findByUserAndMediaTypeAndProgressType(user, 1, "On Hold");
+        profileResponse.onHoldManga = userMediaRepository.findByUserAndMediaTypeAndProgressType(user, 2, "On Hold");
+        profileResponse.droppedAnime = userMediaRepository.findByUserAndMediaTypeAndProgressType(user, 1, "Dropped");
+        profileResponse.droppedManga = userMediaRepository.findByUserAndMediaTypeAndProgressType(user, 2, "Dropped");
+        profileResponse.savedAnime = userMediaRepository.findByUserAndMediaTypeAndProgressType(user, 1, "Saved for Later");
+        profileResponse.savedManga = userMediaRepository.findByUserAndMediaTypeAndProgressType(user, 2, "Saved for Later");
         return profileResponse;
     }
 

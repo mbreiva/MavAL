@@ -23,8 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserAnimeTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserAnimeTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserMediaRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserMediaRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/ProfileResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/UserMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/UserMedia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/repository/UserMediaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/repository/UserMediaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserMediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserMediaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRowScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRowScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRowView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRowView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaTable.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +200,8 @@
       <workItem from="1607723073315" duration="6304000" />
       <workItem from="1607809023788" duration="1192000" />
       <workItem from="1607900948277" duration="8518000" />
-      <workItem from="1608000864416" duration="4750000" />
+      <workItem from="1608000864416" duration="5338000" />
+      <workItem from="1608152992814" duration="3399000" />
     </task>
     <servers />
   </component>
@@ -246,53 +256,53 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1604803802313" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1608011887666">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1608020479993">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="276" key="GridCell.Tab.0.bottom/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1607059044774" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608011887666" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608020479993" />
     <state width="1493" height="276" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1608011887666">
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1608020479992">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="276" key="GridCell.Tab.0.center/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1607059044774" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608011887666" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608020479992" />
     <state width="1493" height="276" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602689340982" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1608011887666">
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1608020479992">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="276" key="GridCell.Tab.0.left/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1607059044774" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608011887666" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608020479992" />
     <state width="1493" height="276" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602689340982" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1608011887666">
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1608020479992">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="276" key="GridCell.Tab.0.right/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1607059044774" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608011887666" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608020479992" />
     <state width="1493" height="276" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
-    <state width="1493" height="267" key="GridCell.Tab.1.bottom" timestamp="1608011883081">
+    <state width="1493" height="267" key="GridCell.Tab.1.bottom" timestamp="1608020479907">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="276" key="GridCell.Tab.1.bottom/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1607059044774" />
-    <state width="1493" height="267" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608011883081" />
+    <state width="1493" height="267" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608020479907" />
     <state width="1493" height="276" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
-    <state width="1493" height="267" key="GridCell.Tab.1.center" timestamp="1608011883081">
+    <state width="1493" height="267" key="GridCell.Tab.1.center" timestamp="1608020479907">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="276" key="GridCell.Tab.1.center/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1607059044774" />
-    <state width="1493" height="267" key="GridCell.Tab.1.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608011883081" />
+    <state width="1493" height="267" key="GridCell.Tab.1.center/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608020479907" />
     <state width="1493" height="276" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
-    <state width="1493" height="267" key="GridCell.Tab.1.left" timestamp="1608011883081">
+    <state width="1493" height="267" key="GridCell.Tab.1.left" timestamp="1608020479907">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="276" key="GridCell.Tab.1.left/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1607059044774" />
-    <state width="1493" height="267" key="GridCell.Tab.1.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608011883081" />
+    <state width="1493" height="267" key="GridCell.Tab.1.left/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608020479907" />
     <state width="1493" height="276" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
-    <state width="1493" height="267" key="GridCell.Tab.1.right" timestamp="1608011883081">
+    <state width="1493" height="267" key="GridCell.Tab.1.right" timestamp="1608020479907">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="276" key="GridCell.Tab.1.right/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1607059044774" />
-    <state width="1493" height="267" key="GridCell.Tab.1.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608011883081" />
+    <state width="1493" height="267" key="GridCell.Tab.1.right/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1608020479907" />
     <state width="1493" height="276" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1602689340983" />
     <state x="277" y="0" key="SettingsEditor" timestamp="1604803803899">
       <screen x="0" y="0" width="1536" height="824" />
@@ -307,44 +317,5 @@
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1600828164609" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1607913026070" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserMediaService.java</url>
-          <line>24</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserMediaService.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserMediaService.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserMediaRestController.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserMediaRestController.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserMediaRestController.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

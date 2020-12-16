@@ -10,7 +10,6 @@ export default class UserProfileScreen extends Component {
             userProfile: [],
         }
 
-        this.handleFavouriteChange = this.handleFavouriteChange.bind(this);
     }
 
     componentDidMount(){
@@ -34,29 +33,10 @@ export default class UserProfileScreen extends Component {
             });
     }
 
-    handleFavouriteChange(media_id, favouriteStatus) {
-        let url = "http://localhost:8080/api/change_favourite_status?username=";
-        url = url + this.state.userProfile.user.username + "&media_id=" + media_id + "&favourite_status=" + favouriteStatus;
-
-        fetch(url, {
-            method: "GET",
-        })
-            .then(response =>
-                response.json()
-            )
-            .then(result => {
-                console.log("Success:", result);
-            })
-            .catch(error => {
-                console.error("Error", error);
-            });
-    }
-
     render() {
         return (
             <UserProfileView 
                 userProfile={this.state.userProfile} 
-                handleFavouriteChange={this.handleFavouriteChange}
             />
         );
     }
