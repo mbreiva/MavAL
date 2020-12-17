@@ -16,6 +16,7 @@ export default class userMediaRow extends Component {
         this.handleProgressTypeChange = this.handleProgressTypeChange.bind(this);
     }
 
+
     handleProgressChange(event) {
         let updatedProgress = event.target.value;
         let updatedUserMedia = {...this.state.userMedia};
@@ -73,8 +74,8 @@ export default class userMediaRow extends Component {
         updatedUserMedia.favourite = updatedFavouriteStatus;
 
         this.setState({
-            userMedia: updatedUserMedia,
-        });
+            userMedia: updatedUserMedia
+        }, () => {console.log(this.state.userMedia)});
 
         let url = "http://localhost:8080/api/change_favourite_status?username=";
         url = url + this.state.user.username + "&media_id=" + this.state.userMedia.media.id + "&new_favourite_status=" + updatedFavouriteStatus;

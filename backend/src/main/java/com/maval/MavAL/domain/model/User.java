@@ -22,9 +22,6 @@ public class User {
     private String password;
     private LocalDate creationDate;
 
-    @OneToMany(mappedBy="user")
-    public Set<UserMedia> userMedia = new HashSet<>();
-
     public User() {}
 
     public User(String email, String username, String password){

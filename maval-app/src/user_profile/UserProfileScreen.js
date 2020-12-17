@@ -6,15 +6,42 @@ export default class UserProfileScreen extends Component {
         super(props);
 
         this.state = {
-            user_id: this.props.match.params.id,
-            userProfile: [],
+            userId: this.props.match.params.id,
+            user: null,
+            userMedia: [],
         }
 
     }
 
+    componentDidUpdate(prevProps) {
+        if(this.props.match.params.id !== prevProps.match.params.id) {
+            this.setState({ userId: this.props.match.params.id })
+
+            let url = "http://localhost:8080/api/get_user_profile_by_id?user_id=";
+            url = url + this.props.match.params.id;
+
+            fetch(url, {
+                method: "GET",
+            })
+                .then(response =>
+                    response.json()
+                )
+                .then(result => {
+                    this.setState({
+                        user: result.user,
+                        userMedia: result.userMedia,
+                    });
+                    console.log("Success:", result);
+                })
+                .catch(error => {
+                    console.error("Error", error);
+                });
+        }
+    }
+
     componentDidMount(){
         let url = "http://localhost:8080/api/get_user_profile_by_id?user_id=";
-        url = url + this.state.user_id;
+        url = url + this.state.userId;
 
         fetch(url, {
             method: "GET",
@@ -24,7 +51,8 @@ export default class UserProfileScreen extends Component {
             )
             .then(result => {
                 this.setState({
-                    userProfile: result,
+                    user: result.user,
+                    userMedia: result.userMedia,
                 });
                 console.log("Success:", result);
             })
@@ -33,10 +61,13 @@ export default class UserProfileScreen extends Component {
             });
     }
 
+    // updateFavouriteStatus(mediaId, updatedFavouriteStatus)
+
     render() {
         return (
             <UserProfileView 
-                userProfile={this.state.userProfile} 
+                user={this.state.user}
+                userMedia={this.state.userMedia} 
             />
         );
     }

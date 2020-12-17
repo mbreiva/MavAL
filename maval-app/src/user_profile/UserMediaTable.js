@@ -48,7 +48,7 @@ export default function UserMediaTable(props) {
     };
 
     if(userMedia.length > 0) {
-        rows = userMedia.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((userMedium) =>
+        rows = props.userMedia.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((userMedium) =>
             <UserMediaRowScreen  key={userMedium.id} user={props.user} userMedia={userMedium} />
         );
     }

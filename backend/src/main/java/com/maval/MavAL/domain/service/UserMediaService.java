@@ -21,15 +21,16 @@ public class UserMediaService {
     private EntityManager entityManager;
 
     public boolean mediaExistsInUserMedia(User user, Media media) {
-        // TODO: Check if user already has relation to anime
-        boolean mediaExists = user.userMedia.stream().anyMatch(o -> o.media == media);
-        return mediaExists;
+        UserMedia userMedia = userMediaRepository.findByUserAndMedia(user,media);
+        if(userMedia == null) {
+            return false;
+        }
+        return true;
     }
 
     @Transactional
     public void addUserMedia(User user, Media media) {
         UserMedia userMedia = new UserMedia(user, media);
-        user.userMedia.add(userMedia);
         entityManager.persist(userMedia);
     }
 

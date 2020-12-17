@@ -1,7 +1,5 @@
 import React , { Component } from 'react'
 import LoginDialog from './LoginDialog'
-import ProfileDropdown from '../shared_components/ProfileDropdown'
-import RegisterScreen from '../register/RegisterScreen';
 
 export default class LoginAuthService extends Component {
     constructor(props) {
