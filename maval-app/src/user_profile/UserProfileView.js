@@ -77,8 +77,8 @@ export default function UserProfileView(props){
             animeTable = (
                 <UserMediaTable 
                     title={"My Anime"} 
-                    user={userProfile.user} 
-                    userMedia={userProfile.userAnime} 
+                    user={props.userProfile.user} 
+                    userMedia={props.userProfile.userAnime} 
                     mediaType={1}
                 />
             );
@@ -232,10 +232,11 @@ export default function UserProfileView(props){
                 textColor="primary"
                 onChange={handleSubChange}
             >
+                <Tab label="All" />
                 <Tab label="Currently Watching" />
                 <Tab label="Completed" />
-                <Tab label="On Hold" />
                 <Tab label="Saved for Lated" />
+                <Tab label="On Hold" />
                 <Tab label="Dropped" />
             </Tabs>
         );
@@ -247,10 +248,11 @@ export default function UserProfileView(props){
                 textColor="primary"
                 onChange={handleSubChange}
             >
+                <Tab label="All" />
                 <Tab label="Currently Reading" />
                 <Tab label="Completed" />
-                <Tab label="On Hold" />
                 <Tab label="Saved for Lated" />
+                <Tab label="On Hold" />
                 <Tab label="Dropped" />
             </Tabs>
         );
@@ -266,36 +268,42 @@ export default function UserProfileView(props){
                 <TabPanel value={value} index={1}>
                     {animeTabs}
                     <TabPanel value={subValue} index={0}>
-                        {currentlyWatchingAnimeTable}
+                        {animeTable}
                     </TabPanel>
                     <TabPanel value={subValue} index={1}>
-                        {completedAnimeTable}
+                        {currentlyWatchingAnimeTable}
                     </TabPanel>
                     <TabPanel value={subValue} index={2}>
-                        {onHoldAnimeTable}
+                        {completedAnimeTable}
                     </TabPanel>
                     <TabPanel value={subValue} index={3}>
                         {savedAnimeTable}
                     </TabPanel>
                     <TabPanel value={subValue} index={4}>
+                        {onHoldAnimeTable}
+                    </TabPanel>
+                    <TabPanel value={subValue} index={5}>
                         {droppedAnimeTable}
                     </TabPanel>
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     {mangaTabs}
                     <TabPanel value={subValue} index={0}>
-                        {currentlyReadingMangaTable}
+                        {mangaTable}
                     </TabPanel>
                     <TabPanel value={subValue} index={1}>
-                        {completedMangaTable}
+                        {currentlyReadingMangaTable}
                     </TabPanel>
                     <TabPanel value={subValue} index={2}>
-                        {onHoldMangaTable}
+                        {completedMangaTable}
                     </TabPanel>
                     <TabPanel value={subValue} index={3}>
                         {savedMangaTable}
                     </TabPanel>
                     <TabPanel value={subValue} index={4}>
+                        {onHoldMangaTable}
+                    </TabPanel>
+                    <TabPanel value={subValue} index={5}>
                         {droppedMangaTable}
                     </TabPanel>
                 </TabPanel>

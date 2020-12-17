@@ -3,11 +3,10 @@ import LoginDialog from './LoginDialog'
 import ProfileDropdown from '../shared_components/ProfileDropdown'
 import RegisterScreen from '../register/RegisterScreen';
 
-export default class LoginScreen extends Component {
+export default class LoginAuthService extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoggedIn: localStorage.getItem("is_logged_in"),
             id: null,
             username: null,
             password: null,
@@ -17,7 +16,6 @@ export default class LoginScreen extends Component {
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
-        this.handleLogout = this.handleLogout.bind(this);
         this.clearStates = this.clearStates.bind(this);
     }
     
@@ -61,14 +59,15 @@ export default class LoginScreen extends Component {
                 }
                 else{
                     this.setState({
-                        isLoggedIn: "true",
                         id: result.id,
                         errorMsg: null,
                     });
-                    localStorage.setItem("is_logged_in", true);
+
                     localStorage.setItem("user_id", this.state.id);
                     localStorage.setItem("username", this.state.username);
                     localStorage.setItem("password", this.state.password);
+
+                    this.props.login();
                 }
                 console.log("Success:", result);
             })
@@ -77,35 +76,15 @@ export default class LoginScreen extends Component {
             });
     }
 
-    handleLogout() {
-        this.setState({
-            isLoggedIn: "false",
-            id: null,
-            username: null,
-            password: null,
-            errorMsg: null,
-        });
-        localStorage.clear();
-        localStorage.setItem("is_logged_in", false);
-    }
-
     render() {
         return (
-            <div>
-                {(this.state.isLoggedIn === "true") ? 
-                    <ProfileDropdown handleLogout={this.handleLogout}/>
-                    : (<div style={{display:"flex"}}>
-                        <LoginDialog
-                            handleUsernameChange={this.handleUsernameChange}
-                            handlePasswordChange={this.handlePasswordChange}
-                            handleLogin={this.handleLogin}
-                            errorMsg={this.state.errorMsg}
-                            clearStates={this.clearStates}
-                        />
-                        <RegisterScreen />
-                    </div>)
-                }
-            </div>
+            <LoginDialog
+                handleUsernameChange={this.handleUsernameChange}
+                handlePasswordChange={this.handlePasswordChange}
+                handleLogin={this.handleLogin}
+                errorMsg={this.state.errorMsg}
+                clearStates={this.clearStates}
+            />
         );
     } 
 }

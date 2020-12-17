@@ -22,13 +22,7 @@ const useStyles = makeStyles((theme) => ({
 export default function UserMediaRowView(props) {
     const classes = useStyles();
     const {
-        userMediaId,
-        mediaType,
-        media,
-        userProgress,
-        userRating,
-        favourite,
-        userProgressType,
+        userMedia,
         handleProgressChange,
         handleRatingChange,
         handleFavouriteChange,
@@ -39,28 +33,28 @@ export default function UserMediaRowView(props) {
     // TODO: Do for manga and other media as well
     var animeProgressOptions = [];
 
-    for(let i = 0; i <= media.episodeCount; i++) {
+    for(let i = 0; i <= userMedia.media.episodeCount; i++) {
         animeProgressOptions.push(<MenuItem value={i}>{i}</MenuItem>)
     }
 
     return (
-        <TableRow key={userMediaId}>
+        <TableRow>
             <TableCell>
-                <a href={`/anime/${media.id}`} style={{ color:'black', textDecoration: 'none' }}>
-                    {media.title}
+                <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
+                    {userMedia.media.title}
                 </a>
             </TableCell>
             <TableCell>
-                {media.status}
+                {userMedia.media.status}
             </TableCell>
             <TableCell>
                 <div className={classes.tableCell}>
-                    {media.episodeCount}
+                    {userMedia.media.episodeCount}
                 </div>
             </TableCell>
             <TableCell>
                 <Select
-                    value={userProgress}
+                    value={userMedia.progress}
                     onChange={handleProgressChange}
                     displayEmpty
                     className={classes.tableCell}
@@ -70,7 +64,7 @@ export default function UserMediaRowView(props) {
             </TableCell>
             <TableCell>
                 <Select
-                    value={userRating}
+                    value={userMedia.rating}
                     onChange={handleRatingChange}
                     displayEmpty
                     className={classes.tableCell}
@@ -91,7 +85,7 @@ export default function UserMediaRowView(props) {
             </TableCell>
             <TableCell>
                 <Select
-                    value={userProgressType}
+                    value={userMedia.progressType}
                     onChange={handleProgressTypeChange}
                     displayEmpty
                     className={classes.tableCell}
@@ -107,9 +101,9 @@ export default function UserMediaRowView(props) {
             <TableCell>
                 <div className={classes.tableCell}>
                     <IconButton 
-                        onClick={() => {handleFavouriteChange(!props.favourite);}}
+                        onClick={() => {handleFavouriteChange(!userMedia.favourite);}}
                     >
-                        {favourite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                        {userMedia.favourite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </IconButton>
                 </div>
             </TableCell>

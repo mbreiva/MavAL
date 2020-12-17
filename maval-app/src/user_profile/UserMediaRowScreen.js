@@ -6,14 +6,8 @@ export default class userMediaRow extends Component {
         super(props);
         
         this.state = {
-            userMediaId: this.props.userMedia.id,
             user: this.props.user,
-            media: this.props.userMedia.media,
-            mediaType: this.props.userMedia.mediaType,
-            userProgress: this.props.userMedia.progress,
-            userRating: this.props.userMedia.rating,
-            userProgressType: this.props.userMedia.progressType,
-            favourite: this.props.userMedia.favourite,
+            userMedia: this.props.userMedia,
         };
 
         this.handleProgressChange = this.handleProgressChange.bind(this);
@@ -24,11 +18,15 @@ export default class userMediaRow extends Component {
 
     handleProgressChange(event) {
         let updatedProgress = event.target.value;
+        let updatedUserMedia = {...this.state.userMedia};
+        updatedUserMedia.progress = updatedProgress;
+
         this.setState({
-            userProgress: updatedProgress,
+            userMedia: updatedUserMedia,
         });
+
         let url = "http://localhost:8080/api/update_user_progress?username=";
-        url = url + this.state.user.username + "&media_id=" + this.state.media.id + "&user_progress=" + updatedProgress;
+        url = url + this.state.user.username + "&media_id=" + this.state.userMedia.media.id + "&user_progress=" + updatedProgress;
         
         fetch(url, {
             method: "GET",
@@ -46,11 +44,15 @@ export default class userMediaRow extends Component {
 
     handleRatingChange(event) {
         let updatedRating = event.target.value;
+        let updatedUserMedia = {...this.state.userMedia};
+        updatedUserMedia.rating = updatedRating;
+
         this.setState({
-            userRating: updatedRating,
+            userMedia: updatedUserMedia,
         });
+
         let url = "http://localhost:8080/api/update_user_rating?username=";
-        url = url + this.state.user.username + "&media_id=" + this.state.media.id + "&user_rating=" + updatedRating;
+        url = url + this.state.user.username + "&media_id=" + this.state.userMedia.media.id + "&user_rating=" + updatedRating;
         
         fetch(url, {
             method: "GET",
@@ -67,11 +69,15 @@ export default class userMediaRow extends Component {
     }
 
     handleFavouriteChange(updatedFavouriteStatus) {
+        let updatedUserMedia = {...this.state.userMedia};
+        updatedUserMedia.favourite = updatedFavouriteStatus;
+
         this.setState({
-            favourite: updatedFavouriteStatus,
+            userMedia: updatedUserMedia,
         });
+
         let url = "http://localhost:8080/api/change_favourite_status?username=";
-        url = url + this.state.user.username + "&media_id=" + this.state.media.id + "&new_favourite_status=" + updatedFavouriteStatus;
+        url = url + this.state.user.username + "&media_id=" + this.state.userMedia.media.id + "&new_favourite_status=" + updatedFavouriteStatus;
 
         fetch(url, {
             method: "GET",
@@ -89,11 +95,15 @@ export default class userMediaRow extends Component {
 
     handleProgressTypeChange(event) {
         let updatedProgressType = event.target.value;
+        let updatedUserMedia = {...this.state.userMedia};
+        updatedUserMedia.progressType = updatedProgressType;
+
         this.setState({
-            userProgressType: updatedProgressType,
+            userMedia: updatedUserMedia,
         });
+
         let url = "http://localhost:8080/api/update_user_progress_type?username=";
-        url = url + this.state.user.username + "&media_id=" + this.state.media.id + "&user_progress_type=" + updatedProgressType;
+        url = url + this.state.user.username + "&media_id=" + this.state.userMedia.media.id + "&user_progress_type=" + updatedProgressType;
         
         fetch(url, {
             method: "GET",
@@ -112,13 +122,7 @@ export default class userMediaRow extends Component {
     render() {
         return (
             <UserMediaRowView
-                userMediaId={this.state.userMediaId}
-                mediaType={this.state.mediaType}
-                media={this.state.media}
-                userProgress={this.state.userProgress}
-                userRating={this.state.userRating}
-                favourite={this.state.favourite}
-                userProgressType={this.state.userProgressType}
+                userMedia={this.state.userMedia}
                 handleProgressChange={this.handleProgressChange}
                 handleRatingChange={this.handleRatingChange}
                 handleFavouriteChange={this.handleFavouriteChange}

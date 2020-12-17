@@ -23,17 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maval-app/src/login/LoginAuthService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserMediaRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserMediaRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/ProfileResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/UserMedia.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/UserMedia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/repository/UserMediaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/repository/UserMediaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserMediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserMediaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maval-app/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/anime/AnimeView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/anime/AnimeView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/login/LoginScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/shared_components/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/shared_components/NavBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRowScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRowScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRowView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRowView.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +200,7 @@
       <workItem from="1607809023788" duration="1192000" />
       <workItem from="1607900948277" duration="8518000" />
       <workItem from="1608000864416" duration="5338000" />
-      <workItem from="1608152992814" duration="3399000" />
+      <workItem from="1608152992814" duration="7663000" />
     </task>
     <servers />
   </component>
