@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
-import FavouriteMediaButton from '../shared_components/FavouriteMediaButton'
-import EditIcon from '@material-ui/icons/Edit'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import IconButton from '@material-ui/core/IconButton'
@@ -19,14 +17,15 @@ const useStyles = makeStyles((theme) => ({
     },  
 }));
 
-export default function UserMediaRowView(props) {
+export default function UserMediaRow(props) {
     const classes = useStyles();
     const {
+        key,
         userMedia,
-        handleProgressChange,
-        handleRatingChange,
-        handleFavouriteChange,
-        handleProgressTypeChange,
+        updateProgress,
+        updateRating,
+        updateFavourite,
+        updateProgressType,
     } = props;
     
     // For anime only
@@ -55,7 +54,7 @@ export default function UserMediaRowView(props) {
             <TableCell>
                 <Select
                     value={userMedia.progress}
-                    onChange={handleProgressChange}
+                    onChange={(event) => { updateProgress(userMedia.id, event.target.value) }}
                     displayEmpty
                     className={classes.tableCell}
                 >
@@ -65,7 +64,7 @@ export default function UserMediaRowView(props) {
             <TableCell>
                 <Select
                     value={userMedia.rating}
-                    onChange={handleRatingChange}
+                    onChange={(event) => { updateRating(userMedia.id, event.target.value) }}
                     displayEmpty
                     className={classes.tableCell}
                 >
@@ -86,7 +85,7 @@ export default function UserMediaRowView(props) {
             <TableCell>
                 <Select
                     value={userMedia.progressType}
-                    onChange={handleProgressTypeChange}
+                    onChange={(event) => { updateProgressType(userMedia.id, event.target.value) }}
                     displayEmpty
                     className={classes.tableCell}
                 >
@@ -101,7 +100,7 @@ export default function UserMediaRowView(props) {
             <TableCell>
                 <div className={classes.tableCell}>
                     <IconButton 
-                        onClick={() => {handleFavouriteChange(!userMedia.favourite);}}
+                        onClick={() => {updateFavourite(userMedia.id, !userMedia.favourite);}}
                     >
                         {userMedia.favourite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </IconButton>

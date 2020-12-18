@@ -94,9 +94,12 @@ export default function UserProfileView(props){
             animeTable = (
                 <UserMediaTable 
                     title={"My Anime"} 
-                    user={user} 
                     userMedia={allAnime} 
                     mediaType={1}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -104,9 +107,12 @@ export default function UserProfileView(props){
             mangaTable = (
                 <UserMediaTable
                     title={"My Manga"}
-                    user={user}
                     userMedia={allManga}
                     mediaType={2}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -114,9 +120,12 @@ export default function UserProfileView(props){
             favAnimeTable = (
                 <UserMediaTable 
                     title={"My Favourite Anime"} 
-                    user={user} 
                     userMedia={favAnime} 
                     mediaType={1}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
             
@@ -125,9 +134,12 @@ export default function UserProfileView(props){
             favMangaTable = (
                 <UserMediaTable
                     title={"My Manga"}
-                    user={user}
                     userMedia={favManga}
                     mediaType={2}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -136,9 +148,12 @@ export default function UserProfileView(props){
             currentlyWatchingAnimeTable = (
                 <UserMediaTable
                     title={"Currently Watching"}
-                    user={user}
                     userMedia={currentlyWatchingAnime}
                     mediaType={1}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -147,9 +162,12 @@ export default function UserProfileView(props){
             currentlyReadingMangaTable = (
                 <UserMediaTable
                     title={"Currently Reading"}
-                    user={user}
                     userMedia={currentlyReadingManga}
                     mediaType={2}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -158,9 +176,12 @@ export default function UserProfileView(props){
             completedAnimeTable = (
                 <UserMediaTable
                     title={"Completed Anime"}
-                    user={user}
                     userMedia={completedAnime}
                     mediaType={1}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -169,9 +190,12 @@ export default function UserProfileView(props){
             completedMangaTable = (
                 <UserMediaTable
                     title={"Completed Manga"}
-                    user={user}
                     userMedia={completedManga}
                     mediaType={2}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -180,9 +204,12 @@ export default function UserProfileView(props){
             onHoldAnimeTable = (
                 <UserMediaTable
                     title={"On Hold Anime"}
-                    user={user}
                     userMedia={onHoldAnime}
                     mediaType={1}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -191,9 +218,12 @@ export default function UserProfileView(props){
             onHoldMangaTable = (
                 <UserMediaTable
                     title={"On Hold Manga"}
-                    user={user}
                     userMedia={onHoldManga}
                     mediaType={2}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -202,9 +232,12 @@ export default function UserProfileView(props){
             droppedAnimeTable = (
                 <UserMediaTable
                     title={"Dropped Anime"}
-                    user={user}
                     userMedia={droppedAnime}
                     mediaType={1}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -213,9 +246,12 @@ export default function UserProfileView(props){
             droppedMangaTable = (
                 <UserMediaTable
                     title={"Dropped Manga"}
-                    user={user}
                     userMedia={droppedManga}
                     mediaType={2}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -224,9 +260,12 @@ export default function UserProfileView(props){
             savedAnimeTable = (
                 <UserMediaTable
                     title={"Saved Anime"}
-                    user={user}
                     userMedia={savedAnime}
                     mediaType={1}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }
@@ -235,9 +274,12 @@ export default function UserProfileView(props){
             savedMangaTable = (
                 <UserMediaTable
                     title={"Saved Manga"}
-                    user={user}
                     userMedia={savedManga}
                     mediaType={2}
+                    updateProgress={props.updateProgress}
+                    updateRating={props.updateRating}
+                    updateProgressType={props.updateProgressType}
+                    updateFavourite={props.updateFavourite}
                 />
             );
         }

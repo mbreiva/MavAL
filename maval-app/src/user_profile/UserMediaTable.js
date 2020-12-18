@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TablePagination from '@material-ui/core/TablePagination'
 import Paper from '@material-ui/core/Paper'
-import UserMediaRowScreen from './UserMediaRowScreen'
+import UserMediaRow from './UserMediaRow'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -49,7 +49,14 @@ export default function UserMediaTable(props) {
 
     if(userMedia.length > 0) {
         rows = props.userMedia.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((userMedium) =>
-            <UserMediaRowScreen  key={userMedium.id} user={props.user} userMedia={userMedium} />
+            <UserMediaRow
+                key={userMedium.id} 
+                userMedia={userMedium} 
+                updateProgress={props.updateProgress}
+                updateRating={props.updateRating}
+                updateProgressType={props.updateProgressType}
+                updateFavourite={props.updateFavourite}
+            />
         );
     }
 
