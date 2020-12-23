@@ -3,12 +3,13 @@
 - We're currently using a monorepo for consistency and to eliminate the overhead of maintaining two seperate repos
 - Code for the front and backends can be found in the `frontend` and `backend` directories respectively
 
-# Frontend (`./maval-app`)
+- All following commands should be run from the root of their respective folders
+
+# [Frontend (maval-app)](./maval-app)
 
 1. We're using react for the frontend
 
 ```bash
-# from the root of the frontend folder
 # if this is your first time running the app: install dependencies (found in package.json)
 npm install
 # make sure you're in the root of the `frontend` folder
@@ -17,7 +18,7 @@ npm start
 
 2. Your frontend app should be accessible on port 3000 of your localhost (http://localhost:3000/)
 
-# Backend (`./backend`)
+# [Backend](./backend)
 
 ## Run the app from a dev environment
 
@@ -25,7 +26,6 @@ npm start
 2. Run the app using the gradle wrapper
 
 ```bash
-# make sure you're in the root of the `backend` folder
 ./gradlew bootRun
 ```
 
@@ -44,7 +44,7 @@ docker run --name maval -e POSTGRES_PASSWORD=test -e  POSTGRES_DB=maval -d -p 50
 docker start maval
 ```
 
-# scripts (`./scripts`)
+# [Scripts](./scripts)
 
 - This script is the transform layer for json formatted anime data from `https://github.com/manami-project/anime-offline-database`.
 - It'll generate a `.csv` file from the data pulled from the project for easy insertion into postgres
