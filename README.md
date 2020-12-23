@@ -1,8 +1,7 @@
 # Organization
 
 - We're currently using a monorepo for consistency and to eliminate the overhead of maintaining two seperate repos
-- Code for the front and backends can be found in the `frontend` and `backend` directories respectively
-
+- Code for the front and backends can be found in the `maval-app` and `backend` directories respectively
 - All following commands should be run from the root of their respective folders
 
 # [Frontend (maval-app)](./maval-app)
