@@ -3,18 +3,21 @@
 - We're currently using a monorepo for consistency and to eliminate the overhead of maintaining two seperate repos
 - Code for the front and backends can be found in the `frontend` and `backend` directories respectively
 
-# Frontend
+# Frontend (`./maval-app`)
 
-1. For now, we can use python's `http` module to set up a local server
+1. We're using react for the frontend
 
 ```bash
+# from the root of the frontend folder
+# if this is your first time running the app: install dependencies (found in package.json)
+npm install
 # make sure you're in the root of the `frontend` folder
-`python3 -m http.server`
+npm start
 ```
 
-Your frontend app should be accessible on port 8000 of your localhost (http://localhost:8000/)
+2. Your frontend app should be accessible on port 3000 of your localhost (http://localhost:3000/)
 
-# Backend
+# Backend (`./backend`)
 
 ## Run the app from a dev environment
 
@@ -36,9 +39,22 @@ We use docker for easier setup, so install it if you haven't already.
 # install the docker image
 docker pull postgres
 
-# create the container
+# create and start the container
 docker run --name maval -e POSTGRES_PASSWORD=test -e  POSTGRES_DB=maval -d -p 5001:5432 postgres
-
-# start the container
 docker start maval
+```
+
+# scripts (`./scripts`)
+
+- This script is the transform layer for json formatted anime data from `https://github.com/manami-project/anime-offline-database`.
+- It'll generate a `.csv` file from the data pulled from the project for easy insertion into postgres
+- note: This requires python 3.6+
+
+```bash
+# run the init script to download the json formatted data (anime.json)
+./init.sh
+# run the python script to convert the json to csv (anime.csv)
+python3 parse_db.py
+# insert it into the db
+psql -h localhost -p 5001 -d maval -c "\copy media(media_type, title, status, release_date, episode_count) FROM './anime.csv' WITH DELIMITER ',' CSV HEADER" -U postgres
 ```
