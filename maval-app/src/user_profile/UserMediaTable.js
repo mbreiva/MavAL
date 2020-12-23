@@ -9,7 +9,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TablePagination from '@material-ui/core/TablePagination'
 import Paper from '@material-ui/core/Paper'
-import UserMediaRowScreen from './UserMediaRowScreen'
+import UserMediaRow from './UserMediaRow'
 
 const useStyles = makeStyles((theme) => ({
     title: {
@@ -31,11 +31,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function UserAnimeTable(props) {
+export default function UserMediaTable(props) {
     const classes = useStyles();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     let rows = <div/>
+    let userMedia = props.userMedia;
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -46,9 +47,16 @@ export default function UserAnimeTable(props) {
         setPage(0);
     };
 
-    if(props.userMedia) {
-        rows = props.userMedia.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((userMedia) =>
-            <UserMediaRowScreen user={props.user} userMedia={userMedia} />
+    if(userMedia.length > 0) {
+        rows = props.userMedia.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((userMedium) =>
+            <UserMediaRow
+                key={userMedium.id} 
+                userMedia={userMedium} 
+                updateProgress={props.updateProgress}
+                updateRating={props.updateRating}
+                updateProgressType={props.updateProgressType}
+                updateFavourite={props.updateFavourite}
+            />
         );
     }
 

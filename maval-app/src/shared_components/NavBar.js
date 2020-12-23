@@ -9,7 +9,7 @@ import 'fontsource-roboto'
 import SearchIcon from '@material-ui/icons/Search'
 import Container from '@material-ui/core/Container'
 import InputBase from '@material-ui/core/InputBase'
-import LoginScreen from '../login/LoginScreen'
+import LoginAuthService from '../login/LoginAuthService'
 import RegisterScreen from '../register/RegisterScreen'
 import ProfileDropdown from './ProfileDropdown'
 
@@ -62,11 +62,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function NavBar() {
+export default function NavBar(props) {
     const classes = useStyles();
-    
-    let userStatus = <LoginScreen />;
-    let register = <RegisterScreen />;
+     
+    let loginButton = <LoginAuthService login={props.login} />;
+    let registerButton = <RegisterScreen />;
+    let profileButton = <ProfileDropdown logout={props.logout} />;
 
     return (
         <div className={classes.root}>
@@ -94,7 +95,13 @@ export default function NavBar() {
                             }}
                         />
                     </div>
-                    {userStatus}
+                    {(props.isLoggedIn === "true") ? 
+                        profileButton
+                        : (<div style={{display:"flex"}}>
+                                {loginButton}
+                                {registerButton}
+                            </div>)
+                    }
                 </Toolbar>
             </Container>
             </AppBar>

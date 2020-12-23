@@ -68,7 +68,7 @@ export default function ProfileDropdown(props) {
                 <MenuItem>My Anime</MenuItem>
                 <MenuItem>My Manga</MenuItem>
                 <MenuItem>Settings</MenuItem>
-                <MenuItem onClick={props.handleLogout}>Log out</MenuItem>
+                <MenuItem onClick={props.logout}>Log out</MenuItem>
             </Menu>
         </div>
     );

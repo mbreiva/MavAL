@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
-import FavouriteMediaButton from '../shared_components/FavouriteMediaButton'
-import EditIcon from '@material-ui/icons/Edit'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import IconButton from '@material-ui/core/IconButton'
@@ -19,49 +17,44 @@ const useStyles = makeStyles((theme) => ({
     },  
 }));
 
-export default function UserMediaRowView(props) {
+export default function UserMediaRow(props) {
     const classes = useStyles();
     const {
-        userMediaId,
-        mediaType,
-        media,
-        userProgress,
-        userRating,
-        favourite,
-        userProgressType,
-        handleProgressChange,
-        handleRatingChange,
-        handleFavouriteChange,
-        handleProgressTypeChange,
+        key,
+        userMedia,
+        updateProgress,
+        updateRating,
+        updateFavourite,
+        updateProgressType,
     } = props;
     
     // For anime only
     // TODO: Do for manga and other media as well
     var animeProgressOptions = [];
 
-    for(let i = 0; i <= media.episodeCount; i++) {
+    for(let i = 0; i <= userMedia.media.episodeCount; i++) {
         animeProgressOptions.push(<MenuItem value={i}>{i}</MenuItem>)
     }
 
     return (
-        <TableRow key={userMediaId}>
+        <TableRow>
             <TableCell>
-                <a href={`/anime/${media.id}`} style={{ color:'black', textDecoration: 'none' }}>
-                    {media.title}
+                <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
+                    {userMedia.media.title}
                 </a>
             </TableCell>
             <TableCell>
-                {media.status}
+                {userMedia.media.status}
             </TableCell>
             <TableCell>
                 <div className={classes.tableCell}>
-                    {media.episodeCount}
+                    {userMedia.media.episodeCount}
                 </div>
             </TableCell>
             <TableCell>
                 <Select
-                    value={userProgress}
-                    onChange={handleProgressChange}
+                    value={userMedia.progress}
+                    onChange={(event) => { updateProgress(userMedia.id, event.target.value) }}
                     displayEmpty
                     className={classes.tableCell}
                 >
@@ -70,8 +63,8 @@ export default function UserMediaRowView(props) {
             </TableCell>
             <TableCell>
                 <Select
-                    value={userRating}
-                    onChange={handleRatingChange}
+                    value={userMedia.rating}
+                    onChange={(event) => { updateRating(userMedia.id, event.target.value) }}
                     displayEmpty
                     className={classes.tableCell}
                 >
@@ -91,8 +84,8 @@ export default function UserMediaRowView(props) {
             </TableCell>
             <TableCell>
                 <Select
-                    value={userProgressType}
-                    onChange={handleProgressTypeChange}
+                    value={userMedia.progressType}
+                    onChange={(event) => { updateProgressType(userMedia.id, event.target.value) }}
                     displayEmpty
                     className={classes.tableCell}
                 >
@@ -107,9 +100,9 @@ export default function UserMediaRowView(props) {
             <TableCell>
                 <div className={classes.tableCell}>
                     <IconButton 
-                        onClick={() => {handleFavouriteChange(!props.favourite);}}
+                        onClick={() => {updateFavourite(userMedia.id, !userMedia.favourite);}}
                     >
-                        {favourite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                        {userMedia.favourite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                     </IconButton>
                 </div>
             </TableCell>

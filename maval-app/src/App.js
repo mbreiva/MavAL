@@ -13,12 +13,25 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from './shared_components/Theme'
 
 export default function App() {
+  var currentLoginStatus = localStorage.getItem("is_logged_in");
+  const [isLoggedIn, setIsLoggedIn] = useState(currentLoginStatus);
+
+  const login = () => {
+    setIsLoggedIn("true");
+    localStorage.setItem("is_logged_in", "true");
+  };
+
+  const logout = () => {
+    setIsLoggedIn("false");
+    localStorage.clear();
+    localStorage.setItem("is_logged_in", "false");
+  };
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div>
-        <NavBar/>
+        <NavBar isLoggedIn={isLoggedIn} login={login} logout={logout} />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/anime" component={AnimeScreen} />

@@ -94,7 +94,7 @@ export default function AnimeView(props){
                     </Table>
                 </TableContainer>
                 <TablePagination
-                    rowsPerPageOptions={[10, 25, 50, 100]}
+                    rowsPerPageOptions={[5, 10, 25, 50, 100]}
                     component="div"
                     count={animeList.length}
                     rowsPerPage={rowsPerPage}
