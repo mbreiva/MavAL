@@ -49,6 +49,9 @@ export default class UserProfileScreen extends Component {
 
         fetch(url, {
             method: "GET",
+            headers: {
+                "Authorization": "Bearer " + this.props.authToken,
+            }
         })
             .then(response =>
                 response.json()
