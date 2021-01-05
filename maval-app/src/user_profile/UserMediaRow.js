@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
 export default function UserMediaRow(props) {
     const classes = useStyles();
     const {
-        key,
         userMedia,
         updateProgress,
         updateRating,
@@ -33,7 +32,7 @@ export default function UserMediaRow(props) {
     var animeProgressOptions = [];
 
     for(let i = 0; i <= userMedia.media.episodeCount; i++) {
-        animeProgressOptions.push(<MenuItem value={i}>{i}</MenuItem>)
+        animeProgressOptions.push(<MenuItem key={i} value={i}>{i}</MenuItem>)
     }
 
     return (

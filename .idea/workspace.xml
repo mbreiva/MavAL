@@ -23,19 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserMediaRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/UserMediaRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/ProfileResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/ProfileResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/repository/UserMediaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/repository/UserMediaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserMediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/UserMediaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maval-app/src/login/LoginAuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/login/LoginAuthService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maval-app/src/login/LoginView.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maval-app/src/register/RegisterView.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRowScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRowScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaTable.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/shared_components/FavouriteMediaButton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserMediaRow.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +197,11 @@
       <workItem from="1607900948277" duration="8518000" />
       <workItem from="1608000864416" duration="5338000" />
       <workItem from="1608152992814" duration="8771000" />
-      <workItem from="1608229429487" duration="3960000" />
+      <workItem from="1608229429487" duration="5756000" />
+      <workItem from="1608675466260" duration="1774000" />
+      <workItem from="1609449674292" duration="3547000" />
+      <workItem from="1609532665644" duration="320000" />
+      <workItem from="1609875120185" duration="2317000" />
     </task>
     <servers />
   </component>
@@ -314,10 +312,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="320" y="110" width="1030" height="592" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1600916973879" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607913026070">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1609458196440">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1600828164609" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1607913026070" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1609458196440" />
   </component>
 </project>
