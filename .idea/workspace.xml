@@ -23,13 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1395259c-ad15-4a05-a656-1228e24c3c96" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/controller/MediaRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/Media.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/model/Media.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/repository/MediaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/repository/MediaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/AnimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/AnimeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/MediaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/maval/MavAL/domain/service/MediaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maval-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/maval-app/src/user_profile/UserProfileScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +196,7 @@
       <workItem from="1608675466260" duration="1774000" />
       <workItem from="1609449674292" duration="3547000" />
       <workItem from="1609532665644" duration="320000" />
-      <workItem from="1609875120185" duration="14315000" />
+      <workItem from="1609875120185" duration="15778000" />
     </task>
     <servers />
   </component>

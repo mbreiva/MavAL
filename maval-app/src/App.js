@@ -40,7 +40,7 @@ export default function App() {
           <Route exact path="/manga" component={MangaScreen} />
           <Route exact path="/manga/:id" component={IndividualMangaScreen} />
           <Route exact path="/user/:id" component={UserProfileScreen} />
-          <Route exact path="/results" component={SearchPage} />
+          <Route exact path="/search" component={SearchPage} />
         </Switch>
       </div>
     </ThemeProvider>

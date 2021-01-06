@@ -21,8 +21,7 @@ export default class UserProfileScreen extends Component {
         if(this.props.match.params.id !== prevProps.match.params.id) {
             this.setState({ userId: this.props.match.params.id })
 
-            let url = "http://localhost:8080/api/get_user_profile_by_id?user_id=";
-            url = url + this.props.match.params.id;
+            let url = "http://localhost:8080/api/get_user_profile_by_id?user_id=" + this.props.match.params.id;
 
             fetch(url, {
                 method: "GET",
@@ -44,8 +43,7 @@ export default class UserProfileScreen extends Component {
     }
 
     componentDidMount(){
-        let url = "http://localhost:8080/api/get_user_profile_by_id?user_id=";
-        url = url + this.state.userId;
+        let url = "http://localhost:8080/api/get_user_profile_by_id?user_id=" + this.state.userId;
 
         fetch(url, {
             method: "GET",

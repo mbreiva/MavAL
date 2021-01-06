@@ -1,72 +1,47 @@
-import React, { useState } from 'react'
-import { fade, makeStyles } from '@material-ui/core/styles'
-import 'fontsource-roboto'
-import SearchIcon from '@material-ui/icons/Search'
-import InputBase from '@material-ui/core/InputBase'
+import React , { Component } from 'react'
+import { Redirect } from 'react-router-dom';
+import SearchBarView from './SearchBarView'
 
-const useStyles = makeStyles((theme) => ({
-    search: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-          backgroundColor: fade(theme.palette.common.white, 0.25),
-        },
-        marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-          marginLeft: theme.spacing(3),
-          width: 'auto',
-        },
-    },
-    searchIcon: {
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    inputRoot: {
-        color: 'inherit',
-    },
-    inputInput: {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: '20ch',
-        },
-    },
-}));
+export default class SearchBar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            keyword: null,
+            redirect: false,
+        }
 
-export default function SearchBar(props) {
-    
-    const classes = useStyles();
+        this.handleKeywordChange = this.handleKeywordChange.bind(this);
+        this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+    }
 
-    return (
-        <div className={classes.search}>
-            <div className={classes.searchIcon}>
-                <SearchIcon />
+    handleKeywordChange(event) {
+        this.setState({
+            keyword: event.target.value,
+            redirect: false,
+        });
+    }
+
+    handleSearchSubmit() {
+        this.setState({
+            redirect: true,
+        });
+    }
+
+
+    render() {
+        return (
+            <div>
+                <SearchBarView 
+                    handleKeywordChange={this.handleKeywordChange}
+                    handleSearchSubmit={this.handleSearchSubmit}
+                />
+                {this.state.redirect==true &&
+                    <Redirect to={{
+                        pathname: "/search",
+                        search: "?keyword="+this.state.keyword,
+                    }}/>
+                }
             </div>
-            <InputBase
-                placeholder="Search…"
-                classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                }}
-                onChange={props.handleKeywordChange}
-                onKeyPress = {e => {
-                    if(e.key === "Enter") {
-                        props.handleSearch();
-                    }
-                }}
-            />
-        </div>
-    )
-
+        )
+    }
 }
