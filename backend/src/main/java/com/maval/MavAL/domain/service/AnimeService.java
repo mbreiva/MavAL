@@ -13,10 +13,10 @@ import java.util.List;
 public class AnimeService {
 
     @Autowired
-    private AnimeRepository animeRepository;
+    public AnimeRepository animeRepository;
 
     @PersistenceContext
-    private EntityManager entityManager;
+    public EntityManager entityManager;
 
     public List<Anime> findTopAnimeByIdLimited(int limit) {
         return entityManager.createQuery(

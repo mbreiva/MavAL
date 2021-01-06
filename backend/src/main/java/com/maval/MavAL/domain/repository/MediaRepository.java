@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface MediaRepository extends JpaRepository<Media, Integer> {
     Media findByTitle(String title);
+    List<Media> findByTitleContainingIgnoreCase(String keyword);
 }
