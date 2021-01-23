@@ -12,7 +12,7 @@ public class LoginResponse {
         this.usernameValid = usernameValid;
         this.passwordValid = passwordValid;
         this.userId = id;
-        authToken.token = token;
+        this.authToken.token = token;
     }
 
 }
