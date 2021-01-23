@@ -4,7 +4,7 @@ public class LoginResponse {
     public boolean usernameValid;
     public boolean passwordValid;
     public int userId;
-    public AuthenticationToken authToken = new AuthenticationToken();
+    public AuthenticationToken authToken;
 
     public LoginResponse() {}
 
@@ -12,7 +12,7 @@ public class LoginResponse {
         this.usernameValid = usernameValid;
         this.passwordValid = passwordValid;
         this.userId = id;
-        this.authToken.token = token;
+        this.authToken = new AuthenticationToken(token);
     }
 
 }

@@ -29,26 +29,17 @@ public class LoginRestController {
     // Returns booleans for each credential
     public LoginResponse authenticate(@RequestBody LoginRequestDetails credentials) {
 
-        LoginResponse loginResponse = new LoginResponse();
+        boolean usernameValid = userService.userExistsByUsername(credentials.username);
+        boolean passwordValid = userService.passwordValid(credentials.username, credentials.password);
+        int id = -1;
 
-        // Check if user exists based on username
-        loginResponse.usernameValid = userService.userExistsByUsername(credentials.username);
-
-        if(!loginResponse.usernameValid) {
-            // TODO: Username does not exist error
-            return loginResponse;
+        if(passwordValid) {
+            id = userRepository.findByUsername(credentials.username).getId();
         }
 
-        // Check if password given matches user's password
-        loginResponse.passwordValid = userService.passwordValid(credentials.username, credentials.password);
+        AuthenticationToken token = authenticationService.createJwtAuthenticationToken(credentials.username);
 
-        if(!loginResponse.passwordValid) {
-            // TODO: Password invalid error
-            return loginResponse;
-        }
-
-        loginResponse.userId = userRepository.findByUsername(credentials.username).getId();
-        loginResponse.authToken.token = authenticationService.createJwtAuthenticationToken(credentials.username);
+        LoginResponse loginResponse = new LoginResponse(usernameValid, passwordValid, id, token);
         return loginResponse;
     }
 }
