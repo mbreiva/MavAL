@@ -7,6 +7,7 @@ import MangaScreen from './manga/MangaScreen'
 import IndividualAnimeScreen from './anime/IndividualAnimeScreen'
 import IndividualMangaScreen from './manga/IndividualMangaScreen'
 import UserProfileScreen from './user_profile/UserProfileScreen'
+import SearchPage from './search/SearchPage'
 import NavBar from './shared_components/NavBar'
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -39,6 +40,7 @@ export default function App() {
           <Route exact path="/manga" component={MangaScreen} />
           <Route exact path="/manga/:id" component={IndividualMangaScreen} />
           <Route exact path="/user/:id" component={UserProfileScreen} />
+          <Route exact path="/search" component={SearchPage} />
         </Switch>
       </div>
     </ThemeProvider>

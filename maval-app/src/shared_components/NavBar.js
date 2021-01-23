@@ -12,6 +12,7 @@ import InputBase from '@material-ui/core/InputBase'
 import LoginAuthService from '../login/LoginAuthService'
 import RegisterScreen from '../register/RegisterScreen'
 import ProfileDropdown from './ProfileDropdown'
+import SearchBar from '../search/SearchBar'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -83,18 +84,7 @@ export default function NavBar(props) {
                     </div>
                     <Button component={ Link } to="/anime" color="inherit">Anime</Button>
                     <Button component={ Link } to="/manga" color="inherit">Manga</Button>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                        />
-                    </div>
+                    <SearchBar />
                     {(props.isLoggedIn === "true") ? 
                         profileButton
                         : (<div style={{display:"flex"}}>

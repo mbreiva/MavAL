@@ -40,6 +40,6 @@ public class UserService {
     public boolean passwordValid (String username, String password) {
         //TODO: Check if password input matches user password
         User user = userRepository.findByUsername(username);
-        return user.getPassword().equals(password);
+        return (user != null) && (user.getPassword().equals(password));
     }
 }

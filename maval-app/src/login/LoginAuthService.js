@@ -5,7 +5,6 @@ export default class LoginAuthService extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: null,
             username: null,
             password: null,
             errorMsg: null,
@@ -50,22 +49,19 @@ export default class LoginAuthService extends Component {
                         errorMsg: "Username does not exist."
                     });
                 }
-                else if(!result.passwordValid){
+                else if(!result.passwordValid) {
                     this.setState({
-                        errorMsg: "Invalid password."
+                        errorMsg: "Password invalid."
                     });
                 }
-                else{
+                else {
                     this.setState({
-                        id: result.id,
                         errorMsg: null,
                     });
-
-                    localStorage.setItem("user_id", this.state.id);
-                    localStorage.setItem("username", this.state.username);
-                    localStorage.setItem("password", this.state.password);
-
+                    
                     this.props.login();
+                    localStorage.setItem("user_id", result.userId);
+                    localStorage.setItem("auth_token", result.authToken.token);
                 }
                 console.log("Success:", result);
             })

@@ -7,7 +7,7 @@ import java.util.Set;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name= "media_type", discriminatorType = DiscriminatorType.INTEGER)
+@DiscriminatorColumn(name= "media_type_id", discriminatorType = DiscriminatorType.INTEGER)
 public class Media {
 
     @Id
@@ -24,6 +24,9 @@ public class Media {
     public String title;
     public String status;
     public Date releaseDate;
+
+    @Column(name="media_type_id", insertable = false, updatable = false)
+    protected int mediaTypeId;
 
 //    @ManyToMany(mappedBy = "favouriteMedia")
 //    Set<User> favourites = new HashSet<>();
@@ -68,5 +71,9 @@ public class Media {
 
     public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public int getMediaTypeId() {
+        return mediaTypeId;
     }
 }
