@@ -37,7 +37,7 @@ public class LoginRestController {
             id = userRepository.findByUsername(credentials.username).getId();
         }
 
-        AuthenticationToken token = authenticationService.createJwtAuthenticationToken(credentials.username);
+        String token = authenticationService.createJwtAuthenticationToken(credentials.username);
 
         LoginResponse loginResponse = new LoginResponse(usernameValid, passwordValid, id, token);
         return loginResponse;
