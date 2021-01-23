@@ -13,15 +13,13 @@ with open('./anime.json') as data_f, open("anime.csv", "w") as output_f:
     data_f.close()
 
     # write csv headers to output
-    output_f.write("media_type, title, status, release_date, episode_count\n")
+    output_f.write("media_type_id, title, status, release_date, episode_count\n")
 
     seen_titles = {}
 
     for anime in data:
         # print(f"anime : {anime['title']}")
-        title = anime["title"]
-        title = title[1:len(title) - 1]  # remove start and end quotes
-        title = title.replace('"', '""')
+        title = anime["title"].replace('"', '""')
 
         if (title in seen_titles):
             # already seen this, skip

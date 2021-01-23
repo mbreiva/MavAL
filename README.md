@@ -52,8 +52,4 @@ docker start maval
 ```bash
 # run the init script to download the json formatted data (anime.json)
 ./init.sh
-# run the python script to convert the json to csv (anime.csv)
-python3 parse_db.py
-# insert it into the db
-psql -h localhost -p 5001 -d maval -c "\copy media(media_type, title, status, release_date, episode_count) FROM './anime.csv' WITH DELIMITER ',' CSV HEADER" -U postgres
 ```

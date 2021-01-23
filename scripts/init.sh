@@ -8,4 +8,4 @@ python3 parse_db.py
 
 # insert data into postgres
 psql -h localhost -p 5001 -d maval -U postgres -c \
-    "\copy media(media_type, title, status, release_date, episode_count) FROM './anime.csv' WITH DELIMITER ',' CSV HEADER"
+    "\copy media(media_type_id, title, status, release_date, episode_count) FROM './anime.csv' WITH DELIMITER ',' CSV HEADER"
