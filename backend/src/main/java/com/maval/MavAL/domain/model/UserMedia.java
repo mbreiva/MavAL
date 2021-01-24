@@ -17,7 +17,7 @@ public class UserMedia {
     @JoinColumn(name="media_id")
     public Media media;
 
-    public int mediaType;
+    public int mediaTypeId;
     public boolean favourite = false;
     public double rating = 0.0;
     public int progress = 0;
@@ -29,10 +29,10 @@ public class UserMedia {
         this.user = user;
         this.media = media;
         if(media instanceof Anime){
-            mediaType = 1;
+            mediaTypeId = 1;
         }
         else if(media instanceof Manga){
-            mediaType = 2;
+            mediaTypeId = 2;
         }
     }
 

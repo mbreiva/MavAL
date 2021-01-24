@@ -30,9 +30,14 @@ export default function UserMediaRow(props) {
     // For anime only
     // TODO: Do for manga and other media as well
     var animeProgressOptions = [];
+    var mangaProgressOptions = [];
 
     for(let i = 0; i <= userMedia.media.episodeCount; i++) {
         animeProgressOptions.push(<MenuItem key={i} value={i}>{i}</MenuItem>)
+    }
+
+    for(let i = 0; i <= userMedia.media.chapterCount; i++) {
+        mangaProgressOptions.push(<MenuItem key={i} value={i}>{i}</MenuItem>)
     }
 
     return (
@@ -47,7 +52,10 @@ export default function UserMediaRow(props) {
             </TableCell>
             <TableCell>
                 <div className={classes.tableCell}>
-                    {userMedia.media.episodeCount}
+                    {userMedia.media.mediaTypeId === 1
+                        ? userMedia.media.episodeCount
+                        : userMedia.media.chapterCount
+                    }
                 </div>
             </TableCell>
             <TableCell>
@@ -57,7 +65,10 @@ export default function UserMediaRow(props) {
                     displayEmpty
                     className={classes.tableCell}
                 >
-                    {animeProgressOptions}
+                    {userMedia.media.mediaTypeId === 1
+                        ? animeProgressOptions
+                        : mangaProgressOptions
+                    }
                 </Select>
             </TableCell>
             <TableCell>

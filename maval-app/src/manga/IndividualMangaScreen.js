@@ -8,7 +8,7 @@ export default class IndividualMangaScreen extends Component {
         this.state = {
             id: this.props.match.params.id,
             manga: null,
-            username: localStorage.getItem("username"),
+            userId: localStorage.getItem("user_id"),
         }
 
         this.addUserMedia = this.addUserMedia.bind(this);
@@ -16,8 +16,8 @@ export default class IndividualMangaScreen extends Component {
     }
 
     addUserMedia() {
-        let url = "http://localhost:8080/api/add_user_media?username=";
-        url = url + this.state.username + "&title=" + this.state.manga.title;
+        let url = "http://localhost:8080/api/add_user_media?user_id=";
+        url = url + this.state.userId + "&media_id=" + this.state.manga.id;
 
         fetch(url, {
             method: "GET",
