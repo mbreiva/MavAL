@@ -1,12 +1,12 @@
 import requests
 import json
 
-output = open("manga.csv", "w")
+output = open("manga.csv", "w", encoding="utf-8")
 output.write("media_type_id, title, status, release_date, chapter_count\n")
 data = []
 
 # Get manga data from Kitsu API
-for page in range(2):
+for page in range(10):
     response = requests.get(f"https://kitsu.io/api/edge/manga?page[limit]=20&&page[offset]={page*20}")
     
     for item in response.json()["data"]:
@@ -15,12 +15,16 @@ for page in range(2):
 
 for manga in data:
     title = manga["attributes"]["canonicalTitle"]
-    status = manga["attributes"]["status"]
+    status = manga["attributes"]["status"].capitalize()
     release_date = manga["attributes"]["startDate"]
     chapter_count = manga["attributes"]["chapterCount"]
 
     if status is None:
-        status = "UNKNOWN"
+        status = "Unknown"
+    if status.lower() == "current":
+        status = "Ongoing"
+    if status.lower() == "tba":
+        status = "TBA"
     if release_date is None:
         release_date = "0001-01-01"
     if chapter_count is None:
