@@ -11,4 +11,4 @@ python3 parse_manga_db.py
 psql -h localhost -p 5001 -d maval -U postgres -c \
     "\copy media(media_type_id, title, status, release_date, episode_count) FROM './anime.csv' WITH DELIMITER ',' CSV HEADER"
 psql -h localhost -p 5001 -d maval -U postgres -c \
-    "\copy media(media_type_id, title, status, release_date, chapter_count) FROM './manga.csv' WITH DELIMITER ',' CSV HEADER"
+    "\copy media(media_type_id, title, status, release_date, chapter_count) FROM './manga.csv' WITH DELIMITER ',' NULL AS ' ' CSV HEADER"

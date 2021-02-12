@@ -21,12 +21,12 @@ for manga in data:
 
     if status is None:
         status = "Unknown"
-    if status.lower() == "current":
+    elif status.lower() == "current":
         status = "Ongoing"
-    if status.lower() == "tba":
+    elif status.lower() == "tba":
         status = "TBA"
     if release_date is None:
-        release_date = "0001-01-01"
+        release_date = ' '
     if chapter_count is None:
         chapter_count = 0
     
