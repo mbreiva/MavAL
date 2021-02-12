@@ -16,7 +16,7 @@ export default class SearchPage extends Component {
         let params = queryString.parse(this.props.location.search);
         this.setState({ keyword: params.keyword, });
 
-        let url = "http://localhost:8080/api/searchMediaByTitle?keyword=" + params.keyword;
+        let url = `http://localhost:8080/api/searchMediaByTitle?keyword=${params.keyword}`;
 
         fetch(url, {
             method: "GET",
@@ -41,7 +41,7 @@ export default class SearchPage extends Component {
             let params = queryString.parse(this.props.location.search);
             this.setState({ keyword: params.keyword, });
 
-            let url = "http://localhost:8080/api/searchMediaByTitle?keyword=" + params.keyword;
+            let url = `http://localhost:8080/api/searchMediaByTitle?keyword=${params.keyword}`;
 
             fetch(url, {
                 method: "GET",

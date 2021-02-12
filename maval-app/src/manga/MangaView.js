@@ -54,7 +54,7 @@ export default function MangaPage(props){
     };
 
     if(mangaList.length > 0) {
-        mangaRows = mangaList.splice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((manga) =>
+        mangaRows = mangaList.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((manga) =>
             <TableRow key={manga.id}>
                 <TableCell><a href={`/manga/${manga.id}`} style={{ color:'black', textDecoration: 'none' }}>{manga.title}</a></TableCell>
                 <TableCell>{manga.status}</TableCell>

@@ -169,9 +169,9 @@ export default class UserProfileScreen extends Component {
 
         this.setState({ userMedia: updatedUserMedia });
 
-        let url = "http://localhost:8080/api/change_favourite_status?username=";
-        url = url + this.state.user.username + "&media_id=" + mediaId + "&new_favourite_status=" + updatedFavouriteStatus;
-
+        let url = `http://localhost:8080/api/change_favourite_status?
+                    username=${this.state.user.username}&media_id=${mediaId}&new_favourite_status=${updatedFavouriteStatus}`;
+        
         fetch(url, {
             method: "GET",
         })

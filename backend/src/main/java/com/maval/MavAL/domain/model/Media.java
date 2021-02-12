@@ -20,7 +20,6 @@ public class Media {
 
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     public int id;
-    @Column(unique = true)
     public String title;
     public String status;
     public Date releaseDate;

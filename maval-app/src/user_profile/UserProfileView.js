@@ -40,8 +40,8 @@ export default function UserProfileView(props){
     let userInfo;
     let username = <div/>;
 
-    let allAnime = userMedia.filter(userMedium => userMedium.mediaType === 1);
-    let allManga = userMedia.filter(userMedium => userMedium.mediaType === 2);
+    let allAnime = userMedia.filter(userMedium => userMedium.mediaTypeId === 1);
+    let allManga = userMedia.filter(userMedium => userMedium.mediaTypeId === 2);
     let favAnime = allAnime.filter(userMedium => userMedium.favourite === true);
     let favManga = allManga.filter(userMedium => userMedium.favourite === true);
     let currentlyWatchingAnime = allAnime.filter(userMedium => userMedium.progressType === "Currently Watching");

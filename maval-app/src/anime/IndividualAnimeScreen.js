@@ -8,7 +8,7 @@ export default class IndividualAnimeScreen extends Component {
         this.state = {
             id: this.props.match.params.id,
             anime: null,
-            username: localStorage.getItem("username"),
+            user_id: localStorage.getItem("user_id"),
         }
 
         this.addUserMedia = this.addUserMedia.bind(this);
@@ -16,8 +16,7 @@ export default class IndividualAnimeScreen extends Component {
     }
 
     addUserMedia() {
-        let url = "http://localhost:8080/api/add_user_media?username=";
-        url = url + this.state.username + "&id=" + this.state.anime.id;
+        let url = `http://localhost:8080/api/add_user_media?user_id=${this.state.user_id}&media_id=${this.state.anime.id}`;
 
         fetch(url, {
             method: "GET",
@@ -34,8 +33,7 @@ export default class IndividualAnimeScreen extends Component {
     }
 
     addMediaToFavourites() {
-        let url = "http://localhost:8080/api/add_media_to_favourites?username=";
-        url = url + this.state.username + "&id=" + this.state.anime.id;
+        let url = `http://localhost:8080/api/add_media_to_favourites?username=${this.state.username}&id=${this.state.anime.id}`;
 
         fetch(url, {
             method: "GET",
@@ -52,10 +50,7 @@ export default class IndividualAnimeScreen extends Component {
     }
 
     componentDidMount(){
-        // const { match: { params } } = this.props;
-
-        let url = "http://localhost:8080/api/get_anime_by_id?id=";
-        url = url + this.state.id;
+        let url = `http://localhost:8080/api/get_anime_by_id?id=${this.state.id}`;
 
         fetch(url, {
             method: "GET",
