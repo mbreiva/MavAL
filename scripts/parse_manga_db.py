@@ -26,11 +26,11 @@ for manga in data:
     elif status.lower() == "tba":
         status = "TBA"
     if release_date is None:
-        release_date = ' '
+        release_date = ""
     if chapter_count is None:
         chapter_count = 0
     
     
-    output.write(f'"2", "{title}", "{status}", "{release_date}", "{chapter_count}"\n')
+    output.write(f'"2","{title}","{status}","{release_date}","{chapter_count}"\n')
 
 output.close()

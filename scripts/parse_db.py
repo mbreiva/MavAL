@@ -47,7 +47,7 @@ with open('./anime.json') as data_f, open("anime.csv", "w") as output_f:
             release_date = f"{release_year}-{release_month}-{release_day}"
 
         episodes = anime['episodes']
-        output_f.write(f'"1", "{title}", "{status}", "{release_date}", "{episodes}"\n')
+        output_f.write(f'"1","{title}","{status}","{release_date}","{episodes}"\n')
 
     output_f.close()
     print(f"anime size {len(seen_titles)}")
