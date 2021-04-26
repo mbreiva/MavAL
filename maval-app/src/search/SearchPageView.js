@@ -43,7 +43,7 @@ export default function SearchPageView(props) {
             animeTable = (
                 <div>
                     <Typography component="h1" variant="h4" className={classes.title}>Anime</Typography>
-                    <MediaTable media={animeResults} />
+                    <MediaTable media={animeResults} mediaType={1}/>
                 </div>
             );
         }
@@ -52,7 +52,7 @@ export default function SearchPageView(props) {
             mangaTable = (
                 <div>
                     <Typography component="h1" variant="h4" className={classes.title}>Manga</Typography>
-                    <MediaTable media={mangaResults} />
+                    <MediaTable media={mangaResults} mediaType={2}/>
                 </div>
             );
         }
