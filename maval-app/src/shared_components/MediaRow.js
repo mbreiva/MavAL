@@ -33,7 +33,7 @@ export default function MediaRow(props) {
             </TableCell>
             <TableCell>
                 <div className={classes.tableCell}>
-                    {media.episodeCount}
+                    {media.mediaTypeId === 1 ? media.episodeCount : media.chapterCount}
                 </div>
             </TableCell>
         </TableRow>
