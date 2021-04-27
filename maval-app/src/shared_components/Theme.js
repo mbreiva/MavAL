@@ -1,8 +1,13 @@
 import { createMuiTheme } from '@material-ui/core/styles'
 
 const theme = createMuiTheme ({
+    shadows: ["none"],
     palette: {
-        primary: { 500: '#2B3F81' },
+        primary: { 500: '#50A873' },
+        background: {
+            default: "#FFFFFF"
+        }
+
     },
     overrides: {
         MuiButton: {
@@ -41,7 +46,6 @@ const theme = createMuiTheme ({
             InputLabelProps: {
                 shrink: true,
             },
-            
         },
         MuiDialogTitle: {
             disableTypography: true,
@@ -49,7 +53,8 @@ const theme = createMuiTheme ({
         MuiTab: {
             disableRipple: true,
         },
-    }
+    },
+
 })
 
 export default theme

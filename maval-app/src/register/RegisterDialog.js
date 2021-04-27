@@ -19,6 +19,15 @@ const useStyles = makeStyles((theme) => ({
         color: "#ff3d00",
         fontSize: 15,
     },
+    button: {
+        backgroundColor: "#676767",
+        color: "#FFFFFF",
+        borderRadius: "10px",
+        width: "80px",
+        '&:hover': {
+            backgroundColor: "#7E7E7E"
+        }
+    },
 }));
 
 export default function RegisterDialog(props) {
@@ -35,8 +44,8 @@ export default function RegisterDialog(props) {
 
     return (
         <div>
-            <Button color="inherit" onClick={handleClickOpen}>
-                Register
+            <Button onClick={handleClickOpen} className={classes.button}>
+                Sign Up
             </Button>
             <Dialog 
                 open={open} 
