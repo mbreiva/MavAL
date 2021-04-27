@@ -7,14 +7,28 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import IconButton from '@material-ui/core/IconButton'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
+import Button from '@material-ui/core/Button'
 
 
 const useStyles = makeStyles((theme) => ({
     tableCell: {
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
     },  
+    tableCellSelect: {
+        display: "flex",
+        justifyContent: "center",
+        width: "50px",
+    },  
+    tableCellStatusSelect: {
+        display: "flex",
+        justifyContent: "center",
+        width: "120px",
+    },  
+    tableRow: {
+        display: "flex",
+        flexFlow: "row nowrap",
+    }
 }));
 
 export default function UserMediaRow(props) {
@@ -42,16 +56,16 @@ export default function UserMediaRow(props) {
 
     return (
         <TableRow>
-            <TableCell>
-                <a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
+            <TableCell style={{paddingLeft: "30px"}}>
+                <Button><a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
                     {userMedia.media.title}
-                </a>
+                </a></Button>
             </TableCell>
             <TableCell>
                 {userMedia.media.status}
             </TableCell>
             <TableCell>
-                <div className={classes.tableCell}>
+                <div>
                     {userMedia.media.mediaTypeId === 1
                         ? userMedia.media.episodeCount
                         : userMedia.media.chapterCount
@@ -63,7 +77,7 @@ export default function UserMediaRow(props) {
                     value={userMedia.progress}
                     onChange={(event) => { updateProgress(userMedia.id, event.target.value) }}
                     displayEmpty
-                    className={classes.tableCell}
+                    className={classes.tableCellSelect}
                 >
                     {userMedia.media.mediaTypeId === 1
                         ? animeProgressOptions
@@ -76,7 +90,7 @@ export default function UserMediaRow(props) {
                     value={userMedia.rating}
                     onChange={(event) => { updateRating(userMedia.id, event.target.value) }}
                     displayEmpty
-                    className={classes.tableCell}
+                    className={classes.tableCellSelect}
                 >
                     <MenuItem value={""}>-</MenuItem>
                     <MenuItem value={0}>0</MenuItem>
@@ -97,19 +111,19 @@ export default function UserMediaRow(props) {
                     value={userMedia.progressType}
                     onChange={(event) => { updateProgressType(userMedia.id, event.target.value) }}
                     displayEmpty
-                    className={classes.tableCell}
+                    className={classes.tableCellStatusSelect}
                 >
                     <MenuItem value={""}>-</MenuItem>
-                    <MenuItem value={"Currently Watching"}>Currently Watching</MenuItem>
+                    <MenuItem value={"Currently Watching"}>Watching</MenuItem>
                     <MenuItem value={"Completed"}>Completed</MenuItem>
                     <MenuItem value={"Dropped"}>Dropped</MenuItem>
                     <MenuItem value={"On Hold"}>On Hold</MenuItem>
-                    <MenuItem value={"Saved for Later"}>Saved for Later</MenuItem>
+                    <MenuItem value={"Saved for Later"}>Saved</MenuItem>
                 </Select>
             </TableCell>
-            <TableCell>
-                <div className={classes.tableCell}>
-                    <IconButton 
+            <TableCell style={{paddingRight: "30px"}}>
+                <div>
+                    <IconButton
                         onClick={() => {updateFavourite(userMedia.id, !userMedia.favourite);}}
                     >
                         {userMedia.favourite ? <FavoriteIcon /> : <FavoriteBorderIcon />}

@@ -93,7 +93,7 @@ export default function UserProfileView(props){
         if(allAnime.length > 0) {
             animeTable = (
                 <UserMediaTable 
-                    title={"My Anime"} 
+                    title={"Anime | All"} 
                     userMedia={allAnime} 
                     mediaType={1}
                     updateProgress={props.updateProgress}
@@ -106,7 +106,7 @@ export default function UserProfileView(props){
         if(allManga.length > 0) {
             mangaTable = (
                 <UserMediaTable
-                    title={"My Manga"}
+                    title={"Manga | All"}
                     userMedia={allManga}
                     mediaType={2}
                     updateProgress={props.updateProgress}
@@ -119,7 +119,7 @@ export default function UserProfileView(props){
         if(favAnime.length > 0) {
             favAnimeTable = (
                 <UserMediaTable 
-                    title={"My Favourite Anime"} 
+                    title={"Anime | Favourites"} 
                     userMedia={favAnime} 
                     mediaType={1}
                     updateProgress={props.updateProgress}
@@ -133,7 +133,7 @@ export default function UserProfileView(props){
         if(favManga.length > 0) {
             favMangaTable = (
                 <UserMediaTable
-                    title={"My Manga"}
+                    title={"Manga | Favourites"}
                     userMedia={favManga}
                     mediaType={2}
                     updateProgress={props.updateProgress}
@@ -147,7 +147,7 @@ export default function UserProfileView(props){
         if(currentlyWatchingAnime.length > 0) {
             currentlyWatchingAnimeTable = (
                 <UserMediaTable
-                    title={"Currently Watching"}
+                    title={"Anime | Currently Watching"}
                     userMedia={currentlyWatchingAnime}
                     mediaType={1}
                     updateProgress={props.updateProgress}
@@ -161,7 +161,7 @@ export default function UserProfileView(props){
         if(currentlyReadingManga.length > 0) {
             currentlyReadingMangaTable = (
                 <UserMediaTable
-                    title={"Currently Reading"}
+                    title={"Manga | Currently Reading"}
                     userMedia={currentlyReadingManga}
                     mediaType={2}
                     updateProgress={props.updateProgress}
@@ -175,7 +175,7 @@ export default function UserProfileView(props){
         if(completedAnime.length > 0) {
             completedAnimeTable = (
                 <UserMediaTable
-                    title={"Completed Anime"}
+                    title={"Anime | Completed"}
                     userMedia={completedAnime}
                     mediaType={1}
                     updateProgress={props.updateProgress}
@@ -189,7 +189,7 @@ export default function UserProfileView(props){
         if(completedManga.length > 0) {
             completedMangaTable = (
                 <UserMediaTable
-                    title={"Completed Manga"}
+                    title={"Manga | Completed"}
                     userMedia={completedManga}
                     mediaType={2}
                     updateProgress={props.updateProgress}
@@ -203,7 +203,7 @@ export default function UserProfileView(props){
         if(onHoldAnime.length > 0) {
             onHoldAnimeTable = (
                 <UserMediaTable
-                    title={"On Hold Anime"}
+                    title={"Anime | On Hold"}
                     userMedia={onHoldAnime}
                     mediaType={1}
                     updateProgress={props.updateProgress}
@@ -217,7 +217,7 @@ export default function UserProfileView(props){
         if(onHoldManga.length > 0) {
             onHoldMangaTable = (
                 <UserMediaTable
-                    title={"On Hold Manga"}
+                    title={"Manga | On Hold"}
                     userMedia={onHoldManga}
                     mediaType={2}
                     updateProgress={props.updateProgress}
@@ -231,7 +231,7 @@ export default function UserProfileView(props){
         if(droppedAnime.length > 0) {
             droppedAnimeTable = (
                 <UserMediaTable
-                    title={"Dropped Anime"}
+                    title={"Anime | Dropped"}
                     userMedia={droppedAnime}
                     mediaType={1}
                     updateProgress={props.updateProgress}
@@ -245,7 +245,7 @@ export default function UserProfileView(props){
         if(droppedManga.length > 0) {
             droppedMangaTable = (
                 <UserMediaTable
-                    title={"Dropped Manga"}
+                    title={"Manga | Dropped"}
                     userMedia={droppedManga}
                     mediaType={2}
                     updateProgress={props.updateProgress}
@@ -259,7 +259,7 @@ export default function UserProfileView(props){
         if(savedAnime.length > 0) {
             savedAnimeTable = (
                 <UserMediaTable
-                    title={"Saved Anime"}
+                    title={"Anime | Saved"}
                     userMedia={savedAnime}
                     mediaType={1}
                     updateProgress={props.updateProgress}
@@ -273,7 +273,7 @@ export default function UserProfileView(props){
         if(savedManga.length > 0) {
             savedMangaTable = (
                 <UserMediaTable
-                    title={"Saved Manga"}
+                    title={"Manga | Saved"}
                     userMedia={savedManga}
                     mediaType={2}
                     updateProgress={props.updateProgress}

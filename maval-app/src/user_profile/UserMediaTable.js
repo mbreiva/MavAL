@@ -14,14 +14,16 @@ import UserMediaRow from './UserMediaRow'
 const useStyles = makeStyles((theme) => ({
     title: {
         marginTop: theme.spacing(4),
-        marginBottom: theme.spacing(2),
-        fontWeight: theme.typography.fontWeightBold,
+        paddingLeft: "30px",
+        fontWeight: "bold",
     },
     paper: {
         marginTop: theme.spacing(2),
         marginBottom: theme.spacing(4),
+        marginRight: theme.spacing(8),
         display: 'flex',
-        alignItems: 'center',
+        flexFlow: "column nowrap",
+        borderRadius: "20px",
     },
     tableHeadCell: {
         fontWeight: "bold",
@@ -77,37 +79,39 @@ export default function UserMediaTable(props) {
 
     return (
         <div>
-            <Typography variant="h5">{props.title}</Typography>
-            <TableContainer component={Paper} className={classes.paper}>
+            
+        <Paper className={classes.paper} elevation={2}>
+            <Typography variant="h5" className={classes.title}>{props.title}</Typography>
+            <TableContainer component={Paper} elevation={0} style={{borderRadius: "20px"}}>
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell style={{fontWeight:"bold"}}>
+                            <TableCell style={{fontWeight:"bold", paddingLeft: "30px"}}>
                                 Title
                             </TableCell>
                             <TableCell style={{fontWeight:"bold"}}>
                                 Status
                             </TableCell>
                             <TableCell>
-                                <div className={classes.tableHeadCell}>
+                                <div style={{fontWeight:"bold"}}>
                                     {episodeOrChapter}
                                 </div>
                             </TableCell>
                             <TableCell>
-                                <div className={classes.tableHeadCell}>
+                                <div style={{fontWeight:"bold"}}>
                                     {myEpisodeOrChapter}
                                 </div>
                             </TableCell>
                             <TableCell>
-                                <div className={classes.tableHeadCell}>My Rating</div>
+                                <div style={{fontWeight:"bold"}}>My Rating</div>
                             </TableCell>
                             <TableCell>
-                                <div className={classes.tableHeadCell}>
+                                <div style={{fontWeight:"bold"}}>
                                     {watchOrReadStatus}
                                 </div>
                             </TableCell>
-                            <TableCell>
-                                <div className={classes.tableHeadCell}>Favourite</div>
+                            <TableCell style={{paddingRight: "30px"}}>
+                                <div style={{fontWeight:"bold"}}>Favourite</div>
                             </TableCell>
                         </TableRow>
                     </TableHead>
@@ -125,6 +129,7 @@ export default function UserMediaTable(props) {
                     onChangePage={handleChangePage}
                     onChangeRowsPerPage={handleChangeRowsPerPage}
                 />
+        </Paper>
         </div>
     );
 }
