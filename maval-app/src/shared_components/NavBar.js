@@ -54,7 +54,7 @@ export default function NavBar(props) {
 
     return (
         <div>
-            <AppBar position="static" className={classes.appBar}>
+            <AppBar position="static" className={classes.appBar} elevation={0}>
             <Container maxWidth="xl" className={classes.container}>
                 <Toolbar>
                     <div className={classes.title}>
