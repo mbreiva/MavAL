@@ -34,6 +34,7 @@ export default function IndividualMangaView(props) {
                 <Typography component="h1" variant="h4" className={classes.title}>
                     {props.manga.title}
                 </Typography>
+                <img src={props.manga.imageSource}></img>
                 <p>Status: {props.manga.status}</p>
                 <p>Release Date: {props.manga.releaseDate}</p>
                 <p>Chapters: {props.manga.chapterCount}</p>

@@ -12,5 +12,5 @@ psql -h localhost -p 5001 -d maval -U postgres -c \
     "\COPY media(media_type_id, title, status, release_date, episode_count) 
         FROM './anime.csv' WITH (FORMAT CSV, DELIMITER ',', FORCE_NULL (release_date), HEADER TRUE)"
 psql -h localhost -p 5001 -d maval -U postgres -c \
-    "\COPY media(media_type_id, title, status, release_date, chapter_count) 
+    "\COPY media(media_type_id, title, status, release_date, chapter_count, image_source)
         FROM './manga.csv' WITH (FORMAT CSV, DELIMITER ',', FORCE_NULL (release_date), HEADER TRUE)"
