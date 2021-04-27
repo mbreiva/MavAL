@@ -12,6 +12,7 @@ import NavBar from './shared_components/NavBar'
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from './shared_components/Theme'
+import Footer from './shared_components/Footer'
 
 export default function App() {
   var currentLoginStatus = localStorage.getItem("is_logged_in");
@@ -31,7 +32,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div>
+      <div style={{minHeight: "100vh", overflow: "hidden", display: "block", position: "relative", paddingBottom: "50px"}}>
         <NavBar isLoggedIn={isLoggedIn} login={login} logout={logout} />
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -42,6 +43,7 @@ export default function App() {
           <Route exact path="/user/:id" component={UserProfileScreen} />
           <Route exact path="/search" component={SearchPage} />
         </Switch>
+        <Footer />
       </div>
     </ThemeProvider>
   )
