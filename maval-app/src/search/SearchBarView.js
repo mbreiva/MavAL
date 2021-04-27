@@ -6,6 +6,7 @@ import InputBase from '@material-ui/core/InputBase'
 
 const useStyles = makeStyles((theme) => ({
     search: {
+        display: "flex",
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
     },
     inputRoot: {
-        color: 'inherit',
+        color: '#676767',
     },
     inputInput: {
         padding: theme.spacing(1, 1, 1, 0),

@@ -23,43 +23,25 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
       flexGrow: 1,
+      color: '#676767',
     },
-    search: {
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-          backgroundColor: fade(theme.palette.common.white, 0.25),
-        },
-        marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-          marginLeft: theme.spacing(3),
-          width: 'auto',
-        },
+    appBar: {
+        display: "flex",
+        flexFlow: "row nowrap",
+        backgroundColor: "#FFFFFF",
+        color: '#676767',
     },
-    searchIcon: {
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+    mediaSection: {
+        display: "flex",
+        flexGrow: 5,
+        flexWrap: "nowrap",
+        justifyContent: "flex-start",
     },
-    inputRoot: {
-        color: 'inherit',
+    navBarEnd: {
+        flexGrow: 1
     },
-    inputInput: {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: '20ch',
-        },
+    container: {
+        padding: 0,
     },
 }));
 
@@ -71,26 +53,28 @@ export default function NavBar(props) {
     let profileButton = <ProfileDropdown logout={props.logout} />;
 
     return (
-        <div className={classes.root}>
-            <AppBar position="static">
-            <Container maxWidth="xl">
+        <div>
+            <AppBar position="static" className={classes.appBar}>
+            <Container maxWidth="xl" className={classes.container}>
                 <Toolbar>
                     <div className={classes.title}>
                         <Button component={ Link } to="/" color="inherit" disableRipple>
                             <Typography variant="h5" >
-                                MavAL
+                                mavAL
                             </Typography>
                         </Button>
                     </div>
-                    <Button component={ Link } to="/anime" color="inherit">Anime</Button>
-                    <Button component={ Link } to="/manga" color="inherit">Manga</Button>
+                    <span className={classes.mediaSection}>
+                        <Button component={ Link } to="/anime" color="inherit">Anime</Button>                       
+                        <Button component={ Link } to="/manga" color="inherit">Manga</Button>
+                    </span>
                     <SearchBar />
                     {(props.isLoggedIn === "true") ? 
                         profileButton
-                        : (<div style={{display:"flex"}}>
-                                {loginButton}
+                        : (<span style={{display:"flex"}}>
                                 {registerButton}
-                            </div>)
+                                {loginButton}
+                            </span>)
                     }
                 </Toolbar>
             </Container>
