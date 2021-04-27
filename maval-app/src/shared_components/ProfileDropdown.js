@@ -7,7 +7,7 @@ import Fade from '@material-ui/core/Fade'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import IconButton from '@material-ui/core/IconButton'
 import ButtonBase from '@material-ui/core/ButtonBase'
-import './ProfileDropdown.css'
+// import './ProfileDropdown.css'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
       marginRight: theme.spacing(2),
+    },
+    dropdown: {
+      elevation: 2,
     },
 }));
 
@@ -52,7 +55,7 @@ export default function ProfileDropdown(props) {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
                 TransitionComponent={Fade}
-                elevation={0}
+                elevation={2}
                 getContentAnchorEl={null}
                 MenuListProps={{ onMouseLeave: handleClose}}
                 anchorOrigin={{
