@@ -22,6 +22,7 @@ public class Media {
     public int id;
     public String title;
     public String status;
+    public String imageSource;
     public Date releaseDate;
 
     @Column(name="media_type_id", insertable = false, updatable = false)
