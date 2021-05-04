@@ -57,9 +57,14 @@ export default function UserMediaRow(props) {
     return (
         <TableRow>
             <TableCell style={{paddingLeft: "30px"}}>
-                <Button><a href={`/anime/${userMedia.media.id}`} style={{ color:'black', textDecoration: 'none' }}>
+                <Button>
+                    <a href={userMedia.media.mediaTypeId === 1 
+                        ? `/anime/${userMedia.media.id}` 
+                        : `/manga/${userMedia.media.id}`} 
+                    style={{ color:'black', textDecoration: 'none' }}>
                     {userMedia.media.title}
-                </a></Button>
+                    </a>
+                </Button>
             </TableCell>
             <TableCell>
                 {userMedia.media.status}

@@ -53,6 +53,9 @@ const theme = createMuiTheme ({
         MuiTab: {
             disableRipple: true,
         },
+        MuiSelect: {
+            disableUnderline: true,
+        },
     },
 
 })
