@@ -2,7 +2,7 @@ import './App.css'
 import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import HomePage from './home/MavalHome'
-import AnimeScreen from './anime/AnimeScreen'
+import AnimePage from './anime/AnimePage'
 import MangaScreen from './manga/MangaScreen'
 import IndividualAnimeScreen from './anime/IndividualAnimeScreen'
 import IndividualMangaScreen from './manga/IndividualMangaScreen'
@@ -36,7 +36,7 @@ export default function App() {
         <NavBar isLoggedIn={isLoggedIn} login={login} logout={logout} />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/anime" component={AnimeScreen} />
+          <Route exact path="/anime" component={AnimePage} />
           <Route exact path="/anime/:id" component={IndividualAnimeScreen} />
           <Route exact path="/manga" component={MangaScreen} />
           <Route exact path="/manga/:id" component={IndividualMangaScreen} />
