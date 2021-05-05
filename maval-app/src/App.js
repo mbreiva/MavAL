@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import HomePage from './home/MavalHome'
 import AnimePage from './anime/AnimePage'
-import MangaScreen from './manga/MangaScreen'
+import MangaPage from './manga/MangaPage'
 import IndividualAnimeScreen from './anime/IndividualAnimeScreen'
 import IndividualMangaScreen from './manga/IndividualMangaScreen'
 import UserProfileScreen from './user_profile/UserProfileScreen'
@@ -38,7 +38,7 @@ export default function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/anime" component={AnimePage} />
           <Route exact path="/anime/:id" component={IndividualAnimeScreen} />
-          <Route exact path="/manga" component={MangaScreen} />
+          <Route exact path="/manga" component={MangaPage} />
           <Route exact path="/manga/:id" component={IndividualMangaScreen} />
           <Route exact path="/user/:id" component={UserProfileScreen} />
           <Route exact path="/search" component={SearchPage} />
