@@ -5,7 +5,7 @@ import HomePage from './home/MavalHome'
 import AnimePage from './anime/AnimePage'
 import MangaPage from './manga/MangaPage'
 import IndividualAnimePage from './anime/IndividualAnimePage'
-import IndividualMangaScreen from './manga/IndividualMangaScreen'
+import IndividualMangaPage from './manga/IndividualMangaPage'
 import UserProfileScreen from './user_profile/UserProfileScreen'
 import SearchPage from './search/SearchPage'
 import NavBar from './shared_components/NavBar'
@@ -39,7 +39,7 @@ export default function App() {
           <Route exact path="/anime" component={AnimePage} />
           <Route exact path="/anime/:animeId" component={IndividualAnimePage} />
           <Route exact path="/manga" component={MangaPage} />
-          <Route exact path="/manga/:id" component={IndividualMangaScreen} />
+          <Route exact path="/manga/:mediaId" component={IndividualMangaPage} />
           <Route exact path="/user/:id" component={UserProfileScreen} />
           <Route exact path="/search" component={SearchPage} />
         </Switch>

@@ -24,7 +24,10 @@ export default function MediaRow(props) {
     return (
         <TableRow>
             <TableCell>
-                <a href={`/anime/${media.id}`} style={{ color:'black', textDecoration: 'none' }}>
+                <a href={media.mediaTypeId === 1 
+                        ? `/anime/${media.id}` 
+                        : `/manga/${media.id}`} 
+                style={{ color:'black', textDecoration: 'none' }}>
                     {media.title}
                 </a>
             </TableCell>

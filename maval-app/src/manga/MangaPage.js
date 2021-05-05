@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MangaPage(props){
     const classes = useStyles();
-    const mangaList = props.manga;
 
     const [manga, setManga] = useState([]);
 
@@ -46,7 +45,7 @@ export default function MangaPage(props){
         </div>
     );
 
-    if(mangaList.length > 0) {
+    if(manga.length > 0) {
         mangaTable = <MediaTable media={manga} mediaType={2}/>;
     }
 
