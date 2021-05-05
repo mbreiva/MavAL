@@ -39,8 +39,8 @@ public class UserMediaRestController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path="/api/change_favourite_status")
-    public void changeFavouriteStatus(String username, Integer media_id, String new_favourite_status) {
-        User user = userRepository.findByUsername(username);
+    public void changeFavouriteStatus(int user_id, Integer media_id, String new_favourite_status) {
+        User user = userRepository.findById(user_id).get();
         Media media = mediaRepository.findById(media_id).get();
         if(!userMediaService.mediaExistsInUserMedia(user, media)){
             userMediaService.addUserMedia(user, media);
