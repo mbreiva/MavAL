@@ -7,6 +7,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
 import IconButton from '@material-ui/core/IconButton'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
+import Button from '@material-ui/core/Button'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,12 +25,14 @@ export default function MediaRow(props) {
     return (
         <TableRow>
             <TableCell>
-                <a href={media.mediaTypeId === 1 
-                        ? `/anime/${media.id}` 
-                        : `/manga/${media.id}`} 
-                style={{ color:'black', textDecoration: 'none' }}>
-                    {media.title}
-                </a>
+                <Button>
+                    <a href={media.mediaTypeId === 1 
+                            ? `/anime/${media.id}` 
+                            : `/manga/${media.id}`} 
+                    style={{ color:'black', textDecoration: 'none' }}>
+                        {media.title}
+                    </a>
+                </Button>
             </TableCell>
             <TableCell>
                 {media.status}

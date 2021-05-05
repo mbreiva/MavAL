@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(2),
         marginBottom: theme.spacing(4),
         display: 'flex',
-        alignItems: 'center',
+        flexFlow: "column nowrap",
+        borderRadius: "20px",
     },
     tableHeadCell: {
         fontWeight: "bold",
@@ -66,9 +67,9 @@ export default function MediaTable(props) {
     }
 
     return (
-        <div>
+        <Paper className={classes.paper} elevation={2}>
             <Typography variant="h5">{props.title}</Typography>
-            <TableContainer component={Paper} className={classes.paper}>
+            <TableContainer>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -99,6 +100,6 @@ export default function MediaTable(props) {
                 onChangePage={handleChangePage}
                 onChangeRowsPerPage={handleChangeRowsPerPage}
             />
-        </div>
+        </Paper>
     );
 }

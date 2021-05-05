@@ -77,12 +77,10 @@ export default function UserMediaTable(props) {
         watchOrReadStatus = "Read Status";
     }
 
-    return (
-        <div>
-            
+    return (  
         <Paper className={classes.paper} elevation={2}>
             <Typography variant="h5" className={classes.title}>{props.title}</Typography>
-            <TableContainer component={Paper} elevation={0} style={{borderRadius: "20px"}}>
+            <TableContainer>
                 <Table>
                     <TableHead>
                         <TableRow>
@@ -130,6 +128,5 @@ export default function UserMediaTable(props) {
                     onChangeRowsPerPage={handleChangeRowsPerPage}
                 />
         </Paper>
-        </div>
     );
 }
